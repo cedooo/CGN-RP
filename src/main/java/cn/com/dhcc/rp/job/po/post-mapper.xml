@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.job">
+	<!-- 更新PUE -->
+	<update id="update_insert_TxRoomPowerUsedPerf" parameterType="cn.com.dhcc.rp.job.po.TxRoomPowerUsedPerf">   
+		<![CDATA[
+	   		UPDATE txRoomPowerUsedPerf
+	   		SET	fCollectTime = #{collectTime}, fPowerUsed = #{powerUsed}
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txRoomPowerUsedPerf (
+				fId,fCollectTime,fPartID,fPowerUsed,fCompanyCode
+				)
+			VALUES(
+				#{id}, #{collectTime}, #{partID}, #{powerUsed}, #{companyCode}
+			)
+		]]>
+	</update>
+	<!-- 删除未读告警 只保留最近一天的告警 -->
+	<delete id="delete_unread_event">
+		<![CDATA[
+			DELETE FROM txEvents
+			WHERE fCollectTime < dateadd(day, -1, CONVERT(varchar, getdate(), 120))
+				OR fCollectTime IS NULL 
+				OR fId IS NULL
+		]]>
+	</delete>
+	
+	<!-- 删除未读告警 只保留最近一天的告警 -->
+	<delete id="delete_deprecated_lk_data">
+		<![CDATA[
+			DELETE FROM txEvents
+			WHERE fCollectTime < dateadd(day, -1, CONVERT(varchar, getdate(), 120))
+				OR fCollectTime IS NULL 
+				OR fId IS NULL
+		]]>
+	</delete>
+	<!-- 统计表的行数 -->
+	<select id="select_columns_by_name" parameterType="String" resultType="int">
+		<![CDATA[
+			SELECT count(*)
+			FROM #{tableName}
+		]]>
+	</select>
+	<delete id="delete_temp_tab_data">
+		<![CDATA[
+			DELETE FROM #{tableName}
+		]]>
+	</delete>
+</mapper>

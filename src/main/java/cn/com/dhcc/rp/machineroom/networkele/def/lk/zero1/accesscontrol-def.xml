@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="门禁系统" type="accesscontrol" >
+ 
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="1301000" name="通讯"  collect="1" />
+		<node id="1301001" name="门号"  collect="1" />
+		<node id="1301002" name="读控制器资料"  collect="0" />
+		<node id="1301003" name="判断控制一器资料"  collect="0" />
+		<node id="1301004" name="删除控制器一资料"  collect="0" />
+		<node id="1301005" name="0刷卡弹出0"  collect="1" />
+		<node id="1301006" name="0刷卡弹出1"  collect="1" />
+		<node id="1301007" name="门1开门10秒"  collect="1" />
+		<node id="1301008" name="门2开门10秒"  collect="1" />
+		<node id="1301009" name="门3开门10秒"  collect="1" />
+		<node id="1301010" name="门4开门10秒"  collect="1" />
+	</group>  
+	
+</equipment>

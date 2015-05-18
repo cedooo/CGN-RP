@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="UPS" type="caiwuups1">
+ 	<!-- ref: 映射别名 , type: 0.状态型  1，数值型 , collect: 0.不采集 1，采集   --> 
+ 	<group refTab="txUpsCommPerf" collect="1" type="1">
+		<node id="2101002" name="输入电压" ref="fVoltageIn" type="1" 	collect="1"  />
+		<node id="2101005" name="输入电流" ref="fCurrentIn" type="1" 	collect="1"   />
+		<node id="2101008" name="输出功率" ref="fPowerOut" type="1" 	collect="1"   />
+		<node id="2101009" name="视在功率" ref="fPowerViewOut" type="1" 	collect="1"   />
+		<node id="2101010" name="输出功率因数" ref="fPowerRateOut" type="1" 	collect="1"   />
+		<node id="2101011" name="输出频率" ref="fFrequencyOut" type="1" 	collect="1"   />
+		<node id="2101012" name="输入频率" ref="fFrequencyIn" type="1" 	collect="1"   />
+		<node id="2101013" name="逆变频率" ref="fInverterFrequency" type="1" 	collect="1"   />
+		<node id="2101014" name="旁路频率" ref="fSideFrequency" type="1" 	collect="1"   />
+		<node id="2101015" name="电池电流" ref="fBatteryCurrency" type="1" 	collect="1"   />
+		<node id="2101016" name="电池后备时间" ref="fBatteryBakTime" type="1" 	collect="1"   />
+		<node id="2101017" name="电池电压" ref="fBatteryVoltage" type="1" 	collect="1"   />
+		<node id="2101018" name="电池充电程度" ref="fBatteryChargeRate" type="1" 	collect="1"   />
+		<node id="2101020" name="UPS温度" ref="fUpsTem" type="1" 	collect="1"   />
+		<node id="2101021" name="输出电流" ref="fCurrentOut" type="1" 	collect="1"   />
+		<node id="2101022" name="UPS负荷" ref="fUpsLoad" type="1" 	collect="1"   />
+		<node id="2101023" name="输出电压" ref="fVoltageOut" type="1" 	collect="1"   />
+	</group>
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="2101000" name="UPS通讯状态"  type="0"   collect="1" grState="0" />  
+		<node id="2101040" name="read status"  type="0" 	collect="0" grState="0" /> 
+		<node id="2101041" name="电池供电状态"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101042" name="逆变器过载"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101043" name="整流器过载"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101044" name="旁路状态"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101046" name="逆变器带负载状态"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101047" name="ups 开机状态"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101050" name="整流器开机状态"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101051" name="电池低电压报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101052" name="逆变器开机状态"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101053" name="on battery"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101055" name="输出断路器闭合"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101056" name="整流器输入断路器闭合状态"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101057" name="旁路输入断路器闭合状态"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101058" name="静态开关"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101059" name="电池断路器"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101060" name="逆变器输出接触器"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101061" name="负载断路器"  type="0" 	collect="1" grState="1" /> 
+		<node id="2101070" name="read alarm"  type="0" 	collect="0" grState="0" /> 
+		<node id="2101071" name="逆变器电压高报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101072" name="逆变器电压低报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101073" name="逆变器频率越限"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101074" name="旁路电压高报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101075" name="旁路电压低报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101076" name="旁路频率越限"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101077" name="输入电压高报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101078" name="输入电压低报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101079" name="输入电压频率越限"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101080" name="输出电压高报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101081" name="输出电压低报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101082" name="输出频率越限"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101083" name="充电器电源失败"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101084" name="充电电压或电流高报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101085" name="输出过载报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101087" name="逆变器输出电流高报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101088" name="整流器工作失败报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101089" name="逆变器故障报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101090" name="电池接触器工作失败报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101091" name="旁路断路器工作失败报警"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101092" name="充电器故障"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101093" name="静态旁路开关故障报警	"  type="0" 	collect="1" grState="0" /> 
+		<node id="2101094" name="InitCmd"  type="0" 	collect="0" grState="0" />
+	</group> 
+</equipment>

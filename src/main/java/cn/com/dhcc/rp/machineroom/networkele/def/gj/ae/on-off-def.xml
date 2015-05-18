@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="开关监测模块" type="onoffm" >
+
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="D1" name="UPS总输出开关状态" collect="1" />
+	</group>
+ 	
+</equipment>

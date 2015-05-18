@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.powerbox">
+	
+	<update id="update_insert_TxPowerBoxCommTotalPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxPowerBoxCommTotalPerf">  
+		<![CDATA[
+	   		UPDATE txPowerBoxCommTotalPerf
+	   		SET  fCollectTime = #{collectTime},fFrequency = #{frequency},fCurrency = #{currency},fTotalUsedPower = #{totalUsedPower},
+	   			fTotalViewPower = #{totalViewPower},fTotalUnUsedPower = #{totalUnUsedPower},fPowerUsed = #{powerUsed},
+	   			
+	   			fPowerUsedInUse = #{valPowerUsedInUse},
+	   			fPowerUsedUnUse = #{valPowerUsedUnUse},	   			
+				fPowerUsedViewUse = #{valPowerUsedViewUse},
+				
+				fPowerForwardInUse = #{valPowerForwardInUse},fPowerForwardUnUse = #{valPowerForwardUnUse},
+				fPowerNegativeInUse = #{valPowerNegativeInUse},fPowerNegativeUnUse = #{valPowerNegativeUnUse},				
+				fTotalLoadRate = #{totalLoadRate},fBatteryPower = #{batteryPower},fBatteryPowerAh = #{batteryPowerAh},
+				fBatteryVoltage = #{batteryVoltage},fBatteryCurrency = #{batteryCurrency},fBatteryTime = #{batteryTime},
+				fTempInside = #{tempInside},fTotalPowerRate = #{totalPowerRate},fVoltageOutU12 = #{voltageOutU12},
+				fVoltageOutU23 = #{voltageOutU23},fVoltageOutU31 = #{voltageOutU31},fVoltageInU12 = #{voltageInU12},
+				fVoltageInU23 = #{voltageOutU23},fVoltageInU31 = #{voltageOutU31},fVoltageIn = #{voltageIn},
+				fVoltageOut = #{voltageOut},fVoltageFloat = #{voltageFloat},fCurrencyOut = #{currencyOut},
+				fFrequencyOut = #{frequencyOut},fPowerOut = #{powerOut},fFrequencySide = #{frequencySide},
+				fVoltageChange = #{voltageChange},fCurrencyChange = #{currencyChange},
+				fDirVoltageUnBlanace = #{dirVoltageUnBlanace},
+				fLineVoltageUnBlanace = #{lineVoltageUnBlanace},
+				fCurrencyUnBlanace = #{currencyUnBlanace}
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txPowerBoxCommTotalPerf (
+				fId, fPartID, fCollectTime,fFrequency,fCurrency,fTotalUsedPower
+				,fTotalViewPower,fTotalUnUsedPower,fPowerUsed,
+				
+					fPowerUsedInUse,fPowerUsedUnUse,fPowerUsedViewUse, 
+				
+				fPowerForwardInUse,
+				fPowerForwardUnUse,	fPowerNegativeInUse,fPowerNegativeUnUse,
+				fTotalLoadRate,fBatteryPower,fBatteryPowerAh
+				,fBatteryVoltage,fBatteryCurrency,fBatteryTime,fTempInside
+				,fTotalPowerRate,fVoltageOutU12,fVoltageOutU23,fVoltageOutU31
+				,fVoltageInU12,fVoltageInU23,fVoltageInU31,fVoltageIn
+				,fVoltageOut,fVoltageFloat,fCurrencyOut,fFrequencyOut,
+				fPowerOut,fFrequencySide,fVoltageChange,fCurrencyChange,fCompanyCode,
+				fDirVoltageUnBlanace, fLineVoltageUnBlanace, fCurrencyUnBlanace  
+				)
+			VALUES(
+				 #{id},	#{partID},	#{collectTime},	#{frequency},
+				#{currency},	#{totalUsedPower},	#{totalViewPower},	#{totalUnUsedPower},
+				#{powerUsed},	
+				
+					#{valPowerUsedInUse}, #{valPowerUsedUnUse}, #{valPowerUsedViewUse}, 
+					
+				#{valPowerForwardInUse},
+				#{valPowerForwardUnUse},
+				#{valPowerNegativeInUse},
+				#{valPowerNegativeUnUse},		
+				#{totalLoadRate},
+				#{batteryPower},	#{batteryPowerAh},	#{batteryVoltage},	#{batteryCurrency},
+				#{batteryTime},	#{tempInside},	#{totalPowerRate},	#{voltageOutU12},
+				#{voltageOutU23},	#{voltageOutU31},	#{voltageInU12},	#{voltageInU23},
+				#{voltageInU31},	#{voltageIn},	#{voltageOut},	#{voltageFloat},
+				#{currencyOut},	#{frequencyOut},	#{powerOut},	#{frequencySide},
+				#{voltageChange},	#{currencyChange},	#{companyCode},	   				
+	   			#{dirVoltageUnBlanace}, #{lineVoltageUnBlanace}, #{currencyUnBlanace}
+			)
+		]]>
+	</update>
+	
+	
+	<update id="update_insert_TxPowerBoxDirPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxPowerBoxDirPerf">   
+		<![CDATA[
+	   		UPDATE txPowerBoxDirPerf
+	   		SET  fCollectTime = #{collectTime},fAggregateCnt = #{aggregateCnt}
+     		 	,fVoltageOut = #{voltageOut},fCurrencyOut = #{currencyOut},fVoltageIn = #{voltageIn},fCurrencyIn = #{currencyIn}
+      			,fPowerOut = #{powerOut},fPowerUsedOut = #{powerUsedOut},fPowerViewOut = #{powerViewOut},fPowerFactor = #{powerFactor}
+      			,fLoadRate = #{loadRate},fPowerUnUsedOut = #{powerUnUsedOut},fSideVoltage = #{sideVoltage}
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID= #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txPowerBoxDirPerf (
+				fId      ,fCollectTime      ,fPartID      ,fAggregateCnt
+     		 	,fVoltageOut      ,fCurrencyOut      ,fVoltageIn      ,fCurrencyIn
+      			,fPowerOut      ,fPowerUsedOut      ,fPowerViewOut      ,fPowerFactor
+      			,fLoadRate      ,fPowerUnUsedOut      ,fSideVoltage      ,fCompanyCode
+				)
+			VALUES(
+				#{id}, 	#{collectTime}, 	#{partID}, 	#{aggregateCnt}, 
+				#{voltageOut}, 	#{currencyOut}, 	#{voltageIn}, 	#{currencyIn}, 
+				#{powerOut}, 	#{powerUsedOut}, 	#{powerViewOut}, 	#{powerFactor}, 
+				#{loadRate}, 	#{powerUnUsedOut}, 	#{sideVoltage},	#{companyCode}
+			)
+		]]>
+	</update>
+	
+	<update id="update_insert_TxPowerBoxCommBranchCurrPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxPowerBoxCommBranchCurrPerf">   
+		<![CDATA[
+	   		UPDATE txPowerBoxCommBranchCurrPerf
+	   		SET	fCollectTime = #{collectTime}, fBranchCurrency = #{branchCurrency}
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txPowerBoxCommBranchCurrPerf (
+				fId,fCollectTime,fPartID,fBranchCurrency,fCompanyCode
+				)
+			VALUES(
+				#{id}, #{collectTime}, #{partID}, #{branchCurrency}, #{companyCode}
+			)
+		]]>
+	</update>
+</mapper>

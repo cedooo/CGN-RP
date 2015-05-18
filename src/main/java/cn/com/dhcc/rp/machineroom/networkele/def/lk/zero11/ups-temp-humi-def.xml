@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="UPS间温湿度" type="UPStemphumi" >
+
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="1117000"  name="温湿度通讯状态"  collect="1" grState="0" />
+		<node id="1117003"  name="温湿度指示灯"  collect="1" grState="0" />
+	</group>
+ 	<group refTab="txTemHumCommPerf" collect="1" type="1">
+		<node id="1117001"  name="温度" ref="fTemperature" collect="1" />
+		<node id="1117002"  name="湿度" ref="fHuminity" collect="1" />
+	</group>
+ 	
+</equipment>

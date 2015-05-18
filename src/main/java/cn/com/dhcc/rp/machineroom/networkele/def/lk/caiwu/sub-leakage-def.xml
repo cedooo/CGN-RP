@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	
+<subsystem name="主机房漏水监测子系统" type="caiwuleakagesubsys">
+	<equipment id="2701001" name="机房吊顶漏水" type="cwleakage" />
+	<equipment id="2701002" name="机房地板下漏水" type="cwleakage" />
+	<equipment id="2701003" name="档案室漏水" type="cwleakage" />
+
+ 	<equipment-def name="财务公司漏水监测" type="cwleakage" >
+	 	<group refTab="txRoomCommState" collect="1" type="0">
+			<node name="漏水状态" collect="1" grState="0" />
+		</group>
+	</equipment-def>
+</subsystem>

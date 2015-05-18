@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="AP开关监测" type="aponoff" >
+
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node name="开关状态" collect="1" />
+	</group>
+ 	
+</equipment>

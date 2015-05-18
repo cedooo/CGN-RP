@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.ups">
+
+	
+	<update id="update_insert_comm_ups_perf" parameterType="cn.com.dhcc.rp.persistence.po.TxUpsCommPerf">   
+		<![CDATA[
+	   		UPDATE txUpsCommPerf
+	   		SET fCollectTime = #{collectTime}, fPartID = #{partID},fVoltageIn = #{voltageIn},fVoltageOut = #{voltageOut},
+	   			fCurrentIn = #{currentIn}, fCurrentOut = #{currentOut}, fPowerOut = #{powerOut}, fPowerUsedOut = #{powerUsedOut},
+	   			fPowerUnUsedOut = #{powerUnUsedOut},fOtherVoltage = #{otherVoltage}, fOtherCurrency = #{otherCurrency}, fPowerViewOut =  #{powerViewOut},
+	   			fPowerRateOut = #{powerRateOut}, fFrequencyIn = #{frequencyIn}, fFrequencyOut = #{frequencyOut},fInverterFrequency = #{inverterFrequency},
+	   			fSideFrequency = #{sideFrequency},fBatteryBakTime = #{batteryBakTime}, fBatteryCurrency = #{batteryCurrency},fBatteryVoltage = #{batteryVoltage},
+	   			fBatteryFloatVoltage = #{batteryFloatVoltage}, fBatteryChargeRate = #{batteryChargeRate}, fBatteryVolume = #{batteryVolume},
+	   			fBatteryVolumeAh = #{batteryVolumeAh}, fBatteryCon = #{batteryCon}, fUpsLoad = #{upsLoad} ,fUpsTem = #{upsTem} ,fUpsCunTem = #{upsCunTem},
+	   			fNegativeBatteryCurrency = #{negativeBatteryCurrency}, fNegativeBatteryVoltage = #{negativeBatteryVoltage}, fVoltageABOut = #{voltageABOut},
+	   			fVoltageBCOut = #{voltageBCOut}, fVoltageCAOut = #{voltageCAOut}		      
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txUpsCommPerf (
+				fCollectTime ,fPartID,fVoltageIn,fVoltageOut,fCurrentIn
+		      ,fCurrentOut ,fPowerOut,fPowerUsedOut,fPowerUnUsedOut
+		      ,fOtherVoltage     ,fOtherCurrency      ,fPowerViewOut      ,fPowerRateOut
+		      ,fFrequencyIn      ,fFrequencyOut      ,fInverterFrequency      ,fSideFrequency
+		      ,fBatteryBakTime      ,fBatteryCurrency      ,fBatteryVoltage      ,fBatteryFloatVoltage
+		      ,fBatteryChargeRate      ,fBatteryVolume      ,fBatteryVolumeAh      ,fBatteryCon
+		      ,fUpsLoad      ,fUpsTem      ,fUpsCunTem      ,fNegativeBatteryCurrency
+		      ,fNegativeBatteryVoltage      ,fVoltageABOut      ,fVoltageBCOut      ,fVoltageCAOut
+		      ,fId      ,fCompanyCode
+				)
+			VALUES(
+				#{collectTime},    			#{partID},   			#{voltageIn},   			#{voltageOut},  
+				#{currentIn},  			#{currentOut},   			#{powerOut},    			#{powerUsedOut},   
+				#{powerUnUsedOut}, #{otherVoltage}, #{otherCurrency},			#{powerViewOut},   			#{powerRateOut},    
+				#{frequencyIn},   			#{frequencyOut},   			#{inverterFrequency},   			#{sideFrequency},   
+				#{batteryBakTime},    			#{batteryCurrency},   			#{batteryVoltage},    			#{batteryFloatVoltage},    
+				#{batteryChargeRate},   			#{batteryVolume},   			#{batteryVolumeAh},    			#{batteryCon},    
+				#{upsLoad},    			#{upsTem},    			#{upsCunTem},    			#{negativeBatteryCurrency},    
+				#{negativeBatteryVoltage},   			#{voltageABOut},   			#{voltageBCOut},   			#{voltageCAOut},    
+				#{id},			#{companyCode}
+			)
+		]]>
+	</update>
+	
+	
+	<update id="update_insert_TxUpsCommDirPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxUpsCommDirPerf">   
+		<![CDATA[
+	   		UPDATE txUpsCommDirPerf
+	   		SET fCollectTime = #{collectTime}, fCurrentIn = #{currentIn}, fCurrentOut = #{currentOut}, 
+	   			fVoltageIn = #{voltageIn},
+	   			fVoltageOut = #{voltageOut}, fPowerOut = #{powerOut}, fPowerRateIn = #{powerRateIn},
+				fPowerRateOut = #{powerRateOut}, fFrequencyIn = #{frequencyIn}, fFrequencyOut = #{frequencyOut},
+				fPowerViewOut = #{powerViewOut}, fLoadOutRate = #{loadOutRate}, fOtherVoltage = #{otherVoltage},
+				fTopOutRate = #{topOutRate}, fPowerUsedOut = #{powerUsedOut}, fPowerUnUsedOut = #{powerUnUsedOut},
+				fSysPowerUsedOut = #{sysPowerUsedOut}, fSysPowerUnUsedOut = #{sysPowerUnUsedOut},
+				fSysPowerViewOut = #{sysPowerViewOut}   
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txUpsCommDirPerf (
+				fCollectTime, fPartID, fCurrentIn, fCurrentOut, fVoltageIn, fVoltageOut, fPowerOut, fPowerRateIn,
+				fPowerRateOut, fFrequencyIn, fFrequencyOut, fPowerViewOut, fLoadOutRate, fOtherVoltage,
+				fTopOutRate, fPowerUsedOut, fPowerUnUsedOut, fSysPowerUsedOut, fSysPowerUnUsedOut,
+				fSysPowerViewOut, fId, fCompanyCode
+				)
+			VALUES(
+				#{collectTime}, #{partID},#{currentIn},#{currentOut},#{voltageIn},#{voltageOut},#{powerOut},
+    			#{powerRateIn}, #{powerRateOut}, #{frequencyIn}, #{frequencyOut}, #{powerViewOut}, 	#{loadOutRate},
+   				#{otherVoltage}, #{topOutRate}, #{powerUsedOut}, #{powerUnUsedOut},
+   				#{sysPowerUsedOut}, #{sysPowerUnUsedOut}, #{sysPowerViewOut}, #{id}, #{companyCode}
+			)
+		]]>
+	</update>
+	
+</mapper>

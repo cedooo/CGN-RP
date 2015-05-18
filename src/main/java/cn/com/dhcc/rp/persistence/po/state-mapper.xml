@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.state">
+	<update id="update_insert_comm_state" parameterType="cn.com.dhcc.rp.persistence.po.RoomCommState">   
+		 <![CDATA[ 
+		 	UPDATE txRoomCommState
+			SET	fCollectTime = #{collectTime},
+			   fStateValue  = #{stateValue},
+			   fGRState = #{grState}
+			WHERE
+				fPartID = #{partID} AND fId = #{id} AND fCompanyCode = #{companyCode}
+				
+			IF @@ROWCOUNT = 0
+			
+			INSERT INTO txRoomCommState (fCollectTime ,fPartID, fStateValue, fId, fCompanyCode, fGRState)
+			VALUES(#{collectTime}, #{partID},#{stateValue},#{id},#{companyCode}, #{grState}		)
+		 ]]>
+	</update>
+</mapper>

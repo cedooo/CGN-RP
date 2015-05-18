@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 01楼机房2 -->
+<machineroom location="01楼" name="01楼机房2">	
+	<equipment id="精密空调-8号" name="精密空调-8号" type="aircondition" />
+	<equipment id="精密空调-7号" name="精密空调-7号" type="aircondition" />
+	<equipment id="精密空调-6号" name="精密空调-6号" type="aircondition" />
+	<equipment id="精密空调-5号" name="精密空调-5号" type="aircondition" />
+	<equipment id="精密空调-4号" name="精密空调-4号" type="aircondition" />
+	<equipment id="精密空调-3号" name="精密空调-3号" type="aircondition" />
+	<equipment id="精密空调-2号" name="精密空调-2号" type="aircondition" />
+	<equipment id="精密空调-1号" name="精密空调-1号" type="aircondition" />
+	
+	<equipment  id="1号配电柜" name="1号配电柜" type="powerbox" />
+	<equipment  id="2号配电柜" name="2号配电柜" type="powerbox" />
+	<equipment  id="3号配电柜" name="3号配电柜" type="powerbox" />
+	<equipment  id="4号配电柜" name="4号配电柜" type="powerbox" /> 
+
+	<!-- <subsystem id="主机房漏水监测" name="01楼主机房漏水监测" type="lkleakagesubsys" />
+	<subsystem id="广播间漏水监测" name="01楼广播间漏水监测" type="lkbrcstleakagesubsys" /> -->
+	
+	<equipment  id="主机房漏水监测" name="主机房漏水监测" type="mainleakage" />
+	<equipment  id="广播间漏水监测" name="广播间漏水监测" type="brcastleakage" /> 
+	
+</machineroom>

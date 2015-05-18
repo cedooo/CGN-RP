@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="机房空调" type="caiwuaircondi" >
+ 	<!-- ref: 映射别名             type: 0.状态型, 1，数值型 , 2.模块 , 3. 配置                         collect: 0.不采集 1，采集   -->
+ 	
+ 	<group refTab="txAirConditionCommThPerf" collect="1" type="1">
+		<node id="1701001" name="A相电压" ref="fVoltageA" type="1" collect="1"  />
+		<node id="1701002" name="B相电压" ref="fVoltageB" type="1" collect="1"    />
+		<node id="1701003" name="C相电压" ref="fVoltageC" type="1" collect="1"   />
+		<node id="1701004" name="A相电流" ref="fCurrentA" type="1" collect="1"   />
+		<node id="1701005" name="B相电流" ref="fCurrentB" type="1" collect="1"   />
+		<node id="1701006" name="C相电流" ref="fCurrentC" type="1" collect="1"   />
+		<node id="1701007" name="送风温度" ref="fHuminitySend" type="1" collect="1"   />
+		<node id="1701008" name="回风温度" ref="fTemperatureBak" type="1" collect="1"   />
+		<node id="1701009" name="送风湿度" ref="fTemperatureSend" type="1" collect="1"   />
+		<node id="1701010" name="回风湿度" ref="fHuminityBak" type="1" collect="1"   />
+		<node id="1701011" name="压缩机吸气压力" ref="fCompressorInhale" type="1" collect="1"   />
+		<node id="1701012" name="压缩机排气压力" ref="fCompressorExhaust" type="1" collect="1"    />
+	</group>
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="1701000" name="通讯状态"  type="0" collect="1" grState="0" />
+		<node id="1702000" name="读状态信息"  type="0" collect="1" grState="0" />
+		<node id="1702001" name="空调状态"  type="0" collect="1" grState="0" />
+		<node id="1702002" name="加湿器状态"  type="0" collect="1" grState="0" />
+		<node id="1702003" name="电加热状态"  type="0" collect="1" grState="0" />
+		<node id="1702004" name="风扇状态"  type="0" collect="1" grState="0" />
+		<node id="1702005" name="压缩机状态"  type="0" collect="1" grState="0" />
+		<node id="1702006" name="过滤网状态"  type="0" collect="1" grState="0" />
+		<node id="1702007" name="注意报状态"  type="0" collect="1" grState="0" />
+		<node id="1702008" name="警报状态"  type="0" collect="1" grState="0" />
+		<node id="1702009" name="异常状态"  type="0" collect="1" grState="0" />
+		<node id="1702010" name="送风状态"  type="0" collect="1" grState="0" />
+		<node id="1702011" name="制热状态"  type="0" collect="1" grState="0" />
+		<node id="1702012" name="制冷状态"  type="0" collect="1" grState="0" />
+		<node id="1703000" name="读报警信息"  type="0" collect="1" grState="0" />
+		<node id="1703001" name="回风温度超下限报警"  type="0" collect="1" grState="0" />
+		<node id="1703002" name="回风温度超上限报警"  type="0" collect="1" grState="0" />
+		<node id="1703003" name="回风湿度报警"  type="0" collect="1" grState="0" />
+		<node id="1703004" name="过滤器报警"  type="0" collect="1" grState="0" />
+		<node id="1703005" name="压缩机报警"  type="0" collect="1" grState="0" />
+		<node id="1703006" name="风机报警"  type="0" collect="1" grState="0" />	
+	</group>
+</equipment>

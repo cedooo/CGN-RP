@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.event">
+	<!-- insert 龙控事件 -->
+	<insert id="insert_st_TxEvents" parameterType="cn.com.dhcc.rp.st.StEvent">   
+		 <![CDATA[ 
+			INSERT INTO txEvents (fId, fAttrName, fLevel, fState, fCollectTime, fContent, fCompanyCode)
+			VALUES(#{strID}, #{strFullName}, #{lLevel}, #{lType}, #{lTimeStamp}, #{strDesc}, #{companyCode})
+		 ]]>
+	</insert>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.comm">
+	
+	<!-- *********执行自定义SQL*********** -->
+	<update id="update_insert_comm_equipment" parameterType="cn.com.dhcc.rp.persistence.po.SqlAdapter">
+		<![CDATA[ ${sql} ]]>
+	</update>
+	
+	<!-- 获取接口信息 -->
+	<resultMap type="cn.com.dhcc.rp.persistence.po.RoomInterfaceConf" id="RoomInterfaceConfMap">
+		<result property="companyCode" column="fCompanyCode" />
+		<result property="ip" column="fIp" />
+		<result property="port" column="fPort" />
+		<result property="name" column="fName" />
+		<result property="connectionClass" column="fConnectionClass" />
+	</resultMap>
+	<select id="select_interface_info_by_company_code" resultMap="RoomInterfaceConfMap" parameterType="String">
+		<![CDATA[
+			SELECT fCompanyCode, fIp, fPort, fName, fConnectionClass
+			FROM txRoomInterfaceConf
+			WHERE fCompanyCode = #{code}
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="门禁" type="door" >
+
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="D1" name="1# Door 状态" collect="1"   /> 
+		<node id="D2" name="2# Door 状态" collect="1"   /> 
+		<node id="D3" name="1# Door 按钮开门" collect="1"   /> 
+		<node id="D4" name="2# Door 按钮开门" collect="1"   /> 
+		<node id="D5" name="1# Door 门" collect="1"   /> 
+		<node id="D6" name="2# Door 门" collect="1"   /> 
+		<node id="D7" name="消防报警" collect="1"   /> 
+		<node id="D8" name="防拆报警" collect="1"   /> 
+		<node id="D9" name="一般报警" collect="1"   /> 
+		<node id="D10" name="事件" collect="1"   /> 
+	</group>
+ 	
+</equipment>

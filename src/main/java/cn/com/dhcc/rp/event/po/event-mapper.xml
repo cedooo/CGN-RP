@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.event">
+	<!-- insert 龙控事件 -->
+	<insert id="insert_lk_TxEvents" parameterType="cn.com.dhcc.rp.connection.lk.LKData">   
+		 <![CDATA[ 
+			INSERT INTO txEvents (fId, fAttrName, fLevel, fState, fValue, fCollectTime, fContent, fCompanyCode)
+			VALUES(#{d}, #{c}, #{clas}, #{ev}, #{z}, #{collectTime}, #{m}, #{companyCode})
+		 ]]>
+	</insert>
+	<!-- 选出龙控告警 级别 -->
+	<select id="select_lk_event_level" parameterType="String" resultType="String">
+		SELECT TOP 1 class
+	  	FROM eventdir
+	  	WHERE BM = #{v}
+	</select>
+	
+	<!-- insert 共济事件 -->
+	<insert id="insert_gj_TxEvents" parameterType="cn.com.dhcc.rp.connection.gj.GJEvent">   
+		 <![CDATA[ 
+			INSERT INTO txEvents (fId, fAttrName, fLevel, fState, fCollectTime, fContent, fCompanyCode)
+			VALUES(#{id}, #{attrName}, #{level}, #{type}, #{date}, #{eventContent}, #{companyCode})
+		 ]]>
+	</insert>
+	<select id="select_gj_euipType" parameterType="cn.com.dhcc.rp.connection.po.SelectGJNodePara" resultType="String">
+		SELECT  fEquipType
+		FROM txEventKeyEquipmentMap
+		WHERE fCompanyCode = #{companyCode} AND  fEventKey= #{eventKey}
+	</select>
+	<select id="select_gj_nodeName" parameterType="cn.com.dhcc.rp.connection.po.SelectGJNodePara" resultType="String">
+		SELECT fNodeName
+	 	FROM txEquipTypeNodeName
+	 	WHERE fCompanyCode = #{companyCode} AND fEquipType = #{equipType}
+	 		<if test="nodeID != null">
+	      		AND fNode = #{nodeID}
+	      	</if>
+	</select>
+	
+	
+	<!-- insert 连接事件 -->
+	<insert id="insert_connection_TxEvents" parameterType="cn.com.dhcc.rp.connection.po.ConnectionEvent">   
+		 <![CDATA[ 
+			INSERT INTO txEvents (fId, fAttrName, fLevel, fState, fCollectTime, fContent, fCompanyCode)
+			VALUES(#{id}, #{attrName}, #{level}, #{state}, #{collectTime}, #{content}, #{companyCode})
+		 ]]>
+	</insert>
+</mapper>

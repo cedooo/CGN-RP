@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="UPS" type="noups" >
+ 	<!-- ref: 映射别名 type: 0.状态型 1，数值型 collect: 0.不采集 1，采集   -->
+ 	
+ 	<group refTab="txUpsCommPerf" collect="1" type="1">
+		<node id="A4" name="总负载率" ref="fUpsLoad"  	collect="1"    />  
+		
+		<node id="A5" name="电池容量" ref="fBatteryVolume"  	collect="1"    />
+		<node id="A6" name="电池容量(AH)" ref="fBatteryVolumeAh"  	collect="1"    /> 
+		
+		<node id="A16" name="旁路频率" ref="fSideFrequency"  	collect="1"    />
+		<node id="A17" name="输出频率" ref="fFrequencyOut"  	collect="1"    />  
+		<node id="A18" name="电池电压" ref="fBatteryVoltage"  	collect="1"    />
+		<node id="A19" name="内部温度" ref="fUpsTem"  	collect="1"    />  
+		
+		<node id="A20" name="电池后备时间" ref="fBatteryBakTime"  	collect="1"    />
+		<node id="A21" name="电池电流" ref="fBatteryCurrency"  	collect="1"    />  
+		<node id="A22" name="浮充电压" ref="fBatteryFloatVoltage"  	collect="1"    />
+		
+		<node id="A26" name="输出功率" ref="fPowerOut"  	collect="1"    /> 
+		<node id="A7" name="旁路电压U1" ref="fVoltageABOut"  	collect="1"    />
+		<node id="A8" name="旁路电压U2" ref="fVoltageBCOut"  	collect="1"    /> 
+		<node id="A9" name="旁路电压U3" ref="fVoltageCAOut"  	collect="1"    /> 
+ 	</group>
+ 	<module refTab="txUpsCommDirPerf" partID="A" collect="1" type="2"> 
+		<node id="A1" name="A相负载率" ref="fLoadOutRate"  	collect="1"    /> 
+		<node id="A27" name="A相输出功率" ref="fPowerOut"  	collect="1"    />  
+		<node id="A10" name="输出电压U1" ref="fVoltageOut"  	collect="1"    /> 
+		<node id="A13" name="输出电流I1" ref="fCurrentOut"  	collect="1"    /> 
+		<node id="A23" name="输入电压V1" ref="fVoltageIn"  	collect="1"    /> 
+	</module>
+ 	<module refTab="txUpsCommDirPerf" partID="B" collect="1" type="2">
+		<node id="A2" name="B相负载率" ref="fLoadOutRate"  	collect="1"    /> 
+		<node id="A28" name="B相输出功率" ref="fPowerOut"  	collect="1"    /> 
+		<node id="A11" name="输出电压U2" ref="fVoltageOut"  	collect="1"    /> 
+		<node id="A14" name="输出电流I2" ref="fCurrentOut"  	collect="1"    /> 
+		<node id="A24" name="输入电压V2" ref="fVoltageIn"  	collect="1"    /> 
+ 	</module>
+ 	<module refTab="txUpsCommDirPerf" partID="C" collect="1" type="2">
+		<node id="A3" name="C相负载率" ref="fLoadOutRate"  	collect="1"    />
+		<node id="A29" name="C相输出功率" ref="fPowerOut"  	collect="1"    /> 
+		<node id="A12" name="输出电压U3" ref="fVoltageOut"  	collect="1"    /> 
+		<node id="A15" name="输出电流I3" ref="fCurrentOut"  	collect="1"    /> 
+		<node id="A25" name="输入电压V3" ref="fVoltageIn"  	collect="1"    />
+ 	</module>
+ 	
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="D1" name="主输入状态"   	collect="1"    grState="0" />
+		<node id="D2" name="整流器状态" collect="1"    grState="0" /> 
+		<node id="D3" name="负载在线"  	collect="1"    grState="0" />
+		<node id="D4" name="负载在旁路状态"   	collect="1"    grState="0" />  
+		<node id="D5" name="负载电池供电状态"   	collect="1"    grState="0" />
+		<node id="D6" name="远程控制"   	collect="1"    grState="0" />  
+		<node id="D7" name="ECOMODE操作"   	collect="1"    grState="0" />
+		<node id="D8" name="电池测试状态"  	collect="1"    grState="0" /> 
+		<node id="D9" name="电池测试正进行"  	collect="1"    grState="0" />
+		<node id="D10" name="电池测试中断"   	collect="1"    grState="0" />  
+		<node id="D11" name="电池后备工作接近结束"   	collect="1"    grState="0" />
+		<node id="D13" name="逆变器状态"  	collect="1"    grState="0" />
+		<node id="D14" name="逆变器与主输入同步"   	collect="1"    grState="0" />  
+		<node id="D15" name="旁路在容忍范围内工作"   	collect="1"    grState="0" />
+		<node id="D16" name="旁路频率越限"   	collect="1"    grState="0" />  
+		<node id="D17" name="UPS并联工作"   	collect="1"    grState="0" />
+		<node id="D18" name="电池充电"  	collect="1"    grState="0" /> 
+		<node id="D19" name="电池"  	collect="1"    grState="0" />
+		<node id="D20" name="模块1工作"   	collect="1"    grState="0" />  
+		<node id="D21" name="外部接点1状态"   	collect="1"    grState="0" />
+		<node id="D22" name="外部接点2状态"   	collect="1"    grState="0" />  
+		<node id="D23" name="手动旁路"   	collect="1"    grState="0" />
+		<node id="D24" name="过载"  	collect="1"    grState="0" /> 
+		<node id="D25" name="输出电压越限"  	collect="1"    grState="0" />
+		<node id="D26" name="电力供给失败"   	collect="1"    grState="0" />  
+		<node id="D27" name="整流器主流越限"   	collect="1"    grState="0" />
+		<node id="D28" name="旁路越限"   	collect="1"    grState="0" />  
+		<node id="D29" name="温度越限"   	collect="1"    grState="0" />
+		<node id="D30" name="逆变器过电流"  	collect="1"    grState="0" /> 
+		<node id="D31" name="报警"  	collect="1"    grState="0" />
+		<node id="D32" name="电池故障"   	collect="1"    grState="0" />  
+		<node id="D33" name="逆变器报警"   	collect="1"    grState="0" />
+		<node id="D34" name="逆变器过热"   	collect="1"    grState="0" />  
+		<node id="D35" name="管理电力失败"   	collect="1"    grState="0" />
+		<node id="D36" name="数据呗破坏"  	collect="1"    grState="0" /> 
+		<node id="D37" name="主输入报警"  	collect="1"    grState="0" />
+		<node id="D38" name="整流器报警"   	collect="1"    grState="0" />  
+		<node id="D39" name="输出电压处于最大限"   	collect="1"    grState="0" />
+		<node id="D40" name="输出电压处于最小限"   	collect="1"    grState="0" />  
+		<node id="D41" name="旁路报警"   	collect="1"    grState="0" />
+		<node id="D42" name="过载停止输出"   	collect="1"    grState="0" />  
+		<node id="D43" name="即将关机"   	collect="1"    grState="0" />
+		<node id="D44" name="电池处于最大电压状态"  	collect="1"    grState="0" /> 
+		<node id="D45" name="模块1报警"  	collect="1"    grState="0" />
+ 	</group>
+</equipment>

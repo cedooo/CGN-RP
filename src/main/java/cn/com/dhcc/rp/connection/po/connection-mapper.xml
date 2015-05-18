@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.connector">
+	<resultMap type="cn.com.dhcc.rp.persistence.po.RoomInterfaceConf" id="RoomInterfaceConfMap">
+		<result property="companyCode" column="fCompanyCode" />
+		<result property="ip" column="fIp" />
+		<result property="port" column="fPort" />
+		<result property="name" column="fName" />
+		<result property="connectionClass" column="fConnectionClass" />
+	</resultMap>
+	<select id="select_connectors" resultMap="RoomInterfaceConfMap">
+		<![CDATA[
+			SELECT fCompanyCode, fIp, fPort, fName, fConnectionClass
+			FROM txRoomInterfaceConf
+			WHERE fIsConnection = '1' 
+		]]>
+	</select>
+	<select id="select_gj_node_name_with_id" resultType="String" parameterType="cn.com.dhcc.rp.connection.po.SelectGJNodePara">
+		<![CDATA[
+			SELECT txEquipTypeNodeName.fNodeName
+			FROM txEventKeyEquipmentMap  left join txEquipTypeNodeName  
+				on txEventKeyEquipmentMap.fEquipType = txEquipTypeNodeName.fEquipType 
+			WHERE txEventKeyEquipmentMap.fCompanyCode = #{companyCode} 
+				AND txEventKeyEquipmentMap.fEventKey = #{eventKey}
+				AND txEquipTypeNodeName.fNode = #{nodeID}
+				AND txEventKeyEquipmentMap.fCompanyCode = txEquipTypeNodeName.fCompanyCode
+		]]>
+	</select>
+	<update id="update_insert_comm_state" parameterType="cn.com.dhcc.rp.persistence.po.RoomCommState">   
+		 <![CDATA[ 
+		 	UPDATE txRoomCommState
+			SET	fCollectTime = #{collectTime},
+			   fStateValue  = #{stateValue},
+			   fGRState = #{grState}
+			WHERE
+				fPartID = #{partID} AND fId = #{id} AND fCompanyCode = #{companyCode}
+				
+			IF @@ROWCOUNT = 0
+			
+			INSERT INTO txRoomCommState (fCollectTime ,fPartID, fStateValue, fId, fCompanyCode, fGRState)
+			VALUES(#{collectTime}, #{partID},#{stateValue},#{id},#{companyCode}, #{grState}		)
+		 ]]>
+	</update>
+	
+	<select id="select_st_stateValue" resultType="String" >
+		<![CDATA[
+			SELECT TOP 1 fStateValue
+		 	FROM txRoomCommState
+		  	WHERE fCompanyCode = 'CGN' AND fId = 'ST'
+		]]>
+	</select>
+</mapper>

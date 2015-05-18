@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 01楼机房1 -->
+<machineroom location="01楼" name="01楼机房1">	
+	<equipment id="艾默生UPS1号" name="艾默生UPS1号" type="emersonups" />
+	<equipment id="艾默生UPS2号" name="艾默生UPS2号" type="emersonups" />
+	<!-- 
+	<equipment name="温湿度监测" type="temphumidity" />
+	-->
+	<equipment id="电量仪1号" name="UPS间市电柜1#电量仪" type="elemeter" />
+	<equipment id="电量仪2号" name="UPS间市电柜2#电量仪" type="elemeter" />
+	
+	<equipment id="UPS间温湿度" name="UPS间温湿度" type="UPStemphumi" />
+	
+	<subsystem id="温湿度监测" name="龙控温湿度子系统01楼机房1" type="lktemphumisubsys011" />
+	<subsystem id="开关量状态" name="门禁开关状态" type="lkdoorsubsys" />
+</machineroom>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 接口配置文件 -->
+<infs>
+	<inf ip="10.0.17.30" port="7000" code="GJ_1" name="共济采集接口-1[科技大厦23楼]" connClass="cn.com.dhcc.rp.connection.gj.GJSocketConnection" connection="1" />
+	<inf ip="10.28.2.15" port="7000" code="GJ_2" name="共济采集接口-2[AE楼]" connClass="cn.com.dhcc.rp.connection.gj.GJSocketConnection" connection="1" />
+	<inf ip="10.10.6.21" port="1034" code="LK_1" name="龙控 采集接口-1[01楼机房1]" connClass="cn.com.dhcc.rp.connection.lk.LKSocketConnection" connection="1" />
+	<inf ip="10.10.6.22" port="1034" code="LK_2" name="龙控采集接口-2[01楼机房2]" connClass="cn.com.dhcc.rp.connection.lk.LKSocketConnection" connection="1" />
+	<inf ip="10.105.16.1" port="2025" code="LK_3" name="龙控采集接口-3[中广核财务公司]" connClass="cn.com.dhcc.rp.connection.lk.LKSocketConnection" connection="1" />
+	<inf ip="10.10.6.27" port="1034" code="LK_4" name="龙控采集接口-4[01楼]" connClass="cn.com.dhcc.rp.connection.lk.LKSocketConnection" connection="0" />
+	<inf ip="10.10.6.48" port="2809" code="ST" name="四通采集接口[大亚湾区域机房 UPS]" connClass="" connection="0" />
+</infs>

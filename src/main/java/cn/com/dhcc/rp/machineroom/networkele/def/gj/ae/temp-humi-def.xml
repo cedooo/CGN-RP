@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="温湿度" type="temphumi" >
+
+ 	<group refTab="txTemHumCommPerf" collect="1" type="1">
+		<node id="A1" name="温度" ref="fTemperature"  	collect="1" />  
+		<node id="A2" name="湿度" ref="fHuminity"  	collect="1" />
+ 	</group>
+ 	
+</equipment>

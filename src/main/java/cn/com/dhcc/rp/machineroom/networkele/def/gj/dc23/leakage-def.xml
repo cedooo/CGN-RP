@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="漏水" type="leakage" >
+
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node name="漏水状态" collect="1" grState="正常" />
+	</group>
+ 	
+</equipment>

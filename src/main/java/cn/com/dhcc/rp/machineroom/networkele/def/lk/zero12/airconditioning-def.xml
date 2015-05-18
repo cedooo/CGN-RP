@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="精密空调" type="aircondition">
+ 	<!-- ref: 映射别名 type: 0.状态型 1，数值型 collect: 0.不采集 1，采集   -->
+ 	<group refTab="txAirConditionCommThPerf" collect="1" type="1"> 
+		<node id="1701071" name="回风温度" ref="fTemperatureBak"   type="1"   collect="1"  />  
+		<node id="1701073" name="回风湿度" ref="fHuminityBak"  type="1"  collect="1"  />  
+ 	</group>
+ 		
+ 	<group refTab="txAirConditionCommConf" collect="1" type="1">
+		<node id="1701072" name="温度设定点" ref="fTemperatureSet"   collect="1"  />   
+		<node id="1701074" name="湿度设定" ref="fHuminitySet"   collect="1"  />  
+		<node id="1701075" name="高温报警点" ref="fTemperatureUp"   collect="1" />   
+		<node id="1701076" name="低温报警点" ref="fTemperatureDown"    collect="1" />  
+		<node id="1701077" name="高湿报警点" ref="fHuminityUp"  collect="1" />   
+		<node id="1701078" name="低湿报警点" ref="fHuminityDown"   collect="1" /> 
+ 	</group>
+ 	
+ 	<group refTab="txAirConditiomCommWorkTimePerf" collect="1" type="1">
+		<node id="1701081" name="风机运行时间"  type="1" collect="1" ref="fFanWorkTime"  />     
+		<node id="1701082" name="压缩机1运行时间"  ref="fCompressor1WorkTime" type="1"   collect="1"  />  
+		<node id="1701083" name="压缩机2运行时间"  ref="fCompressor2WorkTime"  type="1"   collect="1"  />   
+		<node id="1701084" name="加湿运行时间"  ref="fHuminitierWorkTime" type="1"  collect="1"  />  
+		<node id="1701085" name="除湿运行时间"  ref="fDehumidifierWorkTime" type="1"  collect="1"   />
+		<node id="1701086" name="电加热1运行时间"  ref="fHeater1WorkTime" type="1"  collect="1"  /> 
+		<node id="1701087" name="电加热2运行时间"  ref="fHeater2WorkTime" type="1"  collect="1"  />   
+		<node id="1701088" name="电加热3运行时间"  ref="fHeater3WorkTime"  type="1"  collect="1"  />  
+		<node id="1701089" name="热气运行时间"  ref="fHeateAirWorkTime" type="1"  collect="1"  /> 
+ 	</group>
+ 	
+	<group  refTab="txRoomCommState" collect="1" type="0">
+		<node id="1701000" name="通讯状态"  type="0" collect="1" grState="0" />   
+		<node id="1701001" name="风机运行状态"  type="0" collect="1" grState="1" />   
+		<node id="1701002" name="制冷开关"  type="0" collect="1" grState="1" />    
+		<node id="1701003" name="自然冷源开关"  type="0" collect="1" grState="0" />   
+		<node id="1701004" name="热水开关"  type="0" collect="1" grState="0" />    
+		<node id="1701005" name="电加热开关"  type="0" collect="1" grState="0" />   
+		<node id="1701006" name="加湿开关"  type="0" collect="1" grState="1" />    
+		<node id="1701007" name="除湿开关"  type="0" collect="1" grState="0" />   
+		<node id="1701008" name="告警蜂鸣器开关"  type="0" collect="1" grState="0" />    
+		<node id="1701009" name="风机过载"  type="0" collect="1" grState="0" />   
+		<node id="1701010" name="气流丢失"  type="0" collect="1" grState="0" />    
+		<node id="1701011" name="水流丢失"  type="0" collect="1" grState="0" />   
+		<node id="1701012" name="压缩机1高压"  type="0" collect="1" grState="0" />    
+		<node id="1701013" name="压缩机1低压"  type="0" collect="1" grState="0" />   
+		<node id="1701014" name="压缩机1过载"  type="0" collect="1" grState="0" />    
+		<node id="1701015" name="压缩机1失败"  type="0" collect="1" grState="0" />   
+		<node id="1701016" name="压缩机2高压"  type="0" collect="1" grState="0" />    
+		<node id="1701017" name="压缩机2低压"  type="0" collect="1" grState="0" />   
+		<node id="1701018" name="压缩机2过载"  type="0" collect="1" grState="0" />    
+		<node id="1701019" name="压缩机2失败"  type="0" collect="1" grState="0" />   
+		<node id="1701020" name="数码涡旋高温"  type="0" collect="1" grState="0" />    
+		<node id="1701021" name="烟感报警"  type="0" collect="1" grState="0" />   
+		<node id="1701022" name="漏水报警"  type="0" collect="1" grState="0" />    
+		<node id="1701023" name="加湿器故障"  type="0" collect="1" grState="0" />   
+		<node id="1701024" name="室内传感器故障"  type="0" collect="1" grState="0" />    
+		<node id="1701025" name="压缩机掉电"  type="0" collect="1" grState="0" />   
+		<node id="1701026" name="鼓风机气流丢失"  type="0" collect="1" grState="0" />    
+		<node id="1701027" name="加湿器低水位"  type="0" collect="1" grState="0" />   
+		<node id="1701028" name="加湿器电流过高"  type="0" collect="1" grState="0" />    
+		<node id="1701029" name="高温"  type="0" collect="1" grState="0" />   
+		<node id="1701030" name="系统掉电"  type="0" collect="1" grState="0" />    
+		<node id="1701031" name="未知告警"  type="0" collect="1" grState="0" />   
+		<node id="1701032" name="室内高温"  type="0" collect="1" grState="0" />    
+		<node id="1701033" name="室内低温"  type="0" collect="1" grState="0" />   
+		<node id="1701034" name="室内高湿"  type="0" collect="1" grState="0" />    
+		<node id="1701035" name="室内低湿"  type="0" collect="1" grState="0" />   
+		<node id="1701036" name="传感器高温"  type="0" collect="1" grState="0" />    
+		<node id="1701037" name="传感器低温"  type="0" collect="1" grState="0" />   
+		<node id="1701038" name="传感器高湿"  type="0" collect="1" grState="0" />    
+		<node id="1701039" name="传感器低湿"  type="0" collect="1" grState="0" />   
+		<node id="1701040" name="过滤网堵塞"  type="0" collect="1" grState="0" />    
+		<node id="1701041" name="送风传感器故障"  type="0" collect="1" grState="0" />   
+		<node id="1701042" name="传感器A故障"  type="0" collect="1" grState="0" />    
+		<node id="1701043" name="机组运行超时"  type="0" collect="1" grState="0" />   
+		<node id="1701044" name="压缩机1运行超时"  type="0" collect="1" grState="0" />    
+		<node id="1701045" name="压缩机2运行超时"  type="0" collect="1" grState="0" />   
+		<node id="1701046" name="电加热1运行超时"  type="0" collect="1" grState="0" />    
+		<node id="1701047" name="电加热2运行超时"  type="0" collect="1" grState="0" />   
+		<node id="1701048" name="电加热3运行超时"  type="0" collect="1" grState="0" />    
+		<node id="1701049" name="热气运行超时"  type="0" collect="1" grState="0" />   
+		<node id="1701050" name="加湿器运行超时"  type="0" collect="1" grState="0" />    
+		<node id="1701051" name="除湿运行超时"  type="0" collect="1" grState="0" />   
+		<node id="1701052" name="机组失败"  type="0" collect="1" grState="0" />    
+		<node id="1701053" name="机组需要维护"  type="0" collect="1" grState="0" />   
+		<node id="1701054" name="自定义报警"  type="0" collect="1" grState="0" />    
+		<node id="1701055" name="数码涡旋传感器失败"  type="0" collect="1" grState="0" /> 
+	</group>    
+	
+</equipment>

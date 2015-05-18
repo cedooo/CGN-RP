@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="灯控制模块" type="lightctrl" >
+
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="D1" name="1路照明状态" collect="1" />
+		<node id="D2" name="2路照明状态" collect="1" />
+		<node id="D3" name="3路照明状态" collect="1" />
+		<node id="D4" name="4路照明状态" collect="1" />
+	</group>
+ 	
+</equipment>

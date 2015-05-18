@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.leak">
+	<update id="update_insert_TxLeakWaterCommPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxLeakWaterCommPerf">   
+		 <![CDATA[ 
+		 	UPDATE txLeakWaterCommPerf
+			SET	fCollectTime = #{collectTime},
+				fLeakPosition = #{leakPosition}, fLineResistance = #{lineResistance}	
+			WHERE
+				fPartID = #{partID} AND fId = #{id} AND fCompanyCode = #{companyCode}
+				
+			IF @@ROWCOUNT = 0
+			
+			INSERT INTO txLeakWaterCommPerf (fId,fPartID,fCollectTime,fLeakPosition,fLineResistance,fCompanyCode)
+			VALUES(#{id},#{partID},#{collectTime}, #{leakPosition}, #{lineResistance}, #{companyCode}	)
+		 ]]>
+	</update>
+</mapper>

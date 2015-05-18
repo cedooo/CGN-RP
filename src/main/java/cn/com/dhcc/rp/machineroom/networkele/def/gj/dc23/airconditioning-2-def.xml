@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="通讯间精密空调" type="airconditioninequip2">
+
+ 	<module refTab="txAirConditionCommThPerf" partID="1" collect="1" type="2"> 
+		<node id="A1" name="1#实测湿度" ref="fHuminityReal"   collect="1"  />   
+		<node id="A2" name="1#实测温度" ref="fTemperatureReal"   collect="1"  />  
+		<node id="A3" name="1#平均湿度" ref="fHuminityAvg"   collect="1" />   
+		<node id="A4" name="1#平均温度" ref="fTemperatureAvg"    collect="1" /> 
+	</module> 
+	
+ 	<module refTab="txAirConditionCommThPerf" partID="2" collect="1" type="2"> 
+		<node id="A12" name="2#实测湿度" ref="fHuminityReal"   collect="1"  />   
+		<node id="A13" name="2#实测温度" ref="fTemperatureReal"   collect="1"  />  
+		<node id="A14" name="2#平均湿度" ref="fHuminityAvg"   collect="1" />   
+		<node id="A15" name="2#平均温度" ref="fTemperatureAvg"    collect="1" />  
+ 	</module>
+ 	
+ 	<module refTab="txAirConditiomCommWorkTimePerf" partID="1" collect="1" type="2"> 
+		<node id="A25" name="1#压缩机1工作时间" ref="fCompressor1WorkTime"   collect="1"  />   
+		<node id="A27" name="1#压缩机2工作时间" ref="fCompressor2WorkTime"   collect="1"  />  
+ 	</module>
+	 	
+ 	<module refTab="txAirConditionCommConf" partID="1" collect="1" type="2">
+		<node id="A5" name="1#湿度设定值" ref="fHuminitySet"  collect="1" />   
+		<node id="A6" name="1#温度设定值" ref="fTemperatureSet"   collect="1" /> 
+		<node id="A7" name="1#低湿报警设定值" ref="fHuminityDown"   collect="1"  />   
+		<node id="A8" name="1#高湿设定报警值" ref="fHuminityUp"   collect="1"  />  
+		<node id="A9" name="1#低温报警设定值" ref="fTemperatureDown"   collect="1" />   
+		<node id="A10" name="1#高温报警设定值" ref="fTemperatureUp"    collect="1" />  
+		<node id="A11" name="1#送风温度设定值" ref="fTemperatureSend"  collect="1" />   
+	</module>
+		
+ 	<module refTab="txAirConditionCommConf" partID="2" collect="1" type="2">
+		<node id="A16" name="2#湿度设定值" ref="fHuminitySet"  collect="1" />   
+		<node id="A17" name="2#温度设定值" ref="fTemperatureSet"   collect="1" /> 
+		<node id="A18" name="2#低湿报警设定值" ref="fHuminityDown"   collect="1"  />   
+		<node id="A19" name="2#高湿设定报警值" ref="fHuminityUp"   collect="1"  />  
+		<node id="A20" name="2#低温报警设定值" ref="fTemperatureDown"   collect="1" />   
+		<node id="A21" name="2#高温报警设定值" ref="fTemperatureUp"    collect="1" />  
+		<node id="A22" name="2#送风温度设定值" ref="fTemperatureSend"  collect="1" />  
+	</module>
+		 	
+ 	<module refTab="txAirConditiomCommWorkTimePerf" partID="2" collect="1" type="2"> 
+		<node id="A26" name="2#压缩机1工作时间" ref="fCompressor1WorkTime"   collect="1"  />   
+		<node id="A28" name="2#压缩机2工作时间" ref="fCompressor2WorkTime"   collect="1"  />  
+ 	</module>
+		 	
+		 	
+	<group  refTab="txRoomCommState" collect="1" type="0">
+		<node id="D1" name="1#系统状态"   collect="1" grState="0" />   
+		<node id="D2" name="1#除湿器状态"   collect="1" grState="0" />   
+		<node id="D3" name="1#加热器1状态"   collect="1" grState="0" />    
+		<node id="D4" name="1#加热器2状态"   collect="1" grState="0" />   
+		<node id="D5" name="1#压缩机1状态"   collect="1" grState="0" />    
+		<node id="D6" name="1#压缩机2状态"   collect="1" grState="0" />   
+		<node id="D7" name="1#风机状态"   collect="1" grState="0" />    
+		<node id="D8" name="1#过滤器阻塞"   collect="1" grState="0" />   
+		<node id="D9" name="1#压缩机低压"   collect="1" grState="0" />    
+		<node id="D10" name="1#压缩机高压"   collect="1" grState="0" />   
+		<node id="D11" name="1#冷却水温度过高"   collect="1" grState="0" />    
+		<node id="D12" name="1#冷却水流量过低"   collect="1" grState="0" />   
+		<node id="D13" name="1#电子加热器过热"   collect="1" grState="0" />    
+		<node id="D14" name="1#风机故障"   collect="1" grState="0" />   
+		<node id="D15" name="1#漏水"   collect="1" grState="0" />    
+		<node id="D16" name="1#加湿器故障"   collect="1" grState="0" />   
+		<node id="D17" name="1#加湿器电流过高"   collect="1" grState="0" />    
+		<node id="D18" name="1#加湿器故障"   collect="1" grState="0" />    
+		<node id="D19" name="1#室内湿度过高(EEAP)"   collect="1" grState="0" />   
+		<node id="D20" name="1#室内湿度过低(EEAP)"   collect="1" grState="0" />    
+		<node id="D21" name="1#室内温度过高"   collect="1" grState="0" />   
+		<node id="D22" name="1#室内温度过低"   collect="1" grState="0" />    
+		<node id="D23" name="1#室内湿度过高"   collect="1" grState="0" />   
+		<node id="D24" name="1#室内温度过高"   collect="1" grState="0" />    
+		<node id="D25" name="1#压缩机1工作超时"   collect="1" grState="0" />   
+		<node id="D26" name="1#加湿器工作超时"   collect="1" grState="0" />    
+		<node id="D27" name="1#室内温度过高(EEAP)"   collect="1" grState="0" />   
+		<node id="D28" name="1#室内温度过低(EEAP)"   collect="1" grState="0" />    
+		<node id="D29" name="1#PTC传感器故障"   collect="1" grState="0" />   
+		<node id="D30" name="1#室温传感器故障"   collect="1" grState="0" />    
+		<node id="D31" name="1#室温传感器故障"   collect="1" grState="0" />   
+		<node id="D32" name="1#加湿器故障"   collect="1" grState="0" />    
+		<node id="D33" name="1#加湿器缸磨损"   collect="1" grState="0" />   
+		<node id="D34" name="1#EEAP传感器故障"   collect="1" grState="0" />    
+		<node id="D35" name="1#水流传感器故障"   collect="1" grState="0" />   
+		<node id="D36" name="1#压缩机2高压"   collect="1" grState="0" />    
+		<node id="D37" name="1#压缩机2低压"   collect="1" grState="0" />   
+		<node id="D38" name="1#室外温感故障"   collect="1" grState="0" />    
+		<node id="D39" name="1#乙二醇温感故障"   collect="1" grState="0" />   
+		<node id="D40" name="1#压缩机2工作超时"   collect="1" grState="0" />    
+		<node id="D41" name="1#火警"   collect="1" grState="0" />   
+		<node id="D42" name="1#冷凝器2风扇故障"   collect="1" grState="0" />    
+		<node id="D43" name="1#冷凝器1风扇故障"   collect="1" grState="0" />   
+		<node id="D44" name="1#烟雾报警"   collect="1" grState="0" />    
+		
+		<node id="D45" name="2#系统状态"   collect="1" grState="0" />   
+		<node id="D46" name="2#除湿器状态"   collect="1" grState="0" />   
+		<node id="D47" name="2#加热器1状态"   collect="1" grState="0" />    
+		<node id="D48" name="2#加热器2状态"   collect="1" grState="0" />   
+		<node id="D49" name="2#压缩机1状态"   collect="1" grState="0" />    
+		<node id="D50" name="2#压缩机2状态"   collect="1" grState="0" />   
+		<node id="D51" name="2#风机状态"   collect="1" grState="0" />    
+		<node id="D52" name="2#过滤器阻塞"   collect="1" grState="0" />   
+		<node id="D53" name="2#压缩机低压"   collect="1" grState="0" />    
+		<node id="D54" name="2#压缩机高压"   collect="1" grState="0" />   
+		<node id="D55" name="2#冷却水温度过高"   collect="1" grState="0" />    
+		<node id="D56" name="2#冷却水流量过低"   collect="1" grState="0" />   
+		<node id="D57" name="2#电子加热器过热"   collect="1" grState="0" />    
+		<node id="D58" name="2#风机故障"   collect="1" grState="0" />   
+		<node id="D59" name="2#漏水"   collect="1" grState="0" />    
+		<node id="D60" name="2#加湿器故障"   collect="1" grState="0" />   
+		<node id="D61" name="2#加湿器电流过高"   collect="1" grState="0" />    
+		<node id="D62" name="2#加湿器故障"   collect="1" grState="0" />    
+		<node id="D63" name="2#室内湿度过高(EEAP)"   collect="1" grState="0" />   
+		<node id="D64" name="2#室内湿度过低(EEAP)"   collect="1" grState="0" />    
+		<node id="D65" name="2#室内温度过高"   collect="1" grState="0" />   
+		<node id="D66" name="2#室内温度过低"   collect="1" grState="0" />    
+		<node id="D67" name="2#室内湿度过高"   collect="1" grState="0" />   
+		<node id="D68" name="2#室内温度过高"   collect="1" grState="0" />    
+		<node id="D69" name="2#压缩机1工作超时"   collect="1" grState="0" />   
+		<node id="D70" name="2#加湿器工作超时"   collect="1" grState="0" />    
+		<node id="D71" name="2#室内温度过高(EEAP)"   collect="1" grState="0" />   
+		<node id="D72" name="2#室内温度过低(EEAP)"   collect="1" grState="0" />    
+		<node id="D73" name="2#PTC传感器故障"   collect="1" grState="0" />   
+		<node id="D74" name="2#室温传感器故障"   collect="1" grState="0" />    
+		<node id="D75" name="2#室温传感器故障"   collect="1" grState="0" />   
+		<node id="D76" name="2#加湿器故障"   collect="1" grState="0" />    
+		<node id="D77" name="2#加湿器缸磨损"   collect="1" grState="0" />   
+		<node id="D78" name="2#EEAP传感器故障"   collect="1" grState="0" />    
+		<node id="D79" name="2#水流传感器故障"   collect="1" grState="0" />   
+		<node id="D80" name="2#压缩机2高压"   collect="1" grState="0" />    
+		<node id="D81" name="2#压缩机2低压"   collect="1" grState="0" />   
+		<node id="D82" name="2#室外温感故障"   collect="1" grState="0" />    
+		<node id="D83" name="2#乙二醇温感故障"   collect="1" grState="0" />   
+		<node id="D84" name="2#压缩机2工作超时"   collect="1" grState="0" />    
+		<node id="D85" name="2#火警"   collect="1" grState="0" />   
+		<node id="D86" name="2#冷凝器2风扇故障"   collect="1" grState="0" />    
+		<node id="D87" name="2#冷凝器1风扇故障"   collect="1" grState="0" />   
+		<node id="D88" name="2#烟雾报警"   collect="1" grState="0" />    
+		  
+	</group>    
+	
+</equipment>

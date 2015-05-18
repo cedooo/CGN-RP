@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE digester-rules PUBLIC
+  "-//Apache Commons //DTD digester-rules XML V1.0//EN"
+  "http://commons.apache.org/digester/dtds/digester-rules-3.0.dtd">
+
+<digester-rules>  
+	<pattern value="subsystem">
+	    <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.subsystem.SubSystem" />  
+	    <pattern value="equipment">  
+	        <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.Equipment" />  
+		    <set-properties-rule > 
+		       	<alias attr-name="id" prop-name="id" />   
+		       	<alias attr-name="name" prop-name="name" />  
+		       	<alias attr-name="type" prop-name="type" />   
+		   	</set-properties-rule> 
+	        <set-next-rule methodname="add" /> 
+	    </pattern>     
+	    <pattern value="equipment-def">  
+		    <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.Equipment" />  
+		    <pattern value="module">  
+		        <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.Module" />  
+		         <pattern value="node">  
+			        <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.EquipmentNode" />  
+				    <set-properties-rule > 
+				       	<alias attr-name="id" prop-name="id" />   
+				       	<alias attr-name="name" prop-name="name" />  
+				       	<alias attr-name="ref" prop-name="ref" />  
+				       	<alias attr-name="partID" prop-name="partID" />   
+				       	<alias attr-name="type" prop-name="type" />   
+				       	<alias attr-name="collect" prop-name="collect" />  
+				       	<alias attr-name="subtype" prop-name="subtype" />  
+				       	<alias attr-name="grState" prop-name="grState" />  
+				       	<alias attr-name="refTab" prop-name="refTab" />  
+				    	<alias attr-name="queryPartID" prop-name="queryPartID" />   
+				   	</set-properties-rule> 
+			        <set-next-rule methodname="add" /> 
+			    </pattern>   
+			    <set-properties-rule > 
+			       	<alias attr-name="partID" prop-name="partID" />   
+			       	<alias attr-name="type" prop-name="type" />   
+			       	<alias attr-name="collect" prop-name="collect" /> 
+				    <alias attr-name="queryPartID" prop-name="queryPartID" />  
+			   	</set-properties-rule> 
+		        <set-next-rule methodname="addMode" /> 
+		    </pattern>     
+		    <pattern value="group">  
+		        <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.Group" />  
+			    <pattern value="node">  
+			        <object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.EquipmentNode" />  
+				    <set-properties-rule > 
+				       	<alias attr-name="id" prop-name="id" />   
+				       	<alias attr-name="name" prop-name="name" />  
+				       	<alias attr-name="ref" prop-name="ref" />  
+				       	<alias attr-name="partID" prop-name="partID" />   
+				       	<alias attr-name="type" prop-name="type" />   
+				       	<alias attr-name="collect" prop-name="collect" />  
+				       	<alias attr-name="subtype" prop-name="subtype" />  
+				       	<alias attr-name="grState" prop-name="grState" />  
+				       	<alias attr-name="refTab" prop-name="refTab" />  
+				   	</set-properties-rule> 
+			        <set-next-rule methodname="addNode" /> 
+			    </pattern>    
+			    <set-properties-rule > 
+			       	<alias attr-name="refTab" prop-name="refTab" />   
+			       	<alias attr-name="type" prop-name="type" />   
+			       	<alias attr-name="collect" prop-name="collect" /> 
+			   	</set-properties-rule>
+			    <set-next-rule methodname="addAllNode" /> 
+			</pattern>
+			<set-properties-rule > 
+		       	<alias attr-name="id" prop-name="id" />   
+		       	<alias attr-name="name" prop-name="name" />  
+		       	<alias attr-name="type" prop-name="type" />   
+		   	</set-properties-rule> 
+			<set-next-rule methodname="addDef" /> 
+	   	</pattern>
+	    <set-properties-rule > 
+		    <alias attr-name="id" prop-name="id" />  
+	       	<alias attr-name="name" prop-name="name" />  
+	       	<alias attr-name="type" prop-name="type" />   
+	   	</set-properties-rule>
+	   	
+   	</pattern>	 
+</digester-rules>  
+

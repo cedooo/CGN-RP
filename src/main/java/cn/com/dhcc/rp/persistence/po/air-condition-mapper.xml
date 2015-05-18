@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.aircond">
+	
+	<update id="update_insert_TxAirConditionCommThPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxAirConditionCommThPerf">   
+		<![CDATA[
+	   		UPDATE txAirConditionCommThPerf
+	   		SET fCollectTime = #{collectTime} ,fAggregateCnt = #{aggregateCnt},fPartID = #{partID},fTemperatureBak = #{temperatureBak},
+	   			fHuminityBak = #{huminityBak}, fTemperatureSend = #{temperatureSend }
+				,fHuminitySend = #{huminitySend},fTemperatureReal = #{temperatureReal},fHuminityReal  = #{huminityReal}, 
+				fTemperatureAvg = #{temperatureAvg},fHuminityAvg = #{huminityAvg}
+     			,fCompressorInhale = #{compressorInhale} ,fCompressorExhaust  = #{compressorExhaust},fVoltageA = #{voltageA},
+     			fVoltageB = #{voltageB},fVoltageC = #{voltageC},fCurrentA = #{currentA}
+      			,fCurrentB = #{currentB},fCurrentC = #{currentC}      
+	   		WHERE fId = #{id} AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txAirConditionCommThPerf (
+				fId, fCollectTime ,fAggregateCnt ,fPartID ,fTemperatureBak ,fHuminityBak ,fTemperatureSend 
+				,fHuminitySend ,fTemperatureReal ,fHuminityReal ,fTemperatureAvg ,fHuminityAvg
+     			,fCompressorInhale ,fCompressorExhaust ,fVoltageA ,fVoltageB ,fVoltageC ,fCurrentA
+      			,fCurrentB ,fCurrentC ,fCompanyCode
+				)
+			VALUES(
+				#{id},  #{collectTime}, #{aggregateCnt}, #{partID}, #{temperatureBak}, #{huminityBak}, #{temperatureSend },
+				#{huminitySend}, #{temperatureReal}, #{huminityReal}, #{temperatureAvg}, #{huminityAvg},
+				#{compressorInhale}, #{compressorExhaust}, #{voltageA}, #{voltageB}, #{voltageC}, #{currentA},
+				#{currentB}, #{currentC}, #{companyCode}
+			)
+		]]>
+	</update>
+	
+	
+	<update id="update_insert_TxAirConditionCommConf" parameterType="cn.com.dhcc.rp.persistence.po.TxAirConditionCommConf">   
+		<![CDATA[
+	   		UPDATE txAirConditionCommConf
+	   		SET fCollectTime = #{collectTime},fHuminitySet = #{huminitySet},fTemperatureSet = #{temperatureSet},
+	   			fTemperatureUp = #{temperatureUp},
+				fTemperatureDown = #{temperatureDown},fHuminityUp = #{huminityUp},fHuminityDown = #{huminityDown},
+				fTemperatureSend = #{temperatureSend}
+	   		WHERE fId = #{id}  AND fCompanyCode = #{companyCode} AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txAirConditionCommConf (
+				fId,fCollectTime,fPartID,fHuminitySet,fTemperatureSet,fTemperatureUp,
+				fTemperatureDown,fHuminityUp,fHuminityDown,fTemperatureSend, fCompanyCode
+				)
+			VALUES(
+				#{id},#{collectTime},#{partID}, #{huminitySet},#{temperatureSet},#{temperatureUp},
+   				#{temperatureDown},#{huminityUp}, #{huminityDown}, #{temperatureSend},   #{companyCode}
+			)
+		]]>
+	</update>
+	
+	<update id="update_insert_TxAirConditiomCommWorkTimePerf" parameterType="cn.com.dhcc.rp.persistence.po.TxAirConditiomCommWorkTimePerf">   
+		<![CDATA[
+	   		UPDATE txAirConditiomCommWorkTimePerf
+	   		SET fCollectTime = #{collectTime},fAggregateCnt = #{aggregateCnt},fFanWorkTime = #{fanWorkTime}
+      			,fCompressor1WorkTime = #{compressor1WorkTime},fCompressor2WorkTime = #{compressor2WorkTime},fHuminitierWorkTime = #{huminitierWorkTime}
+      			,fDehumidifierWorkTime = #{dehumidifierWorkTime},fHeater1WorkTime = #{heater1WorkTime},fHeater2WorkTime = #{heater2WorkTime},
+      			fHeater3WorkTime = #{heater3WorkTime}
+      			,fHeateAirWorkTime = #{heateAirWorkTime}, fDeviceGroupWorkTime = #{deviceGroupWorkTime} 
+	   		WHERE fCompanyCode = #{companyCode} AND fId = #{id}  AND fPartID = #{partID}
+	   		
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO txAirConditiomCommWorkTimePerf (
+				fId,mosn,dmsn,fCollectTime,fAggregateCnt,fPartID,fFanWorkTime
+      			,fCompressor1WorkTime,fCompressor2WorkTime,fHuminitierWorkTime
+      			,fDehumidifierWorkTime,fHeater1WorkTime,fHeater2WorkTime,fHeater3WorkTime
+      			,fHeateAirWorkTime,fDeviceGroupWorkTime, fCompanyCode
+				)
+			VALUES(
+				#{id},#{mosn},#{dmsn},#{collectTime},#{aggregateCnt},#{partID},
+			    #{fanWorkTime},#{compressor1WorkTime},#{compressor2WorkTime},
+			    #{huminitierWorkTime},#{dehumidifierWorkTime},#{heater1WorkTime},
+			    #{heater2WorkTime},#{heater3WorkTime},#{heateAirWorkTime}, #{deviceGroupWorkTime},
+			    #{companyCode}
+			)
+		]]>
+	</update>
+	
+</mapper>

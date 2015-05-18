@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- AE楼 -->
+<machineroom location="ae楼" name="ae楼" id="S0">	
+	<equipment id="E21" name="1#空调" type="aircondi" />
+	<equipment id="E22" name="2#空调" type="aircondi" />
+	<equipment id="E23" name="3#空调" type="aircondi" />
+	
+	<equipment id="E11" name="1#UPS" type="no1ups" />
+	
+	<equipment id="E31" name="1#温湿度" type="temphumi" /> 
+	<equipment id="E32" name="2#温湿度" type="temphumi" /> 
+	<equipment id="E33" name="3#温湿度" type="temphumi" /> 
+	<equipment id="E34" name="4#温湿度" type="temphumi" /> 
+	<equipment id="E35" name="LH3温湿度传感器01" type="temphumi" /> 
+	<equipment id="E36" name="LH3温湿度传感器02" type="temphumi" /> 
+	
+	<equipment id="E2-D1" name="UPS房红外" type="firefight" />
+	<equipment id="E2-D2" name="预留室红外" type="firefight" />
+	<equipment id="E2-D3" name="3#红外（值班室大门）" type="firefight" />
+	<equipment id="E2-D4" name="机房北门红外" type="firefight" />
+	<equipment id="E2-D5" name="机房西门红外" type="firefight" />
+	
+	<equipment id="E41" name="漏水控制器" type="leakwater" />
+	
+	<equipment id="E1" name="开关监测模块" type="onoffm" />
+	<equipment id="E3" name="灯控制模块" type="lightctrl" />
+</machineroom>

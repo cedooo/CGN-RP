@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 01楼机房-->
+<machineroom location="01楼" name="01楼机房">	
+	<equipment id="门禁系统1" name="门禁系统1" type="accesscontrol" />
+	<equipment id="门禁系统2" name="门禁系统2" type="accesscontrol" />
+	<equipment id="门禁系统3" name="门禁系统3" type="accesscontrol" />
+	<equipment id="门禁系统4" name="门禁系统4" type="accesscontrol" />
+	<equipment id="门禁系统5" name="门禁系统5" type="accesscontrol" />
+</machineroom>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="漏水控制器" type="leakwater" >
+
+ 	<group refTab="txLeakWaterCommPerf" collect="1" type="1">
+		<node id="A13" name="漏水点位置" ref="fLeakPosition"  	collect="1" />  
+		<node id="A17" name="红绿线电阻（绳长度）" ref="fLineResistance"  	collect="1" />
+ 	</group>
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="D5" name="漏水检测" collect="1"    grState="是" />
+		<node id="D6" name="灰尘及水珠检测" collect="1"    grState="是" />
+		<node id="D7" name="漏水绳检测" collect="1"    grState="是" />
+ 	</group>
+ 	
+</equipment>

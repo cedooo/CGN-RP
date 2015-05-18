@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="配电柜" type="powerbox" >
+	<!-- table:数据库表名  , dirTable: 区分模块的设备，模块表,   fPartID:模块区分 -->
+ 	<group refTab="txRoomCommState" collect="1" type="0"> 
+		<node id="2801000" name="通讯状态"   collect="1" grState="0" /> 
+		<node id="2801108" name="主输入开关状态"   collect="1" grState="0" /> 
+		<node id="2801109" name="旁路开关状态"  collect="1" grState="0" /> 
+ 	</group>
+ 	
+ 	<group refTab="txPowerBoxCommTotalPerf" collect="1" type="1"> 
+		<node id="2801110" name="输入线电压U12" ref="fVoltageInU12"  collect="1" queryPartID="PART5"/> 
+		<node id="2801111" name="输入线电压U23" ref="fVoltageInU23"  collect="1" queryPartID="PART5"/> 
+		<node id="2801112" name="输入线电压U31" ref="fVoltageInU31"  collect="1" queryPartID="PART5"/>
+		<node id="2801001" name="频率" ref="fFrequency"  collect="1" queryPartID="PART1"/> 
+		<node id="2801002" name="中立电流" ref="fCurrency" collect="1" queryPartID="PART1"/> 
+		<node id="2801003" name="总有功功率" ref="fTotalUsedPower" collect="1" queryPartID="PART1"/> 
+		<node id="2801004" name="总视在功率" ref="fTotalViewPower" collect="1" queryPartID="PART1"/> 
+		<node id="2801005" name="总功率因数" ref="fTotalUnUsedPower" collect="1" queryPartID="PART1"/>
+		<node id="2801006" name="输出线电压U12" ref="fVoltageOutU12"   collect="1" queryPartID="PART1"/> 
+		<node id="2801007" name="输出线电压U23" ref="fVoltageOutU23"   collect="1" queryPartID="PART1"/> 
+		<node id="2801008" name="输出线电压U31" ref="fVoltageOutU31"   collect="1" queryPartID="PART1"/>
+	</group>
+	
+ 	<module refTab="txPowerBoxDirPerf" collect="1" type="2" partID="1" queryPartID="PART1">  
+		<node id="2801009" name="输出相电压U1" ref="fVoltageOut" collect="1" grState="0" /> 
+		<node id="2801012" name="输出相电流I1" ref="fCurrencyOut" collect="1" grState="0" /> 
+		<node id="2801015" name="输出有功功率P1" ref="fPowerUsedOut" collect="1" grState="0" /> 
+		<node id="2801018" name="输出视在功率P1" ref="fPowerUnUsedOut" collect="1" grState="0" /> 
+		<node id="2801021" name="功率因数Q1" ref="fPowerFactor" collect="1" grState="0" />  
+	</module>
+ 	<module refTab="txPowerBoxDirPerf" collect="1" type="2" partID="2" queryPartID="PART1"> 
+		<node id="2801010" name="输出相电压U2" ref="fVoltageOut" collect="1" grState="0" /> 
+		<node id="2801013" name="输出相电流I2" ref="fCurrencyOut" collect="1" grState="0" /> 
+		<node id="2801016" name="输出有功功率P2" ref="fPowerUsedOut" collect="1" grState="0" />
+		<node id="2801019" name="输出视在功率P2" ref="fPowerUnUsedOut" collect="1" grState="0" />  
+		<node id="2801022" name="功率因数Q2" ref="fPowerFactor" collect="1" grState="0" /> 
+	</module>
+ 	<module refTab="txPowerBoxDirPerf" collect="1" type="2" partID="3" queryPartID="PART1"> 
+		<node id="2801011" name="输出相电压U3" ref="fVoltageOut" collect="1" grState="0" /> 
+		<node id="2801014" name="输出相电流I3" ref="fCurrencyOut" collect="1" grState="0" /> 
+		<node id="2801017" name="输出有功功率P3" ref="fPowerUsedOut" collect="1" grState="0" /> 
+		<node id="2801020" name="输出视在功率P3" ref="fPowerUnUsedOut" collect="1" grState="0" /> 
+		<node id="2801023" name="功率因数Q3" ref="fPowerFactor" collect="1" grState="0" />
+	</module>
+	
+	<!-- 特殊的！ -->
+	<module partID="PART2" refTab="txPowerBoxCommBranchCurrPerf" collect="1" type="3">
+		<node id="2801024" name="分路电流I1" ref="fBranchCurrency" partID="1" type="0" collect="1" grState="0" /> 
+		<node id="2801025" name="分路电流I2" ref="fBranchCurrency" partID="2" type="0" collect="1" grState="0"/>
+		<node id="2801026" name="分路电流I3" ref="fBranchCurrency" partID="3"  type="0" collect="1" grState="0" /> 
+		<node id="2801027" name="分路电流I4" ref="fBranchCurrency" partID="4" type="0" collect="1" grState="0" /> 
+		<node id="2801028" name="分路电流I5" ref="fBranchCurrency" partID="5" collect="1" grState="0" /> 
+		<node id="2801029" name="分路电流I6" ref="fBranchCurrency"  partID="6" collect="1" grState="0" /> 
+		<node id="2801030" name="分路电流I7" ref="fBranchCurrency"  partID="7" collect="1" grState="0" /> 
+		<node id="2801031" name="分路电流I8" ref="fBranchCurrency"  partID="8" collect="1" grState="0" /> 
+		<node id="2801032" name="分路电流I9" ref="fBranchCurrency"  partID="9" collect="1" grState="0" /> 
+		<node id="2801033" name="分路电流I10" ref="fBranchCurrency"  partID="10" collect="1" grState="0" /> 
+		<node id="2801034" name="分路电流I11" ref="fBranchCurrency"  partID="11" collect="1" grState="0" /> 
+		<node id="2801035" name="分路电流I12" ref="fBranchCurrency"  partID="12" collect="1" grState="0" /> 
+		<node id="2801036" name="分路电流I13" ref="fBranchCurrency"  partID="13" collect="1" grState="0" /> 
+		<node id="2801037" name="分路电流I14" ref="fBranchCurrency"  partID="14" collect="1" grState="0" /> 
+		<node id="2801038" name="分路电流I15" ref="fBranchCurrency"  partID="15" collect="1" grState="0" /> 
+		<node id="2801039" name="分路电流I16" ref="fBranchCurrency"  partID="16" collect="1" grState="0" /> 
+		<node id="2801040" name="分路电流I17" ref="fBranchCurrency"  partID="17" collect="1" grState="0" /> 
+		<node id="2801041" name="分路电流I18" ref="fBranchCurrency"  partID="18" collect="1" grState="0" /> 
+		<node id="2801042" name="分路电流I19" ref="fBranchCurrency"  partID="19" collect="1" grState="0" /> 
+		<node id="2801043" name="分路电流I20" ref="fBranchCurrency"  partID="20" collect="1" grState="0" /> 
+		<node id="2801044" name="分路电流I21" ref="fBranchCurrency"  partID="21" collect="1" grState="0" /> 
+		<node id="2801045" name="分路电流I22" ref="fBranchCurrency"  partID="22" collect="1" grState="0" /> 
+		<node id="2801046" name="分路电流I23" ref="fBranchCurrency"  partID="23" collect="1" grState="0" />
+	</module> 
+	<module partID="PART3" refTab="txPowerBoxCommBranchCurrPerf" collect="1" type="3">
+		<node id="2801047" name="分路电流I24" ref="fBranchCurrency"  partID="24" collect="1" grState="0" /> 
+		<node id="2801048" name="分路电流I25" ref="fBranchCurrency"  partID="25" collect="1" grState="0" /> 
+		<node id="2801049" name="分路电流I26" ref="fBranchCurrency"  partID="26" collect="1" grState="0" /> 
+		<node id="2801050" name="分路电流I27" ref="fBranchCurrency"  partID="27" collect="1" grState="0" /> 
+		<node id="2801051" name="分路电流I28" ref="fBranchCurrency"  partID="28" collect="1" grState="0" /> 
+		<node id="2801052" name="分路电流I29" ref="fBranchCurrency"  partID="29" collect="1" grState="0" /> 
+		<node id="2801053" name="分路电流I30" ref="fBranchCurrency"  partID="30" collect="1" grState="0" /> 
+		<node id="2801054" name="分路电流I31" ref="fBranchCurrency"  partID="31" collect="1" grState="0" /> 
+		<node id="2801055" name="分路电流I32" ref="fBranchCurrency"  partID="32" collect="1" grState="0" /> 
+		<node id="2801056" name="分路电流I33" ref="fBranchCurrency"  partID="33" collect="1" grState="0" /> 
+		<node id="2801057" name="分路电流I34" ref="fBranchCurrency"  partID="34" collect="1" grState="0" /> 
+		<node id="2801058" name="分路电流I35" ref="fBranchCurrency"  partID="35" collect="1" grState="0" /> 
+		<node id="2801059" name="分路电流I36" ref="fBranchCurrency"  partID="36" collect="1" grState="0" /> 
+		<node id="2801060" name="分路电流I37" ref="fBranchCurrency"  partID="37" collect="1" grState="0" /> 
+		<node id="2801061" name="分路电流I38" ref="fBranchCurrency"  partID="38" collect="1" grState="0" /> 
+		<node id="2801062" name="分路电流I39" ref="fBranchCurrency"  partID="39" collect="1" grState="0" /> 
+		<node id="2801063" name="分路电流I40" ref="fBranchCurrency"  partID="40" collect="1" grState="0" /> 
+		<node id="2801064" name="分路电流I41" ref="fBranchCurrency"  partID="41" collect="1" grState="0" /> 
+		<node id="2801065" name="分路电流I42" ref="fBranchCurrency"  partID="42" collect="1" grState="0" /> 
+		<node id="2801066" name="分路电流I43" ref="fBranchCurrency"  partID="43" collect="1" grState="0" /> 
+		<node id="2801067" name="分路电流I44" ref="fBranchCurrency"  partID="44" collect="1" grState="0" /> 
+		<node id="2801068" name="分路电流I45" ref="fBranchCurrency"  partID="45" collect="1" grState="0" /> 
+		<node id="2801069" name="分路电流I46" ref="fBranchCurrency"  partID="46" collect="1" grState="0" />
+	</module> 
+	<module partID="PART4" refTab="txPowerBoxCommBranchCurrPerf" collect="1" type="3">
+		<node id="2801070" name="分路电流I47" ref="fBranchCurrency"  partID="47" collect="1" grState="0" /> 
+		<node id="2801071" name="分路电流I48" ref="fBranchCurrency"  partID="48" collect="1" grState="0" /> 
+		<node id="2801072" name="分路电流I49" ref="fBranchCurrency"  partID="49" collect="1" grState="0" /> 
+		<node id="2801073" name="分路电流I50" ref="fBranchCurrency"  partID="50" collect="1" grState="0" /> 
+		<node id="2801074" name="分路电流I51" ref="fBranchCurrency"  partID="51" collect="1" grState="0" /> 
+		<node id="2801075" name="分路电流I52" ref="fBranchCurrency"  partID="52" collect="1" grState="0" /> 
+		<node id="2801076" name="分路电流I53" ref="fBranchCurrency"  partID="53" collect="1" grState="0" /> 
+		<node id="2801077" name="分路电流I54" ref="fBranchCurrency"  partID="54" collect="1" grState="0" /> 
+		<node id="2801078" name="分路电流I55" ref="fBranchCurrency"  partID="55" collect="1" grState="0" /> 
+		<node id="2801079" name="分路电流I56" ref="fBranchCurrency"  partID="56" collect="1" grState="0" /> 
+		<node id="2801080" name="分路电流I57" ref="fBranchCurrency"  partID="57" collect="1" grState="0" /> 
+		<node id="2801081" name="分路电流I58" ref="fBranchCurrency"  partID="58" collect="1" grState="0" /> 
+		<node id="2801082" name="分路电流I59" ref="fBranchCurrency"  partID="59" collect="1" grState="0" /> 
+		<node id="2801083" name="分路电流I60" ref="fBranchCurrency"  partID="60" collect="1" grState="0" /> 
+		<node id="2801084" name="分路电流I61" ref="fBranchCurrency"  partID="61" collect="1" grState="0" /> 
+		<node id="2801085" name="分路电流I62" ref="fBranchCurrency"  partID="62" collect="1" grState="0" /> 
+		<node id="2801086" name="分路电流I63" ref="fBranchCurrency"  partID="63" collect="1" grState="0" /> 
+		<node id="2801087" name="分路电流I64" ref="fBranchCurrency"  partID="64" collect="1" grState="0" /> 
+		<node id="2801088" name="分路电流I65" ref="fBranchCurrency"  partID="65" collect="1" grState="0" /> 
+		<node id="2801089" name="分路电流I66" ref="fBranchCurrency"  partID="66" collect="1" grState="0" /> 
+		<node id="2801090" name="分路电流I67" ref="fBranchCurrency"  partID="67" collect="1" grState="0" /> 
+		<node id="2801091" name="分路电流I68" ref="fBranchCurrency"  partID="68" collect="1" grState="0" /> 
+		<node id="2801092" name="分路电流I69" ref="fBranchCurrency"  partID="69" collect="1" grState="0" />
+	</module> 
+	<module partID="PART5" refTab="txPowerBoxCommBranchCurrPerf" collect="1" type="3">
+		<node id="2801093" name="分路电流I70" ref="fBranchCurrency"  partID="70" collect="1" grState="0" /> 
+		<node id="2801094" name="分路电流I71" ref="fBranchCurrency"  partID="71" collect="1" grState="0" /> 
+		<node id="2801095" name="分路电流I72" ref="fBranchCurrency"  partID="72" collect="1" grState="0" /> 
+		<node id="2801096" name="分路电流I73" ref="fBranchCurrency"  partID="73" collect="1" grState="0" /> 
+		<node id="2801097" name="分路电流I74" ref="fBranchCurrency"  partID="74" collect="1" grState="0" /> 
+		<node id="2801098" name="分路电流I75" ref="fBranchCurrency"  partID="75" collect="1" grState="0" /> 
+		<node id="2801099" name="分路电流I76" ref="fBranchCurrency"  partID="76" collect="1" grState="0" /> 
+		<node id="2801100" name="分路电流I77" ref="fBranchCurrency"  partID="77" collect="1" grState="0" /> 
+		<node id="2801101" name="分路电流I78" ref="fBranchCurrency"  partID="78" collect="1" grState="0" /> 
+		<node id="2801102" name="分路电流I79" ref="fBranchCurrency"  partID="79" collect="1" grState="0" /> 
+		<node id="2801103" name="分路电流I80" ref="fBranchCurrency"  partID="80" collect="1" grState="0" /> 
+		<node id="2801104" name="分路电流I81" ref="fBranchCurrency"  partID="81" collect="1" grState="0" /> 
+		<node id="2801105" name="分路电流I82" ref="fBranchCurrency"  partID="82" collect="1" grState="0" /> 
+		<node id="2801106" name="分路电流I83" ref="fBranchCurrency"  partID="83" collect="1" grState="0" /> 
+		<node id="2801107" name="分路电流I84" ref="fBranchCurrency"  partID="84" collect="1" grState="0" /> 
+	</module> 
+</equipment>

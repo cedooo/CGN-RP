@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="电量仪" type="elemeter" >
+ 	<!-- ref: 映射别名 type: 0.状态型 1，数值型 collect: 0.不采集 1，采集   -->
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="2801000" name="通讯状态" collect="1" grState="0" />  
+ 	</group>
+ 	<group refTab="txPowerBoxCommTotalPerf" collect="1" type="1">   
+		<node id="2801001" name="实际用电量" ref="fPowerUsed" 	collect="1"  />  
+		<node id="2801002" name="总有功功率" ref="fTotalUsedPower" 	collect="1"  />  
+		<node id="2801003" name="总视在功率" ref="fTotalViewPower" 	collect="1"  />  
+		<node id="2801004" name="总无功功率" ref="fTotalUnUsedPower" collect="1"  />  
+		<node id="2801005" name="功率因数" ref="fTotalPowerRate" 	collect="1"  />  
+		<node id="2801006" name="频率" ref="fFrequency" collect="1"  />  
+		<node id="2801010" name="AB相线电压" ref="fVoltageOutU12"  collect="1"  />  
+		<node id="2801011" name="BC相线电压" ref="fVoltageOutU23" 	collect="1"  /> 
+		<node id="2801012" name="CA相线电压" ref="fVoltageOutU31"	collect="1"  />   
+	</group>
+	
+	
+ 	<module refTab="txPowerBoxDirPerf" partID="A" collect="1" type="2"> 
+		<node id="2801007" name="A相电流" ref="fCurrencyOut" collect="1"  />  
+		<node id="2801013" name="A相线电压" ref="fVoltageOut" 	collect="1" />  
+ 	</module>
+ 	<module refTab="txPowerBoxDirPerf" partID="B" collect="1" type="2"> 
+		<node id="2801008" name="B相电流" ref="fCurrencyOut"  collect="1"  />  
+		<node id="2801014" name="B相线电压" ref="fVoltageOut"  collect="1"  />  
+ 	</module>
+ 	<module refTab="txPowerBoxDirPerf" partID="C" collect="1" type="2"> 
+		<node id="2801009" name="C相电流" ref="fCurrencyOut" collect="1"  /> 
+		<node id="2801015" name="C相线电压" ref="fVoltageOut" collect="1"  />   
+ 	</module>
+</equipment>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="UPS" type="simpleups" >
+ 	<!-- ref: 映射别名 type: 0.状态型 1，数值型 collect: 0.不采集 1，采集   -->
+ 	
+ 	<group refTab="txUpsCommPerf" collect="1" type="1">
+		<node id="A1" name="输入电压" ref="fVoltageIn"  	collect="1"    />  
+		<node id="A2" name="输出电压" ref="fVoltageOut"  	collect="1"    />
+		<node id="A3" name="输出电流" ref="fCurrentOut"  	collect="1"    /> 
+		<node id="A4" name="电池电压" ref="fBatteryVoltage"  	collect="1"    />
+		<node id="A5" name="输出频率" ref="fFrequencyOut"  	collect="1"    />  
+		<node id="A6" name="电池剩余时间" ref="fBatteryBakTime"  	collect="1"    />
+ 	</group>
+ 	
+ 	<group refTab="txRoomCommState" collect="1" type="0" >
+		<node id="D1" name="系统状态" collect="1"  grState="0" /> 
+	</group>
+	
+</equipment>

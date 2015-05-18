@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<subsystem name="龙控温湿度子系统" type="caiwutemphumisubsys">
+ 	<equipment id="1101" name="温湿度1" type="lktemphumi" />
+ 	<equipment id="1102" name="温湿度2" type="lktemphumi" />
+ 	
+ 	<equipment-def name="温湿度" type="lktemphumi" >
+	 	<group refTab="txRoomCommState" collect="1" type="0">
+			<node id="000"  name="温湿度通讯状态"  collect="1" grState="0" />
+			<node id="003"  name="温湿度指示灯"  collect="1" grState="0" />
+		</group>
+	 	<group refTab="txTemHumCommPerf" collect="1" type="1">
+			<node id="001"  name="温度" ref="fTemperature" collect="1" />
+			<node id="002"  name="湿度" ref="fHuminity" collect="1" />
+		</group>
+	</equipment-def>
+</subsystem>

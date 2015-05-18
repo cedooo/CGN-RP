@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="空调" type="aircondi" >
+ 	<!-- ref: 映射别名             type: 0.状态型, 1，数值型 , 2.模块 , 3. 配置                         collect: 0.不采集 1，采集   -->
+ 	
+ 	<group refTab="txAirConditionCommThPerf" collect="1" type="1"> 
+		<node id="A1" name="回风温度" ref="fTemperatureBak"  collect="1"  />  
+		<node id="A2" name="回风湿度" ref="fHuminityBak"  collect="1"  />  
+ 	</group>
+ 	
+ 	<group refTab="txAirConditiomCommWorkTimePerf" collect="1" type="1">
+		<node id="A7" name="机组运行时间" ref="fDeviceGroupWorkTime"  collect="1"   />
+		<node id="A8" name="加湿器运行时间" ref="fHuminitierWorkTime"  collect="1"   />
+		<node id="A9" name="电加热运行时间" ref="fHeater1WorkTime"  collect="1"   />
+		<node id="A10" name="压缩机1运行时间" ref="fCompressor1WorkTime"  collect="1"   />
+		<node id="A11" name="压缩机2运行时间" ref="fCompressor2WorkTime"  collect="1"   />
+		<node id="A12" name="风机运行时间" ref="fFanWorkTime"  collect="1"    />
+ 	</group>
+
+	<group refTab="txAirConditionCommConf" collect="1" type="1">
+		<node id="A3" name="回风温度过高报警设定值" ref="fTemperatureUp" collect="1" />
+		<node id="A4" name="回风温度过低报警设定值" ref="fTemperatureDown" collect="1" />
+		<node id="A5" name="回风湿度过高报警设定值" ref="fHuminityUp" collect="1" />
+		<node id="A6" name="回风湿度过低报警设定值" ref="fHuminityDown" collect="1" />
+	</group>
+	
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="D1" name="气流故障报警"  collect="1"    grState="正常" />
+		<node id="D2" name="回风温度过高报警" collect="1"    grState="正常" />
+		<node id="D3" name="回风湿度过高报警"    collect="1"   grState="正常" />
+		<node id="D4" name="水温越界报警"   collect="1"   grState="正常" />
+		<node id="D5" name="回风温度过低报警"   collect="1"   grState="正常" />
+		<node id="D6" name="回风湿度过低报警"   collect="1"   grState="正常" />
+		<node id="D7" name="压缩机1运行状态" collect="1"   grState="正常" />
+		<node id="D8" name="压缩机1高压报警"  collect="1"   grState="正常" />
+		<node id="D9" name="压缩机1低压报警"  collect="1"   grState="正常" />
+		<node id="D10" name="压缩机2运行状态"  collect="1"   grState="正常" />
+		<node id="D11" name="压缩机2高压报警" collect="1"   grState="正常" />
+		<node id="D12" name="压缩机2低压报警"  collect="1"    grState="正常" />
+		<node id="D13" name="电加热1故障报警"  collect="1"   grState="正常" />
+		<node id="D14" name="电加热1运行状态"   collect="1"   grState="正常" />
+		<node id="D15" name="电加热2故障报警"   collect="1"   grState="正常" />
+		<node id="D16" name="电加热2运行状态"  collect="1"   grState="正常" />
+		<node id="D17" name="除湿器运行状态"  collect="1"   grState="正常" />
+		<node id="D18" name="加湿器运行状态"   collect="1"   grState="正常" />
+		<node id="D19" name="加湿器故障报警"   collect="1"   grState="正常" />
+		<node id="D20" name="风机运行状态"  collect="1"   grState="正常" />
+		<node id="D21" name="滤网过脏报警"   collect="1"   grState="正常" />
+		<node id="D22" name="漏水监测"  collect="1"    grState="正常" />
+	</group>
+ 
+</equipment>

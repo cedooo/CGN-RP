@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.realtimedata">
+	<!-- 共济实时数据 数据库临时操作 -->
+	<update id="update_insert_gj_data" parameterType="cn.com.dhcc.rp.connection.gj.GJData">  
+		<![CDATA[
+	   		UPDATE T_GJ_REAL_DATA
+	   		SET   VC_GJ_VAL = #{value}, VC_REFRESH_TIME = #{collectTime}
+	   		WHERE VC_GJ_KEY = #{key} AND VC_GJ_CD = #{cd}
+
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO T_GJ_REAL_DATA (
+				VC_GJ_KEY, VC_GJ_VAL, VC_GJ_CD, VC_REFRESH_TIME
+			)
+			VALUES(
+				#{key}, #{value}, #{cd}, #{collectTime}
+			)
+		]]>
+	</update>
+	<resultMap type="cn.com.dhcc.rp.connection.gj.GJData" id="GJDataMap">
+		<result column="VC_GJ_KEY" property="key"/>
+		<result column="VC_GJ_VAL" property="value"/>
+		<result column="VC_GJ_CD" property="cd"/>
+		<result column="VC_REFRESH_TIME" property="collectTime"/>
+	</resultMap>
+	<select id="select_gj_data_with_company_code" parameterType="String" resultMap="GJDataMap">
+		SELECT VC_GJ_KEY
+	      ,VC_GJ_VAL
+	      ,VC_GJ_CD
+	      ,VC_REFRESH_TIME
+	  FROM T_GJ_REAL_DATA
+	  WHERE VC_GJ_CD = #{code}
+	</select>
+	
+	<!-- 龙控实时数据 数据库临时操作 -->
+	<update id="update_insert_lk_data" parameterType="cn.com.dhcc.rp.connection.gj.GJData">  
+		<![CDATA[
+	   		UPDATE T_LK_REAL_DATA
+	   		SET VC_LK_TYPE = #{type}
+			      ,VC_LK_AGENT = #{agent}
+			      ,VC_LK_V = #{v}
+			      ,VC_LK_T = #{t}
+			      ,VC_LK_E = #{e}
+			      ,VC_LK_C = #{c}
+			      ,VC_LK_M = #{m}
+			      ,VC_LK_EV = #{ev}
+			      ,VC_LK_CLAS = #{clas}
+			      ,VC_LK_Z = #{z}
+			      ,VC_LK_ALARM = #{alarm}
+			      ,VC_LK_U = #{u}
+			      ,VC_REFRESH_TIME = #{collectTime}
+	   		WHERE VC_LK_D = #{d} AND VC_LK_ID = #{id} AND VC_LK_CD = #{cd}
+
+	   		IF @@ROWCOUNT = 0
+	   		
+	   		INSERT INTO T_LK_REAL_DATA (
+				VC_LK_TYPE
+		      ,VC_LK_AGENT
+		      ,VC_LK_D
+		      ,VC_LK_ID
+		      ,VC_LK_V
+		      ,VC_LK_T
+		      ,VC_LK_E
+		      ,VC_LK_C
+		      ,VC_LK_M
+		      ,VC_LK_EV
+		      ,VC_LK_CLAS
+		      ,VC_LK_Z
+		      ,VC_LK_ALARM
+		      ,VC_LK_U
+		      ,VC_LK_CD
+		      ,VC_REFRESH_TIME
+			)
+			VALUES(
+				 #{type}
+			      ,#{agent}
+			      ,#{d}
+			      ,#{id}
+			      ,#{v}
+			      ,#{t}
+			      ,#{e}
+			      ,#{c}
+			      ,#{m}
+			      ,#{ev}
+			      ,#{clas}
+			      ,#{z}
+			      ,#{alarm}
+			      ,#{u}
+			      ,#{cd}
+			      ,#{collectTime}
+			)
+		]]>
+	</update>
+	<resultMap type="cn.com.dhcc.rp.connection.lk.LKData" id="LKDataMap">
+	      <result column="VC_LK_TYPE" property="type"/>
+	      <result column="VC_LK_AGENT" property="agent"/>
+	      <result column="VC_LK_D" property="d"/>
+	      <result column="VC_LK_ID" property="id"/>
+	      <result column="VC_LK_V" property="v"/>
+	      <result column="VC_LK_T" property="t"/>
+	      <result column="VC_LK_E" property="e"/>
+	      <result column="VC_LK_C" property="c"/>
+	      <result column="VC_LK_M" property="m"/>
+	      <result column="VC_LK_EV" property="ev"/>
+	      <result column="VC_LK_CLAS" property="clas"/>
+	      <result column="VC_LK_Z" property="z"/>
+	      <result column="VC_LK_ALARM" property="alarm"/>
+	      <result column="VC_LK_U" property="u"/>
+	      <result column="VC_LK_CD" property="cd"/>
+	      <result column="VC_REFRESH_TIME" property="collectTime"/>
+	      
+	</resultMap>
+	<select id="select_lk_data_with_company_code" parameterType="String" resultMap="LKDataMap">
+		SELECT VC_LK_TYPE
+	      ,VC_LK_AGENT
+	      ,VC_LK_D
+	      ,VC_LK_ID
+	      ,VC_LK_V
+	      ,VC_LK_T
+	      ,VC_LK_E
+	      ,VC_LK_C
+	      ,VC_LK_M
+	      ,VC_LK_EV
+	      ,VC_LK_CLAS
+	      ,VC_LK_Z
+	      ,VC_LK_ALARM
+	      ,VC_LK_U
+	      ,VC_LK_CD
+	      ,VC_REFRESH_TIME
+ 		 FROM T_LK_REAL_DATA
+	  WHERE VC_LK_CD = #{code}
+	</select>
+</mapper>

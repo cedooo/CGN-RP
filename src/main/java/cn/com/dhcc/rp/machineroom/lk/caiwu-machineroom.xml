@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 财务公司机房 -->
+<machineroom location="财务公司" name="财务公司机房">
+	<equipment id="UPS1" name="UPS1" type="caiwuups1" />
+	<equipment id="UPS2" name="UPS2" type="caiwuups2" />	
+	 
+	<equipment id="机房空调1" name="机房空调1" type="caiwuaircondi" />
+	<equipment id="机房空调2" name="机房空调2" type="caiwuaircondi" />
+	<equipment id="空调3（档案室）" name="空调3（档案室）" type="caiwuaircondi" />
+	
+	<equipment id="配电开关状态" name="开关量" type="caiwuonoff" />
+	
+	<subsystem id="温湿度监测" name="龙控温湿度子系统" type="caiwutemphumisubsys" />
+	<subsystem id="配电开关状态" name="龙控财务漏水" type="caiwuleakagesubsys" />
+</machineroom>

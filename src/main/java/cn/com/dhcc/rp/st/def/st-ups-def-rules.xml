@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE digester-rules PUBLIC
+  "-//Apache Commons //DTD digester-rules XML V1.0//EN"
+  "http://commons.apache.org/digester/dtds/digester-rules-3.0.dtd">
+
+<digester-rules>  
+    <object-create-rule pattern="stups" classname="cn.com.dhcc.rp.st.def.StUpsDef" />  
+    <pattern value="stups/node">  
+        <object-create-rule classname="cn.com.dhcc.rp.st.def.StUpsNodeDef" />  
+        <pattern value="attr">    
+        	<object-create-rule classname="cn.com.dhcc.rp.st.def.StUpsNodeAttrDef" />  
+        	<bean-property-setter-rule pattern="name" propertyname="name" /> 
+        	<bean-property-setter-rule pattern="collect" propertyname="collect" />
+        	<set-next-rule methodname="addAttr" /> 
+	    </pattern> 
+	    <set-properties-rule> 
+	       	<alias attr-name="id" prop-name="id" />   
+	       	<alias attr-name="name" prop-name="name" />  
+	       	<alias attr-name="ref" prop-name="ref" />  
+	       	<alias attr-name="type" prop-name="type" />   
+	       	<alias attr-name="collect" prop-name="collect" /> 
+	       	<alias attr-name="grState" prop-name="grState" />   
+	   	</set-properties-rule>
+        <set-next-rule methodname="addNode" />    
+    </pattern>    
+</digester-rules>  

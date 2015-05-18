@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<subsystem name="门禁" type="lkdoorsubsys">
+	
+	<equipment id="1302001" name="门1" type="lk11door" />
+	<equipment id="1301001" name="广播间门" type="lk11door" />
+	<equipment id="1303002" name="门6" type="lk11door" />
+	<equipment id="1302003" name="门3" type="lk11door" />
+	<equipment id="1302002" name="门2" type="lk11door" />
+	<equipment id="1302004" name="门4" type="lk11door" />
+	<equipment id="1302005" name="门13" type="lk11door" />
+	<equipment id="1302006" name="门14" type="lk11door" />
+	<equipment id="1302007" name="UPS门" type="lk11door" />
+	<equipment id="1303008" name="门12" type="lk11door" />
+	<equipment id="1303007" name="门11" type="lk11door" />
+	<equipment id="1303006" name="门10" type="lk11door" />
+	<equipment id="1303005" name="门9" type="lk11door" />
+	<equipment id="1303004" name="门8" type="lk11door" />
+	<equipment id="1303003" name="门7" type="lk11door" />
+	<equipment id="1303001" name="门5" type="lk11door" />
+	
+	<equipment-def name="门禁开关量" type="lk11door">
+	 	<group refTab="txRoomCommState" collect="1" type="0">
+			<node name="开关状态"  collect="1" />
+		</group>
+	</equipment-def>
+	
+</subsystem>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data
+	xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd"
+	version="2.0">
+	<schedule>
+	<!-- 四通采集 -->
+		<job>
+			<name>st_collector</name>
+			<group>st_jobs</group>
+			<description>四通采集[大亚湾区域机房 UPS]</description>
+			<job-class>cn.com.dhcc.rp.job.collect.impl.STCollectJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>
+					<key>code</key>
+					<value>ST</value>
+				</entry>
+			</job-data-map>
+		</job>
+		<trigger>
+			<cron>
+				<name>st_trigger</name>
+				<group>ST_TRI</group>
+				<job-name>st_collector</job-name>
+				<job-group>st_jobs</job-group>
+				<priority>5</priority>
+				<cron-expression>5 0/5 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		<!--龙控采集 1 -->
+		<job>
+			<name>lk_collector_1</name>
+			<group>lk_jobs</group>
+			<description>龙控 采集任务-1[01楼机房1]</description>
+			<job-class>cn.com.dhcc.rp.job.collect.impl.CommCollectJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>    <!-- 设备-->
+					<key>equipment</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/equipment/equipment-def-rules.xml:cn/com/dhcc/rp/machineroom/networkele/def/lk/zero11/emerson-ups-def.xml,
+								cn/com/dhcc/rp/machineroom/networkele/def/lk/zero11/ele-meter-def.xml,
+								cn/com/dhcc/rp/machineroom/networkele/def/lk/zero11/ups-temp-humi-def.xml
+					</value>
+				</entry>
+				<entry>    <!-- 子系统-->
+					<key>sub_system</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/subsystem/subsystem-def-rules.xml:cn/com/dhcc/rp/machineroom/networkele/def/lk/zero11/temp-humi-sub-system.xml,
+								 cn/com/dhcc/rp/machineroom/networkele/def/lk/zero11/door-sub-system.xml
+					</value>
+				</entry>
+				<entry>    <!-- 机房设备解析规则 -->
+					<key>machineroom_rules_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/machineroom-rules.xml</value>
+				</entry>
+				<entry>    <!-- 机房设备 -->
+					<key>machineroom_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/lk/011-machineroom.xml</value>
+				</entry>
+				<entry>
+					<key>code</key>    <!-- 公司&任务 编码 -->
+					<value>LK_1</value>
+				</entry>
+				<entry>
+					<key>client_class</key>
+					<value>cn.com.dhcc.rp.client.lk.LKClientDataInDB</value>
+				</entry>
+			</job-data-map>
+		</job>
+		<trigger>
+			<cron>
+				<name>lk_trigger_1</name>
+				<group>LK_TRI</group>
+				<job-name>lk_collector_1</job-name>
+				<job-group>lk_jobs</job-group>
+				<priority>5</priority>
+				<cron-expression>15 0/2 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		
+		<!--龙控采集 2 -->
+		<job>
+			<name>lk_collector_2</name>
+			<group>lk_jobs</group>
+			<description>龙控采集任务-2[01楼机房2]</description>
+			<job-class>cn.com.dhcc.rp.job.collect.impl.CommCollectJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>    <!-- 设备定义解析规则 -->
+					<key>equipment</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/equipment/equipment-def-rules.xml:cn/com/dhcc/rp/machineroom/networkele/def/lk/zero12/airconditioning-def.xml,
+										cn/com/dhcc/rp/machineroom/networkele/def/lk/zero12/powerbox-def.xml,
+										cn/com/dhcc/rp/machineroom/networkele/def/lk/zero12/main-leakage-def.xml,
+										cn/com/dhcc/rp/machineroom/networkele/def/lk/zero12/brcast-leakage-def.xml
+					</value>
+				</entry>
+				<entry>    <!-- 机房设备解析规则 -->
+					<key>machineroom_rules_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/machineroom-rules.xml</value>
+				</entry>
+				<entry>    <!-- 机房设备 -->
+					<key>machineroom_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/lk/012-machineroom.xml</value>
+				</entry>
+				<entry>
+					<key>code</key>    <!-- 公司&任务 编码 -->
+					<value>LK_2</value>
+				</entry>
+				<entry>
+					<key>client_class</key>
+					<value>cn.com.dhcc.rp.client.lk.LKClientDataInDB</value>
+					<!-- <value>cn.com.dhcc.rp.client.lk.LKClient</value> -->
+					<!-- <value>cn.com.dhcc.rp.client.lk.LKClientDataInDB</value> -->
+				</entry>
+			</job-data-map>
+
+		</job>
+		<trigger>
+			<cron>
+				<name>lk_trigger_2</name>
+				<group>LK_TRI</group>
+				<job-name>lk_collector_2</job-name>
+				<job-group>lk_jobs</job-group>
+				<priority>5</priority>
+				<cron-expression>30 0/2 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		<!--龙控采集 3 -->
+		<job>
+			<name>lk_collector_3</name>
+			<group>lk_jobs</group>
+			<description>龙控采集任务-3[中广核财务公司]</description>
+			<job-class>cn.com.dhcc.rp.job.collect.impl.CommCollectJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>    <!-- 设备定义解析规则 -->
+					<key>equipment</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/equipment/equipment-def-rules.xml:
+							cn/com/dhcc/rp/machineroom/networkele/def/lk/caiwu/airconditioning-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/lk/caiwu/ups-1-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/lk/caiwu/ups-2-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/lk/caiwu/on-off-def.xml
+					</value>
+				</entry>
+				
+				<entry>    <!-- 子系统-->
+					<key>sub_system</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/subsystem/subsystem-def-rules.xml:cn/com/dhcc/rp/machineroom/networkele/def/lk/caiwu/sub-temp-humi-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/lk/caiwu/sub-leakage-def.xml
+					</value>
+				</entry>
+				<entry>    <!-- 机房解析规则 -->
+					<key>machineroom_rules_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/machineroom-rules.xml</value>
+				</entry>
+				<entry>    <!-- 机房 -->
+					<key>machineroom_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/lk/caiwu-machineroom.xml</value>
+				</entry>
+				<entry>
+					<key>code</key>    <!-- 公司&任务 编码 -->
+					<value>LK_3</value>
+				</entry>
+				<entry>
+					<key>client_class</key>
+					<value>cn.com.dhcc.rp.client.lk.LKClientDataInDB</value>
+				</entry>
+			</job-data-map>
+
+		</job>
+		<trigger>
+			<cron>
+				<name>lk_trigger_3</name>
+				<group>LK_TRI</group>
+				<job-name>lk_collector_3</job-name>
+				<job-group>lk_jobs</job-group>
+				<priority>5</priority>
+				<cron-expression>0 1/2 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		
+		<!--共济采集 1 -->
+		<job>
+			<name>gj_collector_1</name>
+			<group>gj_jobs</group>
+			<description>共济采集任务-1[科技大厦23楼]</description>
+			<job-class>cn.com.dhcc.rp.job.collect.impl.CommCollectJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>    <!-- 设备定义解析规则 -->
+					<key>equipment</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/equipment/equipment-def-rules.xml:cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/ups-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/ups-2-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/ele-meter-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/ele-meter-1-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/ele-meter-2-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/temp-humi-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/airconditioning-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/airconditioning-2-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/leakage-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/airconditioning-simple-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/door-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/dc23/ap-on-off-def.xml
+					</value>
+				</entry>
+				<entry>    <!-- 机房设备解析规则 -->
+					<key>machineroom_rules_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/machineroom-rules.xml</value>
+				</entry>
+				<entry>    <!-- 机房设备 -->
+					<key>machineroom_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/gj/23-machineroom.xml</value>
+				</entry>
+				<entry>
+					<key>code</key>    <!-- 公司&任务 编码 -->
+					<value>GJ_1</value>
+				</entry>
+				<entry>
+					<key>client_class</key>
+					<value>cn.com.dhcc.rp.client.gj.GJClientDataInDB</value>
+				</entry>
+			</job-data-map>
+
+		</job>
+		<trigger>
+			<cron>
+				<name>gj_trigger_1</name>
+				<group>GJ_TRI</group>
+				<job-name>gj_collector_1</job-name>
+				<job-group>gj_jobs</job-group>
+				<priority>5</priority>
+				<cron-expression>15 1/2 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		<!--共济采集 2 -->
+		<job>
+			<name>gj_collector_2</name>
+			<group>gj_jobs</group>
+			<description>共济采集任务-2[AE楼]</description>
+			<job-class>cn.com.dhcc.rp.job.collect.impl.CommCollectJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>    <!-- 设备定义解析规则 -->
+					<key>equipment</key>
+					<value>
+						cn/com/dhcc/rp/machineroom/networkele/equipment/equipment-def-rules.xml:cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/airconditioning-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/ups-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/temp-humi-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/fire-fight-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/leak-water-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/light-ctrl-def.xml,
+							cn/com/dhcc/rp/machineroom/networkele/def/gj/ae/on-off-def.xml
+					</value>
+				</entry>
+				<entry>    <!-- 机房设备解析规则 -->
+					<key>machineroom_rules_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/machineroom-rules.xml</value>
+				</entry>
+				<entry>    <!-- 机房设备 -->
+					<key>machineroom_xml</key>
+					<value>cn/com/dhcc/rp/machineroom/gj/ae-machineroom.xml</value>
+				</entry>
+				<entry>
+					<key>code</key>    <!-- 公司&任务 编码 -->
+					<value>GJ_2</value>
+				</entry>
+				<entry>
+					<key>client_class</key>
+					<value>cn.com.dhcc.rp.client.gj.GJClientDataInDB</value>
+				</entry>
+			</job-data-map>
+
+		</job>
+		<trigger>
+			<cron>
+				<name>gj_trigger_2</name>
+				<group>GJ_TRI</group>
+				<job-name>gj_collector_2</job-name>
+				<job-group>gj_jobs</job-group>
+				<priority>5</priority>
+				<cron-expression>30 1/2 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		<!--其它任务 pue计算 -->
+		<job>
+			<name>post_processed_pue</name>
+			<group>POST</group>
+			<description>后续任务处理(PUE计算)</description>
+			<job-class>cn.com.dhcc.rp.job.further.impl.ComputePUEJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+			<job-data-map>
+				<entry>
+					<key>pueID</key>
+					<value>GJ_1_PUE</value>
+				</entry>
+			</job-data-map>
+		</job>
+		<trigger>
+			<cron>
+				<name>post_trigger_pue</name>
+				<group>POST_TRI</group>
+				<job-name>post_processed_pue</job-name>
+				<job-group>POST</job-group>
+				<priority>5</priority>
+				<cron-expression>55 1/2 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		<!--其它任务 删除未读告警 -->
+		<job>
+			<name>post_processed_deleEvents</name>
+			<group>POST</group>
+			<description>后续任务处理(删除事件告警中超过一定时间未读的告警事件)</description>
+			<job-class>cn.com.dhcc.rp.job.further.impl.ClearUnreadEventsJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>
+		</job>
+		<trigger>
+			<cron>
+				<name>post_trigger_deleEvents</name>
+				<group>POST_TRI</group>
+				<job-name>post_processed_deleEvents</job-name>
+				<job-group>POST</job-group>
+				<priority>5</priority>
+				<cron-expression>0 0 23 * * ?</cron-expression>
+			</cron>
+		</trigger>
+		<!--其它任务 删除过期的数据,deprecatedTime: 过期时间(ms) -->
+	<!-- 	<job>
+			<name>post_processed_deleDeprecatedData</name>
+			<group>POST</group>
+			<description>后续任务处理(删除过期的数据)</description>
+			<job-class>cn.com.dhcc.rp.job.further.impl.ClearDeprecatedDataJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>	
+			<job-data-map>
+				<entry>
+					<key>deprecatedTime</key>  
+					<value>120000</value>
+				</entry>
+			</job-data-map>
+		</job>
+		<trigger>
+			<cron>
+				<name>post_trigger_deleDeprecatedData</name>
+				<group>POST_TRI</group>
+				<job-name>post_processed_deleDeprecatedData</job-name>
+				<job-group>POST</job-group>
+				<priority>5</priority>
+				<cron-expression>10 0/2 * * * ?</cron-expression>
+			</cron>
+		</trigger> -->
+		<!--其它任务 临时数据表大小检查,maxRecords: 最大记录数量 -->
+		<job>
+			<name>post_processed_checkTempDataSize</name>
+			<group>POST</group>
+			<description>后续任务处理(检查临时表大小,如果超过大小,清空临时表)</description>
+			<job-class>cn.com.dhcc.rp.job.further.impl.CheckTempDataSizeJob</job-class>
+			<durability>true</durability>
+			<recover>false</recover>	
+			<job-data-map>
+				<entry>
+					<key>maxRecords</key>  
+					<value>2500</value>
+				</entry>
+				<entry>
+					<key>tempTabs</key>  
+					<value>T_GJ_REAL_DATA,T_LK_REAL_DATA</value>
+				</entry>
+			</job-data-map>
+		</job>
+		<trigger>
+			<cron>
+				<name>post_trigger_checkTempDataSize</name>
+				<group>POST_TRI</group>
+				<job-name>post_processed_checkTempDataSize</job-name>
+				<job-group>POST</job-group>
+				<priority>5</priority>
+				<cron-expression>0 0 23 * * ?</cron-expression>
+			</cron>
+		</trigger> 
+	</schedule>
+</job-scheduling-data>

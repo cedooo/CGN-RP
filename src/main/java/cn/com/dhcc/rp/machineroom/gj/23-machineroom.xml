@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 科技大厦23楼 -->
+<machineroom location="23楼" name="科技大厦" id="S0" code="GJ">	
+	<equipment id="E120" name="1804会议室UPS" type="simpleups" />
+	<equipment id="E121" name="1718会议室UPS" type="simpleups" />
+	<equipment id="E119" name="1909会议室UPS" type="simpleups" />
+	
+	<equipment id="E91" name="1#UPS" type="noups" />
+	<equipment id="E92" name="2#UPS" type="noups" />
+	
+	<equipment id="E61" name="AP1电量仪" type="ap1elemeter" />
+	
+	<equipment id="E11" name="AP2电量仪" type="ap23elemeter" />
+	<equipment id="E13" name="AP3电量仪" type="ap23elemeter" />
+	
+	<equipment id="E94" name="AP4电量仪" type="ap4elemeter" />
+	
+	<equipment id="E1" name="UPS配电房温湿度" type="temphumi" /> 
+	<equipment id="E2" name="网络通信机房温湿度" type="temphumi" /> 
+	<equipment id="E3" name="服务器机房1#温湿度" type="temphumi" /> 
+	<equipment id="E4" name="服务器机房2#温湿度" type="temphumi" /> 
+	<equipment id="E5" name="临时设备室温湿度" type="temphumi" /> 
+	<equipment id="E6" name="室外温湿度" type="temphumi" /> 
+	
+	<equipment id="E131" name="设备间精密空调" type="airconditioninequip1" />
+	<equipment id="E161" name="通讯间精密空调" type="airconditioninequip2" />
+	
+	<equipment id="E21-D3" name="通讯间普通空调漏水" type="leakage" />
+	<equipment id="E21-D5" name="设备间进门1号漏水" type="leakage" />
+	<equipment id="E21-D6" name="设备间中部3号漏水" type="leakage" />
+	<equipment id="E21-D7" name="设备间精密空调漏水" type="leakage" />
+	<equipment id="E21-D8" name="设备间进门2号漏水" type="leakage" />
+	
+	<equipment id="E22-D1" name="1#空调监测" type="aircondtionsimple" />
+	<equipment id="E22-D2" name="2#空调监测" type="aircondtionsimple" />
+	<equipment id="E22-D3" name="3#空调监测" type="aircondtionsimple" />
+	<equipment id="E22-D4" name="4#空调监测" type="aircondtionsimple" />
+	<equipment id="E22-D5" name="5#空调监测" type="aircondtionsimple" />
+	<equipment id="E22-D6" name="6#空调监测" type="aircondtionsimple" />
+	<equipment id="E22-D7" name="7#空调监测" type="aircondtionsimple" />
+	
+	<equipment id="E71" name="配电房门禁" type="door" />
+	<equipment id="E72" name="通讯室门禁" type="door" />
+	<equipment id="E73" name="设备室门禁" type="door" />
+	
+	<equipment id="E21-D1" name="AP1备用开关" type="aponoff" />
+	<equipment id="E21-D2" name="AP1主用开关" type="aponoff" />
+	<equipment id="E22-D8" name="AP4输入开关" type="aponoff" />
+</machineroom>

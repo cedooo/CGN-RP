@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="AP4电量仪" type="ap4elemeter" >
+ 	<group refTab="txPowerBoxCommTotalPerf" collect="1" type="1">   
+		<node id="A1" name="电压变比(PT)" ref="fVoltageChange" 	collect="1"  />  
+		<node id="A2" name="电流变比(CT)" ref="fCurrencyChange" 	collect="1"  /> 
+		
+		<node id="A6" name="相压不平衡度" ref="fDirVoltageUnBlanace" collect="1"  />  
+		<node id="A7" name="平均相电压" ref="fVoltageOut" collect="1"  /> 
+		 	  
+		<node id="A8" name="AB线电压" ref="fVoltageOutU12" 	collect="1"  />  
+		<node id="A9" name="BC线电压" ref="fVoltageOutU23" collect="1"  />  	
+		<node id="A10" name="CA线电压" ref="fVoltageOutU31" collect="1"  /> 
+		 			 
+		<node id="A11" name="线电压不平衡度" ref="fLineVoltageUnBlanace" collect="1"  />  		 
+		<node id="A12" name="平均线电压" ref="fVoltageFloat" collect="1"  />  		 
+		<node id="A13" name="零序电压" ref="fVoltageIn" collect="1"  />  			 
+		<node id="A17" name="电流不平衡度" ref="fCurrencyUnBlanace" collect="1"  />  		 
+		<node id="A18" name="平均相电流" ref="fCurrencyOut" collect="1"  />   		
+		<node id="A19" name="零序电流" ref="fCurrency" collect="1"  />  	
+		
+		<node id="A23" name="三相有功功率P" ref="fTotalUsedPower" collect="1"  />   
+		<node id="A27" name="三相无功功率Q" ref="fTotalUnUsedPower" collect="1"  /> 
+		<node id="A31" name="三相视在功率S" ref="fTotalViewPower" 	collect="1"  />  
+		
+		<node id="A35" name="功率因数总计" ref="fTotalPowerRate" 	collect="1"  />  
+		<node id="A36" name="频率" ref="fFrequency" 	collect="1"  />  
+		
+		<node id="A37" name="正向有功电能" ref="fPowerForwardInUse" 	collect="1"  />  
+		<node id="A38" name="负向有功电能" ref="fPowerNegativeInUse" 	collect="1"  />  
+		<node id="A39" name="正向无功电能" ref="fPowerForwardUnUse" collect="1"  />  
+		<node id="A40" name="负向无功电能" ref="fPowerNegativeUnUse" 	collect="1"  />  
+		
+		<node id="A41" name="总有功电能" ref="fPowerUsedInUse" 	collect="1"  />  
+		<node id="A42" name="总无功电能" ref="fPowerUsedUnUse" 	collect="1"  /> 
+		<node id="A43" name="总视在电能" ref="fPowerUsedViewUse" 	collect="1"  /> 
+	</group>
+	
+ 	<module refTab="txPowerBoxDirPerf" partID="A" collect="1" type="2"> 
+		<node id="A3" name="A相电压" ref="fVoltageOut" 	collect="1"  />  
+		<node id="A14" name="A相电流" ref="fCurrencyOut" 	collect="1"  />  
+		<node id="A20" name="A相有功功率P" ref="fPowerUsedOut" collect="1"  />  
+		<node id="A24" name="A相无功功率Q" ref="fPowerUnUsedOut" 	collect="1"  />  
+		<node id="A28" name="A相视在功率S" ref="fPowerViewOut" 	collect="1"  />
+		<node id="A32" name="A相功率因数" ref="fPowerFactor" 	collect="1"  />  
+ 	</module>
+	
+ 	<module refTab="txPowerBoxDirPerf" partID="B" collect="1" type="2"> 
+		<node id="A4" name="B相电压" ref="fVoltageOut" collect="1"  />  		
+		<node id="A15" name="B相电流" ref="fCurrencyOut" collect="1"  />  
+		<node id="A21" name="B相有功功率P" ref="fPowerUsedOut" 	collect="1"  />
+		<node id="A25" name="B相无功功率Q" ref="fPowerUnUsedOut" 	collect="1"  />   
+		<node id="A29" name="B相视在功率S" ref="fPowerViewOut" collect="1"  /> 
+		<node id="A33" name="B相功率因数" ref="fPowerFactor" 	collect="1"  />  
+ 	</module>
+ 	
+ 	<module refTab="txPowerBoxDirPerf" partID="C" collect="1" type="2"> 
+		<node id="A5" name="C相电压" ref="fVoltageOut" 	collect="1"  />
+		<node id="A16" name="C相电流" ref="fCurrencyOut" 	collect="1"  />
+		<node id="A22" name="C相有功功率P" ref="fPowerUsedOut" 	collect="1"  />  
+		<node id="A26" name="C相无功功率Q" ref="fPowerUnUsedOut" collect="1"  />  
+		<node id="A30" name="C相视在功率S" ref="fPowerViewOut" 	collect="1"  /> 
+		<node id="A34" name="C相功率因数" ref="fPowerFactor" 	collect="1"  />  
+ 	</module>
+</equipment>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<subsystem name="温湿度监测" id="温湿度监测" type="lktemphumisubsys011">
+	<equipment name="温湿度1" id="1101" type="lktemphumi" />
+	
+	<equipment name="温湿度2" id="1102" type="lktemphumi" />
+	
+	<equipment name="温湿度3" id="1103" type="lktemphumi" />
+	
+	<equipment name="温湿度4" id="1104" type="lktemphumi" />
+	
+	<equipment name="温湿度5" id="1105"  type="lktemphumi" />
+	
+	<equipment name="温湿度6" id="1106" type="lktemphumi" />
+
+	<equipment name="温湿度7" id="1107" type="lktemphumi" />
+
+	<equipment name="温湿度8" id="1108" type="lktemphumi" />
+
+	<equipment name="温湿度9" id="1109" type="lktemphumi" />
+
+	<equipment name="温湿度10" id="1110" type="lktemphumi" />
+
+	<equipment name="温湿度11" id="1111" type="lktemphumi" />
+
+	<equipment name="温湿度12" id="1112" type="lktemphumi" />
+
+	<equipment name="温湿度13" id="1113" type="lktemphumi" />
+
+	<equipment name="温湿度14" id="1114" type="lktemphumi" />
+
+	<equipment name="温湿度15" id="1115" type="lktemphumi" />
+
+	<equipment name="温湿度16" id="1116" type="lktemphumi" />
+	
+	<equipment-def name="温湿度" type="lktemphumi">
+	 	<group refTab="txRoomCommState" collect="1" type="0">
+			<node id="000"  name="温湿度通讯状态"  collect="1" grState="0" />
+			<node id="003"  name="温湿度指示灯"  collect="1" grState="0" />
+		</group>
+	 	<group refTab="txTemHumCommPerf" collect="1" type="1">
+			<node id="001"  name="温度" ref="fTemperature" collect="1" />
+			<node id="002"  name="湿度" ref="fHuminity" collect="1" />
+		</group>
+	</equipment-def>
+	
+</subsystem>

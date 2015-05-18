@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<subsystem name="门禁子系统" id="门禁系统" type="lkdoorsubsys">
+	
+	<equipment name="门1" id="1301000" type="lkdoor" />
+	
+	<equipment name="门2" id="1301001" type="lkdoor" />
+	
+	<equipment name="门3" id="1301002" type="lkdoor" />
+	
+	<equipment name="门4" id="1301003" type="lkdoor" />
+		
+	<equipment-def name="门禁" type="lkdoor">
+	 	<group refTab="txRoomCommState" collect="1" type="0">
+			<node name="门开门10秒"  collect="1" grState="0" />
+		</group>
+	</equipment-def>
+	
+</subsystem>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="UPS" type="caiwuups2">
+ 	<!-- ref: 映射别名 type: 0.状态型 1，数值型 collect: 0.不采集 1，采集 -->
+ 	<module refTab="txUpsCommDirPerf" partID="A" collect="1" type="2"> 
+		<node id="2101001" name="A相输入电压" ref="fVoltageIn" type="1" collect="1"  />
+		<node id="2101004" name="A相输出电压" ref="fVoltageOut" type="1" collect="1"  />
+		<node id="2101007" name="A相输出电流" ref="fCurrentOut" type="1" collect="1"  />
+		<node id="2101015" name="A相输入电流" ref="fCurrentIn" type="1" collect="1"  />
+		<node id="2101019" name="A相输入功率因数" ref="fPowerRateIn" type="1" collect="1"  />
+		<node id="2101022" name="旁路A相电压" ref="fOtherVoltage" type="1" collect="1"  />
+		<node id="2101027" name="A相输出功率因数" ref="fPowerRateOut" type="1" collect="1"  />
+		<node id="2101030" name="A相输出峰值比" ref="fTopOutRate" type="1" collect="1"  />
+		<node id="2101033" name="A相输出有功功率" ref="fPowerUsedOut" type="1" collect="1"  />
+		<node id="2101036" name="A相输出视在功率" ref="fSysPowerViewOut" type="1" collect="1"  />
+		<node id="2101039" name="A相输出负载百分比" ref="fLoadOutRate" type="1" collect="1"  />
+		<node id="2101042" name="A相输出无功功率" ref="fSysPowerUnUsedOut" type="1" collect="1"  />
+ 	</module>
+ 	<module refTab="txUpsCommDirPerf" partID="B" collect="1" type="2">
+	 	<node id="2101002" name="B相输入电压" ref="fVoltageIn" type="1" collect="1"  />
+		<node id="2101005" name="B相输出电压" ref="fVoltageOut" type="1" collect="1"  />
+		<node id="2101008" name="B相输出电流" ref="fCurrentOut" type="1" collect="1"  />
+		<node id="2101016" name="B相输入电流" ref="fCurrentIn" type="1" collect="1"  />
+		<node id="2101020" name="B相输入功率因数" ref="fPowerRateIn" type="1" collect="1"  />
+		<node id="2101023" name="旁路B相电压" ref="fOtherVoltage" type="1" collect="1"  />
+		<node id="2101028" name="B相输出功率因数" ref="fPowerRateOut" type="1" collect="1"  />
+		<node id="2101031" name="B相输出峰值比" ref="fTopOutRate" type="1" collect="1"  />
+		<node id="2101034" name="B相输出有功功率" ref="fPowerUsedOut" type="1" collect="1"  />
+		<node id="2101037" name="B相输出视在功率" ref="fSysPowerViewOut" type="1" collect="1"  />
+		<node id="2101040" name="B相输出负载百分比" ref="fLoadOutRate" type="1" collect="1"  />
+		<node id="2101043" name="B相输出无功功率" ref="fSysPowerUnUsedOut" type="1" collect="1"  />
+ 	</module>
+ 	<module refTab="txUpsCommDirPerf" partID="C" collect="1" type="2">
+		<node id="2101003" name="C相输入电压" ref="fVoltageIn" type="1" collect="1"  />
+		<node id="2101006" name="C相输出电压" ref="fVoltageOut" type="1" collect="1"  />
+		<node id="2101009" name="C相输出电流" ref="fCurrentOut" type="1" collect="1"  />
+		<node id="2101017" name="C相输入电流" ref="fCurrentIn" type="1" collect="1"  />
+		<node id="2101021" name="C相输入功率因数" ref="fPowerRateIn" type="1" collect="1"  />
+		<node id="2101024" name="旁路C相电压" ref="fOtherVoltage" type="1" collect="1"  />
+		<node id="2101029" name="C相输出功率因数" ref="fPowerRateOut" type="1" collect="1"  />
+		<node id="2101032" name="C相输出峰值比" ref="fTopOutRate" type="1" collect="1"  />
+		<node id="2101035" name="C相输出有功功率" ref="fPowerUsedOut" type="1" collect="1"  />
+		<node id="2101038" name="C相输出视在功率" ref="fSysPowerViewOut" type="1" collect="1"  />
+		<node id="2101041" name="C相输出负载百分比" ref="fLoadOutRate" type="1" collect="1"  />
+		<node id="2101044" name="C相输出无功功率" ref="fSysPowerUnUsedOut" type="1" collect="1"  />
+ 	</module>
+ 	<group refTab="txUpsCommPerf" collect="1" type="1">
+		<node id="2101010" name="电池电压" ref="fBatteryVoltage" type="1" collect="1"  />
+		<node id="2101011" name="输出频率" ref="fCurrentOut" type="1" collect="1"   />
+		<node id="2101012" name="输入电压Uab"  type="1" collect="0"  />
+		<node id="2101013" name="输入电压Ubc"  type="1" collect="0"  />
+		<node id="2101014" name="输入电压Uca"  type="1" collect="0"  />
+		<node id="2101018" name="输入频率" ref="fCurrentIn" type="1" collect="1"  />
+		<node id="2101025" name="旁路频率" ref="fSideFrequency" type="1" collect="1"  />
+		<node id="2101026" name="电池电流" ref="fBatteryCurrency" type="1" collect="1"  />
+		<node id="2101045" name="电池后备时间" ref="fBatteryBakTime" type="1" collect="1"  />
+		<node id="2101046" name="电池温度" ref="fUpsTem" type="1" collect="1"  />
+		<node id="2101047" name="环境温度" ref="fUpsCunTem" type="1" collect="1"  />
+		<node id="2101048" name="负电池电压" ref="fNegativeBatteryVoltage" type="1" collect="1"  />
+		<node id="2101049" name="负电池电流" ref="fNegativeBatteryCurrency" type="1" collect="1"    />
+	</group>
+ 	<group refTab="txRoomCommState"  collect="1" type="0">
+		<node id="2101000" name="取模拟量数据(通信状态)"  type="0" collect="1" grState="0"  />
+		<node id="2101050" name="取开关量"  type="0" collect="1" grState="1" />
+		<node id="2101051" name="旁路供电"  type="0" collect="1" grState="1" />
+		<node id="2101052" name="UPS供电"  type="0" collect="1" grState="0" />
+		<node id="2101053" name="无供电输出"  type="0" collect="1" grState="1" />
+		<node id="2101054" name="电池自检"  type="0" collect="1" grState="1" />
+		<node id="2101055" name="电池浮充"  type="0" collect="1" grState="0" />
+		<node id="2101056" name="电池未充电"  type="0" collect="1" grState="1" />
+		<node id="2101057" name="电池均充"  type="0" collect="1" grState="1" />
+		<node id="2101058" name="机组状态"  type="0" collect="1" grState="1" />
+		<node id="2101059" name="逆变状态:主路逆变供电"  type="0" collect="1" grState="0" />
+		<node id="2101060" name="逆变状态:电池逆变供电"  type="0" collect="1" grState="1" />
+		<node id="2101061" name="逆变状态:联合逆变供电"  type="0" collect="1" grState="1" />
+		<node id="2101062" name="逆变状态:UPS不供电"  type="0" collect="1" grState="1" />
+		<node id="2101063" name="输入开关"  type="0" collect="1" grState="0" />
+		<node id="2101064" name="手动旁路开关"  type="0" collect="1" grState="1" />
+		<node id="2101065" name="自动旁路开关"  type="0" collect="1" grState="0" />
+		<node id="2101066" name="输出开关"  type="0" collect="1" grState="0" />
+		<node id="2101067" name="旋转开关:关闭状态"  type="0" collect="1" grState="1" />
+		<node id="2101068" name="旋转开关:测试状态"  type="0" collect="1" grState="1" />
+		<node id="2101069" name="旋转开关:正常状态"  type="0" collect="1" grState="0" />
+		<node id="2101070" name="旋转开关:旁路状态"  type="0" collect="1" grState="1" />
+		<node id="2101071" name="旋转开关:维修状态"  type="0" collect="1" grState="1" />
+		<node id="2101072" name="并机系统:主逆变供电"  type="0" collect="1" grState="0" />
+		<node id="2101073" name="并机系统:电池逆变供电"  type="0" collect="1" grState="1" />
+		<node id="2101074" name="并机系统:旁路供电"  type="0" collect="1" grState="1" />
+		<node id="2101075" name="并机系统:未供电"  type="0" collect="1" grState="1" />
+		<node id="2101080" name="读报警信息"  type="0" collect="1" grState="1" />
+		<node id="2101081" name="不同步"  type="0" collect="1" grState="0" />
+		<node id="2101082" name="市电异常"  type="0" collect="1" grState="0" />
+		<node id="2101083" name="整流器故障"  type="0" collect="1" grState="0" />
+		<node id="2101084" name="逆变器故障"  type="0" collect="1" grState="0" />
+		<node id="2101085" name="旁路输入异常"  type="0" collect="1" grState="0" />
+		<node id="2101086" name="电池电压过高"  type="0" collect="1" grState="0" />
+		<node id="2101087" name="电池电压过低"  type="0" collect="1" grState="0" />
+		<node id="2101088" name="电池预告警"  type="0" collect="1" grState="0" />
+		<node id="2101089" name="电池无"  type="0" collect="1" grState="0" />
+		<node id="2101090" name="电池接反"  type="0" collect="1" grState="0" />
+		<node id="2101091" name="市电频率异常"  type="0" collect="1" grState="0" />
+		<node id="2101092" name="平衡电感过温"  type="0" collect="1" grState="0" />
+		<node id="2101093" name="输入电感过温"  type="0" collect="1" grState="0" />
+		<node id="2101094" name="整流器过温"  type="0" collect="1" grState="0" />
+		<node id="2101095" name="平衡电路过温"  type="0" collect="1" grState="0" />
+		<node id="2101096" name="平衡电路过流"  type="0" collect="1" grState="0" />
+		<node id="2101097" name="电池接触器故障"  type="0" collect="1" grState="0" />
+		<node id="2101098" name="电池变换器故障"  type="0" collect="1" grState="0" />
+		<node id="2101099" name="电池变换器过流"  type="0" collect="1" grState="0" />
+		<node id="2101100" name="电池变换器过温"  type="0" collect="1" grState="0" />
+		<node id="2101101" name="主路熔丝断报警"  type="0" collect="1" grState="0" />
+		<node id="2101102" name="辅助电源1掉电"  type="0" collect="1" grState="0" />
+		<node id="2101103" name="主路相序反"  type="0" collect="1" grState="0" />
+		<node id="2101104" name="整流器过流"  type="0" collect="1" grState="0" />
+		<node id="2101105" name="软启动失败"  type="0" collect="1" grState="0" />
+		<node id="2101106" name="旁路过流故障"  type="0" collect="1" grState="0" />
+		<node id="2101107" name="逆变电感过温"  type="0" collect="1" grState="0" />
+		<node id="2101108" name="逆变器过温"  type="0" collect="1" grState="0" />
+		<node id="2101109" name="风扇故障"  type="0" collect="1" grState="0" />
+		<node id="2101110" name="逆变晶闸管故障"  type="0" collect="1" grState="0" />
+		<node id="2101111" name="旁路晶闸管故障"  type="0" collect="1" grState="0" />
+		<node id="2101112" name="用户操作错误"  type="0" collect="1" grState="0" />
+		<node id="2101113" name="输出熔丝断"  type="0" collect="1" grState="0" />
+		<node id="2101114" name="辅助电源2掉电"  type="0" collect="1" grState="0" />
+		<node id="2101115" name="单机输出过载"  type="0" collect="1" grState="0" />
+		<node id="2101116" name="并机系统过载"  type="0" collect="1" grState="0" />
+		<node id="2101117" name="单机过载超时"  type="0" collect="1" grState="0" />
+		<node id="2101118" name="旁路异常关机"  type="0" collect="1" grState="0" />
+		<node id="2101119" name="交流输出过压"  type="0" collect="1" grState="0" />
+		<node id="2101120" name="逆变器过流"  type="0" collect="1" grState="0" />
+		<node id="2101121" name="旁路相序反"  type="0" collect="1" grState="0" />
+		<node id="2101122" name="负载冲击转旁路"  type="0" collect="1" grState="0" />
+		<node id="2101123" name="旁路切换次数限制"  type="0" collect="1" grState="0" />
+		<node id="2101124" name="并机均流故障"  type="0" collect="1" grState="0" />
+		<node id="2101125" name="母线异常关机"  type="0" collect="1" grState="0" />
+		<node id="2101126" name="邻机请求转旁路"  type="0" collect="1" grState="0" />
+		<node id="2101127" name="并机板故障"  type="0" collect="1" grState="0" />
+		<node id="2101128" name="直流母线过压故障"  type="0" collect="1" grState="0" />
+		<node id="2101129" name="并机线连接故障"  type="0" collect="1" grState="0" />
+		<node id="2101130" name="环境温度过高"  type="0" collect="1" grState="0" />
+		<node id="2101131" name="整流通讯故障"  type="0" collect="1" grState="0" />
+		<node id="2101132" name="逆变通讯故障"  type="0" collect="1" grState="0" />
+		<node id="2101133" name="并机通讯故障"  type="0" collect="1" grState="0" />
+		<node id="2101134" name="输出直流分量过大"  type="0" collect="1" grState="0" />
+		<node id="2101135" name="并机系统电池预告警"  type="0" collect="1" grState="0" />
+		<node id="2101136" name="输入缺零"  type="0" collect="1" grState="0" />
+		<node id="2101137" name="逆变接触器故障"  type="0" collect="1" grState="0" />
+		<node id="2101138" name="充电器故障"  type="0" collect="1" grState="0" />
+		<node id="2101139" name="电池需更换"  type="0" collect="1" grState="0" />
+		<node id="2101140" name="电池寿命终结"  type="0" collect="1" grState="0" />
+		<node id="2101141" name="紧急关机"  type="0" collect="1" grState="0" />
+		<node id="2101142" name="电池温度过高"  type="0" collect="1" grState="0" />
+		<node id="2101143" name="BCB闭合"  type="0" collect="1" grState="0" />
+		<node id="2101144" name="BCB断开"  type="0" collect="1" grState="0" />
+		<node id="2101145" name="电池接地故障"  type="0" collect="1" grState="0" />
+		<node id="2101146" name="LBS异常"  type="0" collect="1" grState="0" />
+		<node id="2101147" name="输入接触器故障"  type="0" collect="1" grState="0" />
+		<node id="2101148" name="接触器电源板1故障"  type="0" collect="1" grState="0" />
+		<node id="2101149" name="接触器电源板2故障"  type="0" collect="1" grState="0" />
+		<node id="2101150" name="风扇电源故障"  type="0" collect="1" grState="0" />
+		<node id="2101151" name="键盘板故障"  type="0" collect="1" grState="0" />
+		<node id="2101152" name="机型容量无效"  type="0" collect="1" grState="0" />
+		<node id="2101153" name="输入电流异常"  type="0" collect="1" grState="0" />
+		<node id="2101154" name="输出电压异常"  type="0" collect="1" grState="0" />
+		<node id="2101155" name="主路晶闸管故障"  type="0" collect="1" grState="0" />
+		<node id="2101156" name="输出接地故障"  type="0" collect="1" grState="0" />
+		<node id="2101157" name="输入电流超限"  type="0" collect="1" grState="0" />
+	</group>
+</equipment>

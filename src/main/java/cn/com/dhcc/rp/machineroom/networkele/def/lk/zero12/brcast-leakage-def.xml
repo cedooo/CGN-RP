@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="漏水监测" type="brcastleakage">
+
+	<group  refTab="txRoomCommState" collect="1" type="0">
+		<node id="1801000" name="读模拟量输入（通讯状态）" collect="1"  />
+		<node id="1801010" name="漏水判断" collect="1"  />
+		<node id="1801021" name="漏水定位1" collect="1"  />
+		<node id="1801022" name="漏水定位2" collect="1"  />
+		<node id="1801023" name="漏水定位3" collect="1"  />
+		<node id="1801024" name="漏水定位4" collect="1"  />
+		<node id="1801025" name="漏水定位5" collect="1"  />
+	</group>
+
+ 	<group refTab="txLeakWaterCommPerf" collect="1" type="1">
+		<node id="1801011" name="漏水定位" ref="fLeakPosition" collect="1"  />
+		<node id="1801001" name="状态字" collect="0"  />
+		<node id="1801002" name="环路电阻" collect="0"  />
+		<node id="1801003" name="监测电阻" collect="0"  />
+		<node id="1801004" name="监测电流" collect="0"  />
+ 	</group> 
+	
+</equipment>

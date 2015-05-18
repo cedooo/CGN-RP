@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.dhcc.rp.temhum">
+	<update id="update_insert_TxTemHumCommPerf" parameterType="cn.com.dhcc.rp.persistence.po.TxTemHumCommPerf">   
+		 <![CDATA[ 
+		 	UPDATE txTemHumCommPerf
+			SET	fCollectTime = #{collectTime},
+				fTemperature = #{temperature}, fHuminity = #{huminity}	
+			WHERE
+				fPartID = #{partID} AND fId = #{id} AND fCompanyCode = #{companyCode}
+				
+			IF @@ROWCOUNT = 0
+			
+			INSERT INTO txTemHumCommPerf (fId ,fPartID ,fCollectTime ,fTemperature ,fHuminity  ,fCompanyCode)
+			VALUES(#{id},#{partID},#{collectTime}, #{temperature}, #{huminity}, #{companyCode}	)
+		 ]]>
+	</update>
+</mapper>

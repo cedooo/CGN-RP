@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="开关量" type="caiwuonoff" >
+ 	<!-- ref: 映射别名             type: 0.状态型, 1，数值型 , 2.模块 , 3. 配置                         collect: 0.不采集 1，采集   -->
+ 	
+ 	<group refTab="txRoomCommState" collect="1" type="0">
+		<node id="2701000" name="配电柜模块1"  collect="1" />
+		<node id="2701004" name="机房消防"  collect="1" />
+		<node id="2701005" name="档案室消防"  collect="1" />
+		<node id="2701006" name="机房空调4"  collect="1" />
+		<node id="2701007" name="机房空调3"  collect="1" />
+		<node id="2701008" name="新机房市电常用总输入"  collect="1" />
+		<node id="2702000" name="配电柜模块2"  collect="1" />
+		<node id="2702001" name="主用电源"  collect="1" />
+		<node id="2702002" name="备用电源"  collect="1" />
+		<node id="2703000" name="配电柜模块3"  collect="1" />
+		<node id="2703001" name="切换后主用电源"  collect="1" />
+		<node id="2703002" name="柴发备用电源"  collect="1" />
+		<node id="2701009" name="新机房市电备用总输入"  collect="1" />
+		<node id="2701010" name="老机房市电常用总输入"  collect="1" />
+		<node id="2701011" name="老机房市电备用总输入"  collect="1" />
+	</group>
+	
+</equipment>

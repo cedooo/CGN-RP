@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<equipment name="告警监控空调" type="aircondtionsimple">
+
+	<group  refTab="txRoomCommState" collect="1" type="0">
+		<node name="空调监测"   collect="1" grState="正常" />   
+	</group>    
+	
+</equipment>

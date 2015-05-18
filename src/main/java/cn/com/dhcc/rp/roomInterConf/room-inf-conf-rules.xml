@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE digester-rules PUBLIC
+  "-//Apache Commons //DTD digester-rules XML V1.0//EN"
+  "http://commons.apache.org/digester/dtds/digester-rules-3.0.dtd">
+
+<digester-rules>
+	<pattern value="infs">
+		<object-create-rule classname="cn.com.dhcc.rp.roomInterConf.Infs" />
+		<pattern value="inf">
+			<object-create-rule classname="cn.com.dhcc.rp.persistence.po.RoomInterfaceConf" />
+			<set-properties-rule>
+				<alias attr-name="ip" prop-name="ip" />
+				<alias attr-name="name" prop-name="name" />
+				<alias attr-name="port" prop-name="port" />
+				<alias attr-name="code" prop-name="companyCode" />
+				<alias attr-name="connClass" prop-name="connectionClass" />
+				<alias attr-name="connection" prop-name="isConn" />
+			</set-properties-rule>
+			<set-next-rule methodname="addCnf" />
+		</pattern>
+	</pattern>
+</digester-rules>  
+

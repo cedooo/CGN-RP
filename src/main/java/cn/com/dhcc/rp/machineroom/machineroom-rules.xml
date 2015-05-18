@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE digester-rules PUBLIC
+  "-//Apache Commons //DTD digester-rules XML V1.0//EN"
+  "http://commons.apache.org/digester/dtds/digester-rules-3.0.dtd">
+
+<digester-rules>
+	<pattern value="machineroom">
+		<object-create-rule classname="cn.com.dhcc.rp.machineroom.impl.CommMachineRoom" />
+		<pattern value="equipment">
+			<object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.equipment.Equipment" />
+			<set-properties-rule>
+				<alias attr-name="id" prop-name="id" />
+				<alias attr-name="name" prop-name="name" />
+				<alias attr-name="type" prop-name="type" />
+			</set-properties-rule>
+			<set-next-rule methodname="addNetworkElement" />
+		</pattern>
+		<pattern value="subsystem">
+			<object-create-rule classname="cn.com.dhcc.rp.machineroom.networkele.subsystem.SubSystem" />
+			<set-properties-rule>
+				<alias attr-name="id" prop-name="id" />
+				<alias attr-name="name" prop-name="name" />
+				<alias attr-name="type" prop-name="type" />
+			</set-properties-rule>
+			<set-next-rule methodname="addNetworkElement" />
+		</pattern>		
+		<set-properties-rule>
+			<alias attr-name="location" prop-name="location" />
+			<alias attr-name="name" prop-name="name" />
+			<alias attr-name="id" prop-name="id" />
+			<alias attr-name="code" prop-name="code" />
+		</set-properties-rule>
+	</pattern>
+</digester-rules>  
+
