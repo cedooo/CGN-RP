@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.db;
+ï»¿package cn.com.dhcc.rp.db;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,14 +17,14 @@ public final class DBDelegate {
 	static private SqlSessionFactory sqlSessionFactory;
 	static private final String resource = "cn/com/dhcc/rp/db/mybatis-config.xml";
 	static{
-		log.info("==============Êı¾İ¿âÁ¬½Ó³õÊ¼»¯==============");
+		log.info("==============æ•°æ®åº“è¿æ¥åˆå§‹åŒ–==============");
 		InputStream inputStream = null;
 		try {
 			inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
-			log.fatal("²É¼¯Êı¾İ¿âÁ¬½Ó³ö´í£¬ÎŞ·¨²É¼¯£¡");
+			log.fatal("é‡‡é›†æ•°æ®åº“è¿æ¥å‡ºé”™ï¼Œæ— æ³•é‡‡é›†ï¼");
 		}finally{
 			if(inputStream!=null){
 				try {
@@ -35,8 +35,8 @@ public final class DBDelegate {
 			}
 		}
 		Configuration conf = sqlSessionFactory.getConfiguration();
-		log.info("Êı¾İ¿â»·¾³£º" + conf.getEnvironment().getId());
-		log.info("===========Êı¾İ¿âÁ¬½Ó³õÊ¼»¯--Íê³É£¡===========");
+		log.info("æ•°æ®åº“ç¯å¢ƒï¼š" + conf.getEnvironment().getId());
+		log.info("===========æ•°æ®åº“è¿æ¥åˆå§‹åŒ–--å®Œæˆï¼===========");
 	}
 	private DBDelegate(){}
 	static public SqlSessionFactory getSqlSessionFactory() {

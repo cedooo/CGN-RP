@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.maintenance.impl;
+ï»¿package cn.com.dhcc.rp.connection.maintenance.impl;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -8,8 +8,8 @@ import cn.com.dhcc.rp.connection.SocketConnection;
 import cn.com.dhcc.rp.connection.SocketConnetionContainer;
 import cn.com.dhcc.rp.connection.maintenance.ContainerMaintenanceJob;
 /**
- * ¼à²âÁ¬½ÓÊı¾İ¼¯ºÏ´óĞ¡£¬³¬¹ı´óĞ¡½øĞĞÇå¿Õ¡£
- * ¼ÇÂ¼ÊÂ¼ş
+ * ç›‘æµ‹è¿æ¥æ•°æ®é›†åˆå¤§å°ï¼Œè¶…è¿‡å¤§å°è¿›è¡Œæ¸…ç©ºã€‚
+ * è®°å½•äº‹ä»¶
  * @author PCITECC02
  *
  */
@@ -23,10 +23,10 @@ public class CheckConnectionSetSizeJob extends ContainerMaintenanceJob{
 			Entry<String, SocketConnection> connEnt = iterator.next();
 			SocketConnection conn = connEnt.getValue();
 			int connCount = conn.getSetSize();
-			log.info("¼à²âÁ¬½ÓÊı¾İ¼¯ºÏ´óĞ¡:" + connCount);
+			log.info("ç›‘æµ‹è¿æ¥æ•°æ®é›†åˆå¤§å°:" + connCount);
 			if(connCount>CONN_DATA_SET_MAX_SIZE){
-				//TODO ÊµÏÖconn.clearData();
-				log.warn("ÁÙÊ±Êı¾İ¼¯ºÏ´óĞ¡¹ı´ó£¬Çå¿Õ¼¯ºÏ¡£");
+				//TODO å®ç°conn.clearData();
+				log.warn("ä¸´æ—¶æ•°æ®é›†åˆå¤§å°è¿‡å¤§ï¼Œæ¸…ç©ºé›†åˆã€‚");
 			}
 		}
 	

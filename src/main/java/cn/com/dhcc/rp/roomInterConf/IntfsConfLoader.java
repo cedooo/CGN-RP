@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.roomInterConf;
+锘縫ackage cn.com.dhcc.rp.roomInterConf;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,13 +57,13 @@ public class IntfsConfLoader {
 				listConf.addAll(conf.getListCnf());
 			}
 		} catch (IOException e) {
-			log.fatal("接口配置错误!");
+			log.fatal("鎺ュ彛閰嶇疆閿欒!");
 			e.printStackTrace();
 		} catch (SAXException e) {
-			log.fatal("接口配置错误!");
+			log.fatal("鎺ュ彛閰嶇疆閿欒!");
 			e.printStackTrace();
 		}
-		log.info("读取接口配置..");
+		log.info("璇诲彇鎺ュ彛閰嶇疆..");
 		return listConf;
 	}
 	public static void main(String[] args) {

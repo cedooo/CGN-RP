@@ -1,16 +1,16 @@
-package cn.com.dhcc.rp.persistence;
+ï»¿package cn.com.dhcc.rp.persistence;
 
 import cn.com.dhcc.rp.machineroom.networkele.NetworkElement;
 
 /**
- * ³Ö¾Ã»¯¶ÔÏó
+ * æŒä¹…åŒ–å¯¹è±¡
  * Created by CeDo on 14-4-26.
  */
 public interface Persistenceable {
 	/**
-	 * ½«¶ÔÏó Èë¿â
-	 * @param networkElement »ú·¿ÍøÔªÉè±¸
-	 * @return Èë¿â³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * å°†å¯¹è±¡ å…¥åº“
+	 * @param networkElement æœºæˆ¿ç½‘å…ƒè®¾å¤‡
+	 * @return å…¥åº“æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
     public boolean persistance(NetworkElement networkElement);
 }

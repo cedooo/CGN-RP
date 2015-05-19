@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.po;
+ï»¿package cn.com.dhcc.rp.connection.po;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,13 +10,13 @@ public class ConnectionEventFactory {
 
 	static public final String CODE = "CGN";
 	/**
-	 * ¸ÄÎª´Ó½çÃæÅäÖÃ£¬ ¸ÃÅäÖÃÊ§Ğ§¡£
+	 * æ”¹ä¸ºä»ç•Œé¢é…ç½®ï¼Œ è¯¥é…ç½®å¤±æ•ˆã€‚
 	 * @deprecated
 	 */
-	static public final String EVE_LEVEL = "5";    //ÊÂ¼ş¼¶±ğ
-	static public final String STATE_ALARM = "1";   //±¨¾¯
-	static public final String STATE_ALARM_RECOVER = "0";    //±¨¾¯»Ö¸´
-	static public final String ATTR_NAME = "½Ó¿ÚÍ¨ĞÅ";    //ÊôĞÔÃû³Æ
+	static public final String EVE_LEVEL = "5";    //äº‹ä»¶çº§åˆ«
+	static public final String STATE_ALARM = "1";   //æŠ¥è­¦
+	static public final String STATE_ALARM_RECOVER = "0";    //æŠ¥è­¦æ¢å¤
+	static public final String ATTR_NAME = "æ¥å£é€šä¿¡";    //å±æ€§åç§°
 	
 	static public ConnectionEvent getEvent(String code, String content, String state){
 		ConnectionEvent connEvent = new ConnectionEvent();
@@ -33,7 +33,7 @@ public class ConnectionEventFactory {
 		connEvent.setAttrName(ATTR_NAME);
 		connEvent.setLevel(EVE_LEVEL);
 		connEvent.setContent(content);
-		//connEvent.setValue("½Ó¿ÚÍ¨ĞÅ");
+		//connEvent.setValue("æ¥å£é€šä¿¡");
 		return connEvent;
 	}
 	

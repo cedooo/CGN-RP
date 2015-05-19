@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.po;
+ï»¿package cn.com.dhcc.rp.connection.po;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,15 +7,15 @@ import cn.com.dhcc.rp.persistence.po.RoomCommState;
 import cn.com.dhcc.rp.pojo.ConfFormatConstants;
 
 /**
- * µÃµ½½Ó¿ÚÕı³£PO
+ * å¾—åˆ°æ¥å£æ­£å¸¸PO
  * @author PCITECC02
  *
  */
 public class RoomCommStateFactory {
 	static private final SimpleDateFormat sdf = new SimpleDateFormat(ConfFormatConstants.DATE_FORMAT);
-	static public final String ATTR_NAME = "Í¨ĞÅ½Ó¿Ú×´Ì¬";
-	static public final String STATE_NORMAL = "Õı³£";
-	static public final String STATE_EXCEPTION = "Òì³£";
+	static public final String ATTR_NAME = "é€šä¿¡æ¥å£çŠ¶æ€";
+	static public final String STATE_NORMAL = "æ­£å¸¸";
+	static public final String STATE_EXCEPTION = "å¼‚å¸¸";
 	static public final String PRE_ID = "tran_";
 	
 	static public RoomCommState getNormalRoomCommState(String code){

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.st;
+ï»¿package cn.com.dhcc.rp.st;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -13,7 +13,7 @@ public class EventWatcherImpl extends EventWatcherPOA{
 	@Override
 	public void OnEvent(int lType, int lTimeStamp, int lLevel, String strID,
 			String strFullName, String strDesc, String strAdvice) {
-		System.err.println("¸æ¾¯ĞÅÏ¢£º\n\t"  +  lType + ", " + lTimeStamp + ", " + lLevel
+		System.err.println("å‘Šè­¦ä¿¡æ¯ï¼š\n\t"  +  lType + ", " + lTimeStamp + ", " + lLevel
 				+ ", " + strID + ", " + strFullName + ", " +  strDesc + ", " + strAdvice);
 		StEvent ste = new StEvent();
 		ste.setlLevel(lLevel);
@@ -24,13 +24,13 @@ public class EventWatcherImpl extends EventWatcherPOA{
 		ste.setStrFullName(strFullName);
 		ste.setStrID(strID);
 		/**
-		 * ¸æ¾¯Èë¿â
+		 * å‘Šè­¦å…¥åº“
 		 */
 		SqlSession sess = DBDelegate.getSqlSessionFactory().openSession(true);
-		//Èë¿â 
+		//å…¥åº“ 
 		try{
 			sess.insert("cn.com.dhcc.rp.event.insert_st_TxEvents", ste);
-			log.warn("ËÄÍ¨µÄ¸æ¾¯ĞÅÏ¢£º " + ste);
+			log.warn("å››é€šçš„å‘Šè­¦ä¿¡æ¯ï¼š " + ste);
 		}finally{
 			sess.close();
 		}

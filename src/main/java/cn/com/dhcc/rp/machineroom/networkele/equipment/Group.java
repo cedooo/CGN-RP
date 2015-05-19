@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom.networkele.equipment;
+锘縫ackage cn.com.dhcc.rp.machineroom.networkele.equipment;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 
 /**
- * 设备节点集合
+ * 璁惧鑺傜偣闆嗗悎
  * @author PCITECC02
  *
  */

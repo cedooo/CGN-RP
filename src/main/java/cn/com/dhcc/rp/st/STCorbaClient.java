@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.st;
+ï»¿package cn.com.dhcc.rp.st;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -83,20 +83,20 @@ public final class STCorbaClient extends CorbaClient {
 
 	@Override
 	protected boolean persistent() throws SQLException {
-		String remindInfo = "Êı¾İÈë¿â¿ªÊ¼..";
+		String remindInfo = "æ•°æ®å…¥åº“å¼€å§‹..";
 		log.info(remindInfo);
 		Date start = new Date();
-		// Êı¾İÈë¿â
+		// æ•°æ®å…¥åº“
 		SqlSessionFactory sessionFactory = DBDelegate.getSqlSessionFactory();
 		SqlSession session = sessionFactory.openSession(ExecutorType.BATCH, false);
 		try {
-			// ²åÈë²É¼¯µ½µÄ ¡®ÊıÖµ¡¯Êı¾İ
+			// æ’å…¥é‡‡é›†åˆ°çš„ â€˜æ•°å€¼â€™æ•°æ®
 			for (TxUpsCommPerf entry : listUpsPerf) {
 				session.update("cn.com.dhcc.rp.ups.update_insert_comm_ups_perf", entry);
 			}
 			session.commit();
 			session.clearCache();
-			// ²åÈë²É¼¯µ½µÄ ¡®×´Ì¬¡¯Êı¾İ
+			// æ’å…¥é‡‡é›†åˆ°çš„ â€˜çŠ¶æ€â€™æ•°æ®
 			for (RoomCommState entry : listUpsState) {
 				session.update("cn.com.dhcc.rp.state.update_insert_comm_state", entry);
 			}
@@ -104,33 +104,33 @@ public final class STCorbaClient extends CorbaClient {
 		} catch (Exception e) {
 			//e.printStackTrace();
 			log.debug(e);
-			log.warn("ËÄÍ¨Êı¾İÈë¿âÊ§°Ü");
+			log.warn("å››é€šæ•°æ®å…¥åº“å¤±è´¥");
 			return false;
 		} finally {
 			session.close();
 		}
-		remindInfo = "Êı¾İÈë¿âÍê³É, ÓÃÊ±:" + (new Date().getTime() - start.getTime()) + "ms";
+		remindInfo = "æ•°æ®å…¥åº“å®Œæˆ, ç”¨æ—¶:" + (new Date().getTime() - start.getTime()) + "ms";
 		log.info(remindInfo);
 		return true;
 	}
 
 	@Override
 	protected boolean getData() throws Exception{
-		String remindInfo = "Í¨¹ı½Ó¿Ú»ñÈ¡Êı¾İ¿ªÊ¼..";
+		String remindInfo = "é€šè¿‡æ¥å£è·å–æ•°æ®å¼€å§‹..";
 		Date start = new Date();
 		log.info(remindInfo);
-		//»ñÈ¡Êı¾İ
+		//è·å–æ•°æ®
 		StringHolder strHolder = new StringHolder();
 		List<StUpsNodeDef> listNodeDef = stupsDef.getListNodeDef();
 		try{
 			for (int i = 0; i < deviceIDs.length; i++) {
-				List<UPSNode> listUPSPerfNode = new ArrayList<UPSNode>();    //upsÊı¾İ½Úµã ÈİÆ÷
-				List<UPSNode> listUPSStateNode = new ArrayList<UPSNode>();    //UPS×´Ì¬½ÚµãÈİÆ÷
+				List<UPSNode> listUPSPerfNode = new ArrayList<UPSNode>();    //upsæ•°æ®èŠ‚ç‚¹ å®¹å™¨
+				List<UPSNode> listUPSStateNode = new ArrayList<UPSNode>();    //UPSçŠ¶æ€èŠ‚ç‚¹å®¹å™¨
 				for (StUpsNodeDef nodeDef : listNodeDef) {
-					if(StUpsNodeDef.COLLECT_TRUE.equals(nodeDef.getCollect())){   //½Úµã
+					if(StUpsNodeDef.COLLECT_TRUE.equals(nodeDef.getCollect())){   //èŠ‚ç‚¹
 						List<StUpsNodeAttrDef> listNodeAttrDef = nodeDef.getListAttr();
 						UPSNode upsNode = new UPSNode();
-						for (StUpsNodeAttrDef nodeAttrDef: listNodeAttrDef) {    //½ÚµãÊôĞÔ
+						for (StUpsNodeAttrDef nodeAttrDef: listNodeAttrDef) {    //èŠ‚ç‚¹å±æ€§
 							if(StUpsNodeAttrDef.COLLECT_TRUE.equals(nodeAttrDef.getCollect())){
 								String globalID = deviceIDs[i] + "." + nodeDef.getId() + "." + nodeAttrDef.getName();
 								dataPublisher.GetData(globalID, strHolder);
@@ -163,9 +163,9 @@ public final class STCorbaClient extends CorbaClient {
 				upsStateNodeMap.put(deviceIDs[i], listUPSStateNode);
 			}
 		}catch(Exception e){
-			throw new Exception("ËÄÍ¨»ñÈ¡Êı¾İÊ§°Ü");
+			throw new Exception("å››é€šè·å–æ•°æ®å¤±è´¥");
 		}
-		remindInfo = "Í¨¹ı½Ó¿Ú»ñÈ¡Êı¾İÍê³É, ÓÃÊ±:"
+		remindInfo = "é€šè¿‡æ¥å£è·å–æ•°æ®å®Œæˆ, ç”¨æ—¶:"
 				+ (new Date().getTime() - start.getTime()) + "ms";
 		log.info(remindInfo);
 		return true;
@@ -173,14 +173,14 @@ public final class STCorbaClient extends CorbaClient {
 
 	@Override
 	protected boolean process() {
-		String remindInfo = "´¦Àí»ñÈ¡µÄÊı¾İ¿ªÊ¼..";
+		String remindInfo = "å¤„ç†è·å–çš„æ•°æ®å¼€å§‹..";
 		Date start = new Date();
 		log.info(remindInfo);
 		Date colDate = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String colDateStr = sdf.format(colDate);
-		//´¦Àí»ñÈ¡µÄÊı¾İ
-			//´¦ÀíÊıÖµÁ¿
+		//å¤„ç†è·å–çš„æ•°æ®
+			//å¤„ç†æ•°å€¼é‡
 			for (Map.Entry<String, List<UPSNode>> listRecords : upsPerfNodeMap.entrySet()) {
 				TxUpsCommPerf tups = new TxUpsCommPerf();
 				String deviceID = listRecords.getKey();
@@ -210,7 +210,7 @@ public final class STCorbaClient extends CorbaClient {
 				}
 				listUpsPerf.add(tups);
 			}
-			//´¦Àí×´Ì¬Á¿
+			//å¤„ç†çŠ¶æ€é‡
 			for (Map.Entry<String, List<UPSNode>> listRecords : upsStateNodeMap.entrySet()) {
 				String deviceID = listRecords.getKey();
 				List<UPSNode> listUPSNode = listRecords.getValue();
@@ -222,11 +222,11 @@ public final class STCorbaClient extends CorbaClient {
 					roomState.setStateValue(upsNode.getValue());
 					roomState.setCompanyCode(this.roomInterfaceCof.getCompanyCode());
 					listUpsState.add(roomState);
-					//ÉèÖÃUPSºìÂÌ×´Ì¬
+					//è®¾ç½®UPSçº¢ç»¿çŠ¶æ€
 					/*List<StUpsNodeDef> listUpsNodeDef = stupsDef.getListNodeDef();
 					for (StUpsNodeDef stUpsNodeDef : listUpsNodeDef) {
 						if(stUpsNodeDef.getId().equals(upsNode.getID())){
-							// ÅĞ¶ÏºìÂÌ×´Ì¬
+							// åˆ¤æ–­çº¢ç»¿çŠ¶æ€
 							boolean isGreen = stUpsNodeDef.getGrState()!=null &&
 									stUpsNodeDef.getGrState().equals(upsNode.getValue());
 							if(isGreen){
@@ -239,8 +239,8 @@ public final class STCorbaClient extends CorbaClient {
 				}
 			}
 		
-		remindInfo = "´¦Àí»ñÈ¡µÄÊı¾İÍê³É, "
-				+ ("ÓÃÊ±:" + (new Date().getTime() - start.getTime()) + "ms");
+		remindInfo = "å¤„ç†è·å–çš„æ•°æ®å®Œæˆ, "
+				+ ("ç”¨æ—¶:" + (new Date().getTime() - start.getTime()) + "ms");
 		
 		log.info(remindInfo);
 		return true;
@@ -248,7 +248,7 @@ public final class STCorbaClient extends CorbaClient {
 	@Override
 	protected InterfaceConnectResult connectInterface() {
 		InterfaceConnectResult initResult = null;
-		log.debug("½Ó¿ÚÅäÖÃĞÅÏ¢:" + roomInterfaceCof);
+		log.debug("æ¥å£é…ç½®ä¿¡æ¯:" + roomInterfaceCof);
 		try {
 			orb = ORB.init(corbaLinkArgs, null);
 			org.omg.CORBA.Object objRef = orb
@@ -257,22 +257,22 @@ public final class STCorbaClient extends CorbaClient {
 			NameComponent path[] = ncRef.to_name(OrbConstants.ORB_OBJ_REF_NAME);
 			dataPublisher = DataPublisherHelper.narrow(ncRef.resolve(path));
 			initResult = InterfaceConnectResult.CONNECTED;
-			log.debug("½Ó¿ÚÁ¬½Ó½á¹û£º" + initResult);
+			log.debug("æ¥å£è¿æ¥ç»“æœï¼š" + initResult);
 		} catch (InvalidName e) {
 			initResult = InterfaceConnectResult.REFUSED_CONNECT;
-			log.warn("ËÄÍ¨½Ó¿Ú²»ÄÜÁ¬½Ó£º" + initResult);
+			log.warn("å››é€šæ¥å£ä¸èƒ½è¿æ¥ï¼š" + initResult);
 		} catch (org.omg.CosNaming.NamingContextPackage.InvalidName e) {
 			initResult = InterfaceConnectResult.REFUSED_CONNECT;
-			log.warn("ËÄÍ¨½Ó¿Ú²»ÄÜÁ¬½Ó£º" + initResult);
+			log.warn("å››é€šæ¥å£ä¸èƒ½è¿æ¥ï¼š" + initResult);
 		} catch (NotFound e) {
 			initResult = InterfaceConnectResult.HOST_NOT_FOUND;
-			log.warn("ËÄÍ¨½Ó¿Ú²»ÄÜÁ¬½Ó£º" + initResult);
+			log.warn("å››é€šæ¥å£ä¸èƒ½è¿æ¥ï¼š" + initResult);
 		} catch (CannotProceed e) {
 			initResult = InterfaceConnectResult.REFUSED_CONNECT;
-			log.warn("ËÄÍ¨½Ó¿Ú²»ÄÜÁ¬½Ó£º" + initResult);
+			log.warn("å››é€šæ¥å£ä¸èƒ½è¿æ¥ï¼š" + initResult);
 		} catch (Exception e) {
 			initResult = InterfaceConnectResult.CONNECT_TIME_OUT;
-			log.warn("ËÄÍ¨½Ó¿Ú²»ÄÜÁ¬½Ó£º" + initResult);
+			log.warn("å››é€šæ¥å£ä¸èƒ½è¿æ¥ï¼š" + initResult);
 		} 
 		return initResult;
 	}
@@ -285,7 +285,7 @@ public final class STCorbaClient extends CorbaClient {
 			dataPublisher._release();
 			return true;
 		}else {
-			log.warn("ËÄÍ¨½Ó¿ÚÊÍ·Å×ÊÔ´Ê±£¬ orbÎªnull.");
+			log.warn("å››é€šæ¥å£é‡Šæ”¾èµ„æºæ—¶ï¼Œ orbä¸ºnull.");
 			return false;
 		}
 	}

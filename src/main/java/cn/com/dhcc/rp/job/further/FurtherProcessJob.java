@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.further;
+ï»¿package cn.com.dhcc.rp.job.further;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import org.quartz.Job;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 /**
- * ´¦ÀíÈÎÎñ
+ * å¤„ç†ä»»åŠ¡
  * @author PCITECC02
  *
  */
@@ -15,14 +15,14 @@ public abstract class FurtherProcessJob implements Job {
 	static final protected Logger log = Logger.getLogger(FurtherProcessJob.class.getClass());
 	
 	/**
-	 * ´òÓ¡ÈÎÎñ»ù±¾ĞÅÏ¢
-	 * @param content jobÖ´ĞĞÉÏÏÂÎÄ
+	 * æ‰“å°ä»»åŠ¡åŸºæœ¬ä¿¡æ¯
+	 * @param content jobæ‰§è¡Œä¸Šä¸‹æ–‡
 	 */
 	static public void printJobInfo(JobExecutionContext content){
 		JobDetail detail = content.getJobDetail();
-		StringBuffer logStr = new StringBuffer("\n====================×÷ÒµĞÅÏ¢===================\n");
-		logStr.append("ÃèÊö:" + detail.getDescription() + "\n" 
-				+ "Ê±¼ä:"+ new Date().toString()
+		StringBuffer logStr = new StringBuffer("\n====================ä½œä¸šä¿¡æ¯===================\n");
+		logStr.append("æè¿°:" + detail.getDescription() + "\n" 
+				+ "æ—¶é—´:"+ new Date().toString()
 				+ "\n============================================");
 		log.info(logStr);
 	}

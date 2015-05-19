@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.maintenance.impl;
+ï»¿package cn.com.dhcc.rp.connection.maintenance.impl;
 
 import java.util.Map;
 
@@ -12,8 +12,8 @@ import cn.com.dhcc.rp.connection.po.RoomCommStateFactory;
 import cn.com.dhcc.rp.db.DBDelegate;
 import cn.com.dhcc.rp.persistence.po.RoomCommState;
 /**
- * ¼à²âÁ¬½ÓÓĞĞ§ĞÔ£¬Èç¹ûÎŞĞ§£¬½øĞĞÖØÁ¬¡£
- * ¼ÇÂ¼ÊÂ¼ş
+ * ç›‘æµ‹è¿æ¥æœ‰æ•ˆæ€§ï¼Œå¦‚æœæ— æ•ˆï¼Œè¿›è¡Œé‡è¿ã€‚
+ * è®°å½•äº‹ä»¶
  * @author PCITECC02
  *
  */
@@ -23,27 +23,27 @@ public class CheckConnectionValidJob extends ContainerMaintenanceJob{
 	public void doJob() {
 		Map<String, SocketConnection> connectionMap = SocketConnetionContainer.getConnectionMap();
 		String connCount = connectionMap.size() + "";
-		log.info("Á¬½Ó¼ì²â, µ±Ç°Á¬½Ó¸öÊı:" + connCount);
+		log.info("è¿æ¥æ£€æµ‹, å½“å‰è¿æ¥ä¸ªæ•°:" + connCount);
 		SqlSession sess = DBDelegate.getSqlSessionFactory().openSession(ExecutorType.BATCH, false);
 		try{
 			for (Map.Entry<String, SocketConnection> map : connectionMap.entrySet()) {
 				SocketConnection conn = map.getValue();
 				if(conn!=null && conn.valid()){
-					log.info(conn.toString() + "¡£ ¼¯ºÏÔªËØ¸öÊı£º" + conn.getSetSize() + ", Á¬½Ó×´Ì¬:*ÓĞĞ§*");
-					//Á¬½ÓÕı³£×´Ì¬
+					log.info(conn.toString() + "ã€‚ é›†åˆå…ƒç´ ä¸ªæ•°ï¼š" + conn.getSetSize() + ", è¿æ¥çŠ¶æ€:*æœ‰æ•ˆ*");
+					//è¿æ¥æ­£å¸¸çŠ¶æ€
 					RoomCommState state = RoomCommStateFactory.getNormalRoomCommState(map.getKey());
 					sess.insert("cn.com.dhcc.rp.connector.update_insert_comm_state", state);
 					sess.commit();
 				}else{
-					log.warn(conn.toString() +  "Á¬½Ó¶Ï¿ª");
-					//Á¬½ÓÒì³£×´Ì¬
+					log.warn(conn.toString() +  "è¿æ¥æ–­å¼€");
+					//è¿æ¥å¼‚å¸¸çŠ¶æ€
 					RoomCommState state = RoomCommStateFactory.getExceptionRoomCommState(map.getKey());
 					sess.insert("cn.com.dhcc.rp.connector.update_insert_comm_state", state);
 					sess.commit();
 					
 					/*String eventContent = "";
-					eventContent = "½Ó¿Ú¶Ï¿ª£¬µØÖ·ĞÅÏ¢£º" + conn.toString();
-					//Á¬½Ó¶Ï¿ª¸æ¾¯
+					eventContent = "æ¥å£æ–­å¼€ï¼Œåœ°å€ä¿¡æ¯ï¼š" + conn.toString();
+					//è¿æ¥æ–­å¼€å‘Šè­¦
 					ConnectionEvent disConnectedEvent = 
 							ConnectionEventFactory.getEvent(map.getKey(), eventContent, ConnectionEvent.LINK_DISCONNECTED);
 					sess.insert("cn.com.dhcc.rp.event.insert_connection_TxEvents", disConnectedEvent);
@@ -53,14 +53,14 @@ public class CheckConnectionValidJob extends ContainerMaintenanceJob{
 					boolean reconnectSuccess = map.getValue().reConnect();
 					if(reconnectSuccess){
 						new Thread(map.getValue()).start();
-						log.warn(conn.toString() + "¡£ Á¬½Ó¶Ï¿ª£¬ÖØÁ¬³É¹¦!");
-						//Õı³£×´Ì¬
+						log.warn(conn.toString() + "ã€‚ è¿æ¥æ–­å¼€ï¼Œé‡è¿æˆåŠŸ!");
+						//æ­£å¸¸çŠ¶æ€
 						RoomCommState commstate = RoomCommStateFactory.getNormalRoomCommState(map.getKey());
 						sess.insert("cn.com.dhcc.rp.connector.update_insert_comm_state", commstate);
 						sess.commit();
 						/*
-						//Á¬½Ó¶Ï¿ª»Ö¸´
-						eventContent = "½Ó¿ÚÍ¨Ñ¶»Ö¸´";
+						//è¿æ¥æ–­å¼€æ¢å¤
+						eventContent = "æ¥å£é€šè®¯æ¢å¤";
 						ConnectionEvent reConnectedEvent = 
 								ConnectionEventFactory.getEvent(map.getKey(), eventContent, ConnectionEvent.LINK_CONNECTED);
 						sess.insert("cn.com.dhcc.rp.event.insert_connection_TxEvents", reConnectedEvent);
@@ -68,7 +68,7 @@ public class CheckConnectionValidJob extends ContainerMaintenanceJob{
 						*/
 						
 					}else{
-						log.warn(conn.toString() + "¡£ Á¬½Ó¶Ï¿ª£¬ÖØÁ¬Ê§°Ü!");
+						log.warn(conn.toString() + "ã€‚ è¿æ¥æ–­å¼€ï¼Œé‡è¿å¤±è´¥!");
 					}
 				}
 			}

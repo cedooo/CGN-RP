@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.further.impl;
+ï»¿package cn.com.dhcc.rp.job.further.impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.quartz.JobExecutionContext;
@@ -7,7 +7,7 @@ import org.quartz.JobExecutionException;
 import cn.com.dhcc.rp.db.DBDelegate;
 import cn.com.dhcc.rp.job.further.FurtherProcessJob;
 /**
- * É¾³ıÎ´¶ÁµÄ¸æ¾¯
+ * åˆ é™¤æœªè¯»çš„å‘Šè­¦
  * @author PCITECC02
  *
  */
@@ -23,9 +23,9 @@ public final class ClearUnreadEventsJob extends FurtherProcessJob{
 			sess.close();
 		}
 		if(deleteCount>0){
-			log.warn("É¾³ıÎ´¶ÁµÄ¸æ¾¯" + deleteCount + "Ìõ");
+			log.warn("åˆ é™¤æœªè¯»çš„å‘Šè­¦" + deleteCount + "æ¡");
 		}else{
-			log.info("Î´¶Á¸æ¾¯Îª0Ìõ");
+			log.info("æœªè¯»å‘Šè­¦ä¸º0æ¡");
 		}
 	}
 	/*public static void main(String[] args) {

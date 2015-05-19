@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom.factory;
+ï»¿package cn.com.dhcc.rp.machineroom.factory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -63,10 +63,10 @@ public final class MachineRoomFactory {
 //System.out.println(machineRoom.getNetworkElementList().size() + ">>>>>>>" +machineRoom.getNetworkElementList());
 
 			/*
-			 * Éè±¸
+			 * è®¾å¤‡
 			 */
 			
-			//ÍøÔª map<'¶¨Òå¹æÔòxml'£¬ ¶¨Òåxml[]>
+			//ç½‘å…ƒ map<'å®šä¹‰è§„åˆ™xml'ï¼Œ å®šä¹‰xml[]>
 			Map<String, String[]> mapNetworkEle = xmlConfig.getMapNetworkEleXml();
 			List<NetworkElement> listEquipment = new ArrayList<NetworkElement>();
 			for (Entry<String, String[]> maps : mapNetworkEle.entrySet()) {
@@ -74,20 +74,20 @@ public final class MachineRoomFactory {
 				String[] vals = maps.getValue();
 				Digester equipDigester = rulesLoader.newDigester();
 				for (String val : vals) {
-					log.debug("Éè±¸¶¨Òåxml>>>" + val.trim() + "<<<<<<<");
+					log.debug("è®¾å¤‡å®šä¹‰xml>>>" + val.trim() + "<<<<<<<");
 					input = MachineRoomFactory.class.getClassLoader().getResourceAsStream(val.trim());
 					NetworkElement networkElement = equipDigester.parse(input);
 					log.debug(networkElement);
 					boolean defValid = networkElement!=null;
 					if(defValid){
-						//ËùÓĞÍøÔªÉè±¸
+						//æ‰€æœ‰ç½‘å…ƒè®¾å¤‡
 						List<NetworkElement> networkElementList = machineRoom.getNetworkElementList();
 						for (NetworkElement ne2 : networkElementList) {
 							if(ne2.getType().equals(networkElement.getType())){
 								networkElement.setId(ne2.getId());
 								networkElement.setName(ne2.getName());
 								listEquipment.add(networkElement.deepClone());
-								log.debug("-------------------¿ËÂ¡µÄ¶ÔÏó--------\n" + networkElement.deepClone());
+								log.debug("-------------------å…‹éš†çš„å¯¹è±¡--------\n" + networkElement.deepClone());
 							}
 						}
 					}
@@ -96,7 +96,7 @@ public final class MachineRoomFactory {
 			}
 			
 			/*
-			 * ×ÓÏµÍ³
+			 * å­ç³»ç»Ÿ
 			 */
 			List<NetworkElement> listSubSys = new ArrayList<NetworkElement>();
 			Map<String, String[]> mapSubSystem = xmlConfig.getMapSubSystemXml();
@@ -105,13 +105,13 @@ public final class MachineRoomFactory {
 				String[] vals = maps.getValue();
 				Digester equipDigester = rulesLoader.newDigester();
 				for (String val : vals) {
-					log.debug("×ÓÏµÍ³¶¨Òåxml>>>" + val.trim() + "<<<<<");
+					log.debug("å­ç³»ç»Ÿå®šä¹‰xml>>>" + val.trim() + "<<<<<");
 					input = MachineRoomFactory.class.getClassLoader().getResourceAsStream(val.trim());
 					SubSystem subDef = equipDigester.parse(input);
-					log.debug("×ÓÏµÍ³¶¨Òå: " + subDef);
+					log.debug("å­ç³»ç»Ÿå®šä¹‰: " + subDef);
 					boolean defValid = subDef!=null;
 					if(defValid){
-						//×ÓÏµÍ³ Éè±¸½Úµã ´¦Àí£º¼ÓÈëµ½Éè±¸ÖĞ
+						//å­ç³»ç»Ÿ è®¾å¤‡èŠ‚ç‚¹ å¤„ç†ï¼šåŠ å…¥åˆ°è®¾å¤‡ä¸­
 						List<Equipment> listSubEquip  = subDef.getListEquip();
 						List<Equipment> listSubEquipDef  = subDef.getListEquipDef();
 						
@@ -128,7 +128,7 @@ public final class MachineRoomFactory {
 						}
 						
 						List<NetworkElement> listSubSystem = machineRoom.getNetworkElementList();
-						log.debug("»ú·¿×ÓÏµÍ³ÁĞ±í£º" + listSubSystem);				
+						log.debug("æœºæˆ¿å­ç³»ç»Ÿåˆ—è¡¨ï¼š" + listSubSystem);				
 						for (NetworkElement sys : listSubSystem) {
 							if(sys.getType().equals(subDef.getType())){
 								subDef.setId(sys.getId());
@@ -142,7 +142,7 @@ public final class MachineRoomFactory {
 			machineRoom.getNetworkElementList().clear();
 			machineRoom.getNetworkElementList().addAll(listEquipment);
 			machineRoom.getNetworkElementList().addAll(listSubSys);
-			log.debug("»ú·¿ĞÅÏ¢==>" + machineRoom);			
+			log.debug("æœºæˆ¿ä¿¡æ¯==>" + machineRoom);			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
@@ -157,10 +157,10 @@ public final class MachineRoomFactory {
 			}
 		}
 
-		//¿Í»§¶Ë ÅäÖÃĞÅÏ¢
+		//å®¢æˆ·ç«¯ é…ç½®ä¿¡æ¯
 		try {
 			RPClient client = (RPClient) Class.forName(xmlConfig.getClientClass()).newInstance();
-			//´ÓÊı¾İ¿â»ñÈ¡ÅäÖÃ
+			//ä»æ•°æ®åº“è·å–é…ç½®
 			/*SqlSession ses = DBDelegate.getSqlSessionFactory().openSession();
 			RoomInterfaceConf conf = ses.selectOne("select_interface_info_by_company_code", xmlConfig.getCode());
 			ses.close();*/

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.further.impl;
+ï»¿package cn.com.dhcc.rp.job.further.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,9 +18,9 @@ import cn.com.dhcc.rp.job.further.FurtherProcessJob;
 import cn.com.dhcc.rp.job.po.TxRoomPowerUsedPerf;
 import cn.com.dhcc.rp.persistence.po.Constants;
 /**
- * ¼ÆËãPUE 
+ * è®¡ç®—PUE 
  * 
- * £¨AP1µçÁ¿ÒÇµÄÈıÏàÊÓÔÚ×Ü¹¦ÂÊ+AP4µçÁ¿ÒÇµÄÈıÏàÊÓÔÚ¹¦ÂÊ£©/£¨AP2µçÁ¿ÒÇÈıÏàÊÓÔÚ¹¦ÂÊ+ AP3µçÁ¿ÒÇÈıÏàÊÓÔÚ¹¦ÂÊ£©
+ * ï¼ˆAP1ç”µé‡ä»ªçš„ä¸‰ç›¸è§†åœ¨æ€»åŠŸç‡+AP4ç”µé‡ä»ªçš„ä¸‰ç›¸è§†åœ¨åŠŸç‡ï¼‰/ï¼ˆAP2ç”µé‡ä»ªä¸‰ç›¸è§†åœ¨åŠŸç‡+ AP3ç”µé‡ä»ªä¸‰ç›¸è§†åœ¨åŠŸç‡ï¼‰
  * @author PCITECC02
  *
  */
@@ -100,13 +100,13 @@ public final class ComputePUEJob extends FurtherProcessJob {
 			perf.setCompanyCode(COMPANY_CODE);
 			String collectTime = dateFormat.format(new Date());
 			perf.setCollectTime(collectTime);
-			log.info("¼ÆËãPUE£¬pue = " + perf.getPowerUsed());
+			log.info("è®¡ç®—PUEï¼Œpue = " + perf.getPowerUsed());
 
 			SqlSession sess = DBDelegate.getSqlSessionFactory().openSession();
 			try{
 				sess.update("cn.com.dhcc.rp.job.update_insert_TxRoomPowerUsedPerf", perf);
 				sess.commit();
-				log.debug("pueÈë¿â³É¹¦");
+				log.debug("pueå…¥åº“æˆåŠŸ");
 			}finally{
 				sess.close();
 			}

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.collect.impl;
+ï»¿package cn.com.dhcc.rp.job.collect.impl;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -16,11 +16,11 @@ public class STCollectJob extends CGNCollectJob {
 		String info = printJobInfo(cont);
 		
 		RoomInterfaceConf interfaceConfig = getRoomInterfaceConf(cont);
-//System.out.println("Êı¾İ¿âÅäÖÃ" + interfaceConfig);
+//System.out.println("æ•°æ®åº“é…ç½®" + interfaceConfig);
 		CorbaClient client = new STCorbaClient(interfaceConfig);
 		log.info(info);
 		boolean col = client.doCollect();
-		log.info("²É¼¯" + (col?"³É¹¦":"Ê§°Ü"));
+		log.info("é‡‡é›†" + (col?"æˆåŠŸ":"å¤±è´¥"));
 		client = null;
 	}
 	

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.lk;
+锘縫ackage cn.com.dhcc.rp.connection.lk;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -16,14 +16,14 @@ import cn.com.dhcc.rp.pojo.ConfFormatConstants;
 
 
 /**
- * 龙控Socket连接
+ * 榫欐帶Socket杩炴帴
  * @author PCITECC02
  * @deprecated
  *
  */
 public class LKSocketConnection2 extends SocketConnection{
     
-	static private final int BYTE_BUFFER_SIZE = 1024;    //缓冲大小
+	static private final int BYTE_BUFFER_SIZE = 1024;    //缂撳啿澶у皬
 	static protected SimpleDateFormat dateFormat = new SimpleDateFormat(ConfFormatConstants.DATE_FORMAT);
 	
 	private SocketChannel socketChannel = null;
@@ -50,7 +50,7 @@ public class LKSocketConnection2 extends SocketConnection{
 		try {
 	        while(this.keepRun){
 	        	buffer.clear();
-	        	long rc = socketChannel.read(buffer);    //读入
+	        	long rc = socketChannel.read(buffer);    //璇诲叆
 	            if(rc==-1){
 	                break;
 	            }
@@ -76,10 +76,10 @@ public class LKSocketConnection2 extends SocketConnection{
 		    		while(matcherEvent.find()){
 		    			String infoB = matcherEvent.group();
 		    			LKData eventData = LKUtils.parseToLKDataEvent(this.companyCode, infoB);
-						// 事件入库
+						// 浜嬩欢鍏ュ簱
 						if(eventData != null){
 							sess.insert("cn.com.dhcc.rp.event.insert_lk_TxEvents", eventData);
-							log.info("事件入库成功");
+							log.info("浜嬩欢鍏ュ簱鎴愬姛");
 						}
 		    		}
 					sess.commit();
@@ -117,7 +117,7 @@ public class LKSocketConnection2 extends SocketConnection{
 			while(true){
 				Thread.sleep(5000);
 				int size  = lkc.getRealDataSetISO().size();
-				System.out.println("大小" + size);
+				System.out.println("澶у皬" + size);
 				
 			}
 		} catch (InterruptedException e) {

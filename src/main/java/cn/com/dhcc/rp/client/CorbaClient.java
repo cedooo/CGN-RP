@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.client;
+ï»¿package cn.com.dhcc.rp.client;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,8 +12,8 @@ import cn.com.dhcc.rp.machineroom.networkele.NetworkElement;
 import cn.com.dhcc.rp.persistence.po.RoomCommState;
 import cn.com.dhcc.rp.pojo.InterfaceConnectResult;
 /**
- * corba¿Í»§¶Ë ³éÏóÀà<br />
- * <strong>Ä£°æ·½·¨ Ä£Ê½</strong>
+ * corbaå®¢æˆ·ç«¯ æŠ½è±¡ç±»<br />
+ * <strong>æ¨¡ç‰ˆæ–¹æ³• æ¨¡å¼</strong>
  * @author PCITECC02
  *
  */
@@ -24,7 +24,7 @@ public abstract class CorbaClient extends RPClient {
 		return doCollect();
 	}
 	/**
-	 * ²É¼¯
+	 * é‡‡é›†
 	 * @return
 	 */
 	public boolean doCollect(){
@@ -49,23 +49,23 @@ public abstract class CorbaClient extends RPClient {
 							try {
 								return this.persistent();
 							} catch (SQLException e) {
-								log.warn("Êı¾İÈë¿âÊ§°Ü£¡");
+								log.warn("æ•°æ®å…¥åº“å¤±è´¥ï¼");
 								return false;
 							}
 						}else{
-							log.warn("×ª»»Êı¾İÊ§°Ü£¡");
+							log.warn("è½¬æ¢æ•°æ®å¤±è´¥ï¼");
 							return false;
 						}
 					}else{
-						log.warn("»ñÈ¡Êı¾İÊ§°Ü£¡");
+						log.warn("è·å–æ•°æ®å¤±è´¥ï¼");
 						return false;
 					}
 				}catch(Exception e){
-					//Éú³ÉÁ¬½ÓÒì³£¸æ¾¯ºÍ×´Ì¬
+					//ç”Ÿæˆè¿æ¥å¼‚å¸¸å‘Šè­¦å’ŒçŠ¶æ€
 					RoomCommState exState = RoomCommStateFactory.getExceptionRoomCommState(code);
 					sess.insert("cn.com.dhcc.rp.connector.update_insert_comm_state", exState);
 					sess.commit();
-					/*String disconContent = "½Ó¿Ú¶Ï¿ª£¬µØÖ·ĞÅÏ¢£º" + addrInfo;
+					/*String disconContent = "æ¥å£æ–­å¼€ï¼Œåœ°å€ä¿¡æ¯ï¼š" + addrInfo;
 					ConnectionEvent disConnectedEvent = 
 							ConnectionEventFactory.getEvent(code, disconContent, ConnectionEvent.LINK_DISCONNECTED);
 					sess.insert("cn.com.dhcc.rp.event.insert_connection_TxEvents", disConnectedEvent);
@@ -74,16 +74,16 @@ public abstract class CorbaClient extends RPClient {
 				}
 				return true;
 			default:
-				//Éú³ÉÁ¬½ÓÒì³£¸æ¾¯ºÍ×´Ì¬
+				//ç”Ÿæˆè¿æ¥å¼‚å¸¸å‘Šè­¦å’ŒçŠ¶æ€
 				RoomCommState exState = RoomCommStateFactory.getExceptionRoomCommState(code);
 				sess.insert("cn.com.dhcc.rp.connector.update_insert_comm_state", exState);
 				sess.commit();
-				/*String disconContent = "½Ó¿Ú¶Ï¿ª£¬µØÖ·ĞÅÏ¢£º" + addrInfo;
+				/*String disconContent = "æ¥å£æ–­å¼€ï¼Œåœ°å€ä¿¡æ¯ï¼š" + addrInfo;
 				ConnectionEvent disConnectedEvent = 
 						ConnectionEventFactory.getEvent(code, disconContent, ConnectionEvent.LINK_DISCONNECTED);
 				sess.insert("cn.com.dhcc.rp.event.insert_connection_TxEvents", disConnectedEvent);
 				sess.commit();*/
-				log.warn("corba½Ó¿ÚÁ¬½ÓÒì³£!" + this.roomInterfaceCof);
+				log.warn("corbaæ¥å£è¿æ¥å¼‚å¸¸!" + this.roomInterfaceCof);
 				return false;
 			}
 		}finally{
@@ -92,28 +92,28 @@ public abstract class CorbaClient extends RPClient {
 		}
 	}
 	/**
-	 * Á¬½Ó½Ó¿Ú
+	 * è¿æ¥æ¥å£
 	 * @return
 	 */
 	abstract protected InterfaceConnectResult connectInterface();
 	/**
-	 * »ñÈ¡Êı¾İ,´æÈëÊı¾İ¿â»òÕß¼¯ºÏÖĞ¡£
+	 * è·å–æ•°æ®,å­˜å…¥æ•°æ®åº“æˆ–è€…é›†åˆä¸­ã€‚
 	 * @return
 	 */
 	abstract protected boolean getData() throws Exception;
 	/**
-	 * ×ª»» »ñµÃµÄÊı¾İ
+	 * è½¬æ¢ è·å¾—çš„æ•°æ®
 	 * @return
 	 */
 	abstract protected boolean process();
 	/**
-	 * ³Ö¾Ã»¯ ||Èë"ÁÙÊ±"¿â
+	 * æŒä¹…åŒ– ||å…¥"ä¸´æ—¶"åº“
 	 * @return
 	 * @throws SQLException 
 	 */
 	abstract protected boolean persistent() throws SQLException;
 	/**
-	 *  ¹Ø±Õcorba orb ÊÍ·ÅÏà¹Ø×ÊÔ´
+	 *  å…³é—­corba orb é‡Šæ”¾ç›¸å…³èµ„æº
 	 * @return 
 	 */
 	abstract protected boolean releaseSource();

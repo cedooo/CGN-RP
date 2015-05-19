@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.lk;
+ï»¿package cn.com.dhcc.rp.connection.lk;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -16,13 +16,13 @@ import cn.com.dhcc.rp.pojo.ConfFormatConstants;
 
 
 /**
- * Áú¿ØSocketÁ¬½Ó
+ * é¾™æ§Socketè¿æ¥
  * @author PCITECC02
  *
  */
 public class LKSocketConnection extends SocketConnection{
     
-	static private final int BYTE_BUFFER_SIZE = 1024;    //»º³å´óĞ¡
+	static private final int BYTE_BUFFER_SIZE = 1024;    //ç¼“å†²å¤§å°
 	static protected SimpleDateFormat dateFormat = new SimpleDateFormat(ConfFormatConstants.DATE_FORMAT);
 	
 	private SocketChannel socketChannel = null;
@@ -49,7 +49,7 @@ public class LKSocketConnection extends SocketConnection{
 		try {
 	        while(this.keepRun){
 	        	buffer.clear();
-	        	long rc = socketChannel.read(buffer);    //¶ÁÈë
+	        	long rc = socketChannel.read(buffer);    //è¯»å…¥
 	            if(rc==-1){
 	                break;
 	            }
@@ -73,17 +73,17 @@ public class LKSocketConnection extends SocketConnection{
 		    					sess.update("cn.com.dhcc.rp.realtimedata.update_insert_lk_data", lkData);
 		    					//log.info(lkData);
 		    				}else{
-			    				log.info("Éè±¸ÎªNULL£º" + lkData);
+			    				log.info("è®¾å¤‡ä¸ºNULLï¼š" + lkData);
 		    				}
 		    			}
 		    		}
 		    		while(matcherEvent.find()){
 		    			String infoB = matcherEvent.group();
 		    			LKData eventData = LKUtils.parseToLKDataEvent(this.companyCode, infoB);
-						// ÊÂ¼şÈë¿â
+						// äº‹ä»¶å…¥åº“
 						if(eventData != null){
 							sess.insert("cn.com.dhcc.rp.event.insert_lk_TxEvents", eventData);
-							log.info("ÊÂ¼şÈë¿â³É¹¦");
+							log.info("äº‹ä»¶å…¥åº“æˆåŠŸ");
 						}
 		    		}
 					sess.commit();
@@ -123,7 +123,7 @@ public class LKSocketConnection extends SocketConnection{
 			while(true){
 				Thread.sleep(5000);
 				int size  = lkc.getRealDataSetISO().size();
-				System.out.println("´óĞ¡" + size);
+				System.out.println("å¤§å°" + size);
 				
 			}
 		} catch (InterruptedException e) {

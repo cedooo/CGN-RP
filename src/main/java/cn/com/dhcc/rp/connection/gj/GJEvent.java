@@ -1,23 +1,23 @@
-package cn.com.dhcc.rp.connection.gj;
+ï»¿package cn.com.dhcc.rp.connection.gj;
 
 /**
- * key||Õ¾µãÃû³Æ|ÊÂ¼şÀ´Ô´|ÊÂ¼şÄÚÈİ|ÊÂ¼ş¼¶±ğ|ÊÂ¼şÀàĞÍ|·¢ÉúÊ±¼ä|ÊÂ¼şID£¨¼´event_guid£©|
+ * key||ç«™ç‚¹åç§°|äº‹ä»¶æ¥æº|äº‹ä»¶å†…å®¹|äº‹ä»¶çº§åˆ«|äº‹ä»¶ç±»å‹|å‘ç”Ÿæ—¶é—´|äº‹ä»¶IDï¼ˆå³event_guidï¼‰|
  * @author PCITECC02
  *
  */
 public class GJEvent {
 	
 	private String key = null;
-	private String stateName= null;   //Õ¾µãÃû³Æ
-	private String eventSource= null;    //ÊÂ¼şÀ´Ô´
-	private String eventContent= null;    //ÊÂ¼şÄÚÈİ
-	private String level= null;    //ÊÂ¼ş¼¶±ğ
-	private String type = null;    //ÊÂ¼şÀàĞÍ
-	private String date= null;    //·¢ÉúÊ±¼ä
-	private String eventId = null;    //ÊÂ¼şID£¨¼´event_guid£©
+	private String stateName= null;   //ç«™ç‚¹åç§°
+	private String eventSource= null;    //äº‹ä»¶æ¥æº
+	private String eventContent= null;    //äº‹ä»¶å†…å®¹
+	private String level= null;    //äº‹ä»¶çº§åˆ«
+	private String type = null;    //äº‹ä»¶ç±»å‹
+	private String date= null;    //å‘ç”Ÿæ—¶é—´
+	private String eventId = null;    //äº‹ä»¶IDï¼ˆå³event_guidï¼‰
 	
 	
-	private String companyCode = null;     //¹«Ë¾±àÂë
+	private String companyCode = null;     //å…¬å¸ç¼–ç 
 	private String id = null;
 	private String attrName = null;
 	

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.client.gj;
+ï»¿package cn.com.dhcc.rp.client.gj;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -18,7 +18,7 @@ import cn.com.dhcc.rp.persistence.factory.PersistenceFactory;
 
 
 /**
- * ¹²¼Ã ²É¼¯ ¿Í»§¶Ë
+ * å…±æµ é‡‡é›† å®¢æˆ·ç«¯
  * @author PCITECC02
  *
  */
@@ -34,7 +34,7 @@ public final class GJClient extends RPClient{
 		return false;
 	}
 	private boolean persistence(List<NetworkElement> networkElementList){
-		String remindInfo = "Êı¾İÈë¿â¿ªÊ¼..";
+		String remindInfo = "æ•°æ®å…¥åº“å¼€å§‹..";
 		log.info(remindInfo);
 		Date start = new Date();
 		for (NetworkElement networkElement : networkElementList) {
@@ -43,25 +43,25 @@ public final class GJClient extends RPClient{
 			if(persis!=null) {
 				persis.persistance(networkElement);
 			}else{
-				log.error("Èë¿âÊ§°Ü£º" + networkElement);
+				log.error("å…¥åº“å¤±è´¥ï¼š" + networkElement);
 			}
 		}
 		
-		remindInfo = "Êı¾İÈë¿âÍê³É:" + networkElementList.size() + "¸ö, ÓÃÊ±:" + (new Date().getTime() - start.getTime()) + "ms";
+		remindInfo = "æ•°æ®å…¥åº“å®Œæˆ:" + networkElementList.size() + "ä¸ª, ç”¨æ—¶:" + (new Date().getTime() - start.getTime()) + "ms";
 		log.info(remindInfo);
 		return false;
 	}
 	
 	/**
-	 * µÃµ½ÊµÊ±Êı¾İ
+	 * å¾—åˆ°å®æ—¶æ•°æ®
 	 * @return
 	 */
 	private boolean getRealTimeData(){
-		String remindInfo = "È¡µÃÊµÊ±Êı¾İ..";
+		String remindInfo = "å–å¾—å®æ—¶æ•°æ®..";
 		log.info(remindInfo);
 		this.realTimeDataSet = 
 				SocketConnetionContainer.getRealData(roomInterfaceCof.getCompanyCode());
-		log.info("set.size=" + realTimeDataSet.size() + ", È¡µÃÊµÊ±Êı¾İÍê³É");
+		log.info("set.size=" + realTimeDataSet.size() + ", å–å¾—å®æ—¶æ•°æ®å®Œæˆ");
 		if(this.realTimeDataSet.size()>0){
 			return true;
 		}else {
@@ -69,12 +69,12 @@ public final class GJClient extends RPClient{
 		}
 	}
 	/**
-	 * ´¦ÀíÊı¾İ
-	 * ½«ÊµÊ±Êı¾İ ¡®×¢Èë¡¯µ½Éè±¸¶ÔÏóÖĞ
+	 * å¤„ç†æ•°æ®
+	 * å°†å®æ—¶æ•°æ® â€˜æ³¨å…¥â€™åˆ°è®¾å¤‡å¯¹è±¡ä¸­
 	 * @return
 	 */
 	private boolean process() {
-		String remindInfo = "´¦Àí»ñÈ¡µÄÊı¾İ¿ªÊ¼..";
+		String remindInfo = "å¤„ç†è·å–çš„æ•°æ®å¼€å§‹..";
 		log.info(remindInfo);
 		
 		List<NetworkElement> listElement = this.networkElementList;
@@ -83,46 +83,46 @@ public final class GJClient extends RPClient{
 			List<Group> listGroup = equip.getListGroup();
 
 			String queryID = EQUIP_PRE_TAG + equip.getId();
-			for (Group group : listGroup) {    //½Úµã×é 
+			for (Group group : listGroup) {    //èŠ‚ç‚¹ç»„ 
 				List<EquipmentNode> listNodes = group.getListNode();
-				if(Group.TYPE_STATE.equals(group.getType())){    //×´Ì¬
+				if(Group.TYPE_STATE.equals(group.getType())){    //çŠ¶æ€
 					for (EquipmentNode equipmentNode : listNodes) {
 						GJData gjData = searchData(queryID, equipmentNode);
 						equipmentNode.setRealData(gjData);
 					}
-				}else if(Group.TYPE_VALUE.equals(group.getType())){    //ÊıÖµ
+				}else if(Group.TYPE_VALUE.equals(group.getType())){    //æ•°å€¼
 					for (EquipmentNode equipmentNode : listNodes) {
 						log.debug("queryID=======>" + queryID);
 						GJData gjData = searchData(queryID, equipmentNode);
 						equipmentNode.setRealData(gjData);
-						log.debug("ÊµÊ±Êı¾İ========>" + gjData);
+						log.debug("å®æ—¶æ•°æ®========>" + gjData);
 					}
 				}
 			}
 			
 			
 			List<Module> listModule = equip.getListMode();
-			for (Module module : listModule) {    //Ä£¿é
+			for (Module module : listModule) {    //æ¨¡å—
 				List<EquipmentNode> listNodes = module.getListNode();
-				if(Module.TYPE_NORMAL.equals(module.getType())){    //Ò»°ãÄ£¿é
+				if(Module.TYPE_NORMAL.equals(module.getType())){    //ä¸€èˆ¬æ¨¡å—
 					for (EquipmentNode equipmentNode : listNodes) {
 						log.debug("queryID=======>" + queryID);
 						GJData gjData = searchData(queryID, equipmentNode);
 						equipmentNode.setRealData(gjData);
-						log.debug("ÊµÊ±Êı¾İ========>" + gjData);
+						log.debug("å®æ—¶æ•°æ®========>" + gjData);
 					}
 				}
 			}
 			
 		}
 		
-		remindInfo = "´¦Àí»ñÈ¡µÄÊı¾İÍê³É";
+		remindInfo = "å¤„ç†è·å–çš„æ•°æ®å®Œæˆ";
 		log.info(remindInfo);
 		return true;
 	}
 	/**
-	 * ËÑË÷Êı¾İ
-	 * @param node ½Úµã
+	 * æœç´¢æ•°æ®
+	 * @param node èŠ‚ç‚¹
 	 * @return
 	 */
 	private GJData searchData(String searchID, EquipmentNode equipmentNode){
@@ -133,7 +133,7 @@ public final class GJClient extends RPClient{
 			String key = searchID +  
 					(equipmentNode.getId()==null?"":EQUIP_NODE_DECOLLATOR + equipmentNode.getId()) 
 					+ GJData.ATTR_VALUE_TAG;
-			//log.debug("²éÑ¯Êı¾İ¹Ø¼ü×Ö¡¾key¡¿ = " + key);
+			//log.debug("æŸ¥è¯¢æ•°æ®å…³é”®å­—ã€keyã€‘ = " + key);
 			boolean isNodeData = data.getKey().equals(key);
 			if(isNodeData){
 				gjData = data;

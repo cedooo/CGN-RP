@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.collect;
+ï»¿package cn.com.dhcc.rp.job.collect;
 
 import java.util.Date;
 
@@ -11,14 +11,14 @@ import cn.com.dhcc.rp.persistence.po.RoomInterfaceConf;
 import cn.com.dhcc.rp.pojo.ConfFormatConstants;
 import cn.com.dhcc.rp.roomInterConf.IntfsConfLoader;
 /**
- * ²É¼¯ÈÎÎñ
+ * é‡‡é›†ä»»åŠ¡
  * @author PCITECC02
  *
  */
 public abstract class CGNCollectJob implements Job {
 	static final protected Logger log = Logger.getLogger(CGNCollectJob.class.getClass());
 	/**
-	 * ³õÊ¼»¯JOB
+	 * åˆå§‹åŒ–JOB
 	 * @param content
 	 */
 	static public RoomInterfaceConf getRoomInterfaceConf(JobExecutionContext content){
@@ -33,14 +33,14 @@ public abstract class CGNCollectJob implements Job {
 		return IntfsConfLoader.getRoomInterfaceConf(companyCode);
 	}
 	/**
-	 * ´òÓ¡²É¼¯»ù±¾ĞÅÏ¢
-	 * @param content jobÖ´ĞĞÉÏÏÂÎÄ
+	 * æ‰“å°é‡‡é›†åŸºæœ¬ä¿¡æ¯
+	 * @param content jobæ‰§è¡Œä¸Šä¸‹æ–‡
 	 */
 	static public String printJobInfo(JobExecutionContext content){
 		JobDetail detail = content.getJobDetail();
-		StringBuffer info = new StringBuffer("\n===================²É¼¯×÷ÒµĞÅÏ¢==================\n");
-		info.append("ÃèÊö:" + detail.getDescription() + "\n" 
-				+ "Ê±¼ä:"+ new Date().toString());
+		StringBuffer info = new StringBuffer("\n===================é‡‡é›†ä½œä¸šä¿¡æ¯==================\n");
+		info.append("æè¿°:" + detail.getDescription() + "\n" 
+				+ "æ—¶é—´:"+ new Date().toString());
 		return info.toString();
 	}
 }

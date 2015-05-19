@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.further.impl;
+ï»¿package cn.com.dhcc.rp.job.further.impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.quartz.JobExecutionContext;
@@ -7,7 +7,7 @@ import org.quartz.JobExecutionException;
 import cn.com.dhcc.rp.db.DBDelegate;
 import cn.com.dhcc.rp.job.further.FurtherProcessJob;
 /**
- * É¾³ı¹ıÆÚÊı¾İ
+ * åˆ é™¤è¿‡æœŸæ•°æ®
  * @author PCITECC02
  * 
  */
@@ -16,7 +16,7 @@ public final class ClearDeprecatedDataJob extends FurtherProcessJob{
 	//private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		//TODO É¾³ıÁÙÊ±±íÖĞ ¹ıÆÚµÄÊı¾İ
+		//TODO åˆ é™¤ä¸´æ—¶è¡¨ä¸­ è¿‡æœŸçš„æ•°æ®
 		printJobInfo(context);
 		long deprecatedTime = context.getMergedJobDataMap().getLong(DEPRECATED_TIME);
 		int deleteCount = -1;
@@ -30,6 +30,6 @@ public final class ClearDeprecatedDataJob extends FurtherProcessJob{
 				sess.close();
 			}
 		}
-		System.out.println("É¾³ı¹ıÆÚµÄÊı¾İ " + deleteCount + " Ìõ");
+		System.out.println("åˆ é™¤è¿‡æœŸçš„æ•°æ® " + deleteCount + " æ¡");
 	}
 }

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.st.def;
+ï»¿package cn.com.dhcc.rp.st.def;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class StUpsDef {
 
 	@Override
 	public String toString() {
-		return "¸öÊý:" + this.listNodeDef.size() + "\nSTUPS [listNode=" + listNodeDef + "]";
+		return "ä¸ªæ•°:" + this.listNodeDef.size() + "\nSTUPS [listNode=" + listNodeDef + "]";
 	}
 	
 }

@@ -1,6 +1,6 @@
-package cn.com.dhcc.rp.connection.po;
+锘縫ackage cn.com.dhcc.rp.connection.po;
 /**
- * 连接事件
+ * 杩炴帴浜嬩欢
  * @author PCITECC02
  *
  */

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.pojo;
+锘縫ackage cn.com.dhcc.rp.pojo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,8 +11,8 @@ public class XmlConfig {
 	
 	static final public String EQUIPMENT_XML = "equipment";
 	static final public String SUB_SYSTEM_XML = "sub_system";
-	static final public String MACHINE_ROOM_DEF_RULES_XML = "machineroom_rules_xml";    //机房规则xml映射名称
-	static final public String MACHINE_ROOM_DEF_XML = "machineroom_xml";    //机房 xml映射名称
+	static final public String MACHINE_ROOM_DEF_RULES_XML = "machineroom_rules_xml";    //鏈烘埧瑙勫垯xml鏄犲皠鍚嶇О
+	static final public String MACHINE_ROOM_DEF_XML = "machineroom_xml";    //鏈烘埧 xml鏄犲皠鍚嶇О
 	
 	static final public String XML_REGEX = "(.)*\\.xml$";
 	
@@ -31,12 +31,12 @@ public class XmlConfig {
 	private String code = null;
 	
 	/**
-	 * 加载配置xml信息
+	 * 鍔犺浇閰嶇疆xml淇℃伅
 	 * @return
 	 */
 	public XmlConfig(JobExecutionContext context){
 		String neworkElementXml = context.getMergedJobDataMap().getString(EQUIPMENT_XML);
-		log.debug("加载网元xml" + neworkElementXml.trim() + "<>" +neworkElementXml.trim().matches(XML_REGEX));
+		log.debug("鍔犺浇缃戝厓xml" + neworkElementXml.trim() + "<>" +neworkElementXml.trim().matches(XML_REGEX));
 		if(neworkElementXml!=null&& neworkElementXml.length() > XML_MIN_LENGTH){//&&neworkElementXml.trim().matches(XML_REGEX)) {
 			String[] xmlGroups = neworkElementXml.trim().split(";");
 			for (String string : xmlGroups) {
@@ -47,7 +47,7 @@ public class XmlConfig {
 			}
 		}
 		String subSystemXml = context.getMergedJobDataMap().getString(SUB_SYSTEM_XML);
-		log.debug("加载子系统xml = " + subSystemXml);
+		log.debug("鍔犺浇瀛愮郴缁焫ml = " + subSystemXml);
 		if(subSystemXml!=null&& subSystemXml.length() > XML_MIN_LENGTH){//&&neworkElementXml.trim().matches(XML_REGEX)) {
 			String[] xmlGroups = subSystemXml.trim().split(";");
 			for (String string : xmlGroups) {

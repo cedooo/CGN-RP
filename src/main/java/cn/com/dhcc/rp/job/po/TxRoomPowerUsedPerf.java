@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.po;
+﻿package cn.com.dhcc.rp.job.po;
 
 public class TxRoomPowerUsedPerf {
 	private String id = null;

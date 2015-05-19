@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.client;
+ï»¿package cn.com.dhcc.rp.client;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import cn.com.dhcc.rp.machineroom.networkele.NetworkElement;
 import cn.com.dhcc.rp.persistence.po.RoomInterfaceConf;
 
 /**
- * ³éÏó »ú·¿¶¯Á¦ ¿Í»§¶Ë
+ * æŠ½è±¡ æœºæˆ¿åŠ¨åŠ› å®¢æˆ·ç«¯
  * @author PCITECC02
  *
  */

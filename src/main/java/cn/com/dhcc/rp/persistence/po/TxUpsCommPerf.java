@@ -1,43 +1,43 @@
-package cn.com.dhcc.rp.persistence.po;
+ï»¿package cn.com.dhcc.rp.persistence.po;
 
 public class TxUpsCommPerf extends POObj{
 
-	private String collectTime = null;    //²É¼¯Ê±¼ä
-	private String partID = Constants.DEFAULT_PART_ID;    //Ä£¿éID
-	private String voltageIn = null;    //ÊäÈëµçÑ¹
-	private String voltageOut = null;    //Êä³öµçÑ¹
-	private String currentIn = null;    //ÊäÈëµçÁ÷
-	private String currentOut = null;    //Êä³öµçÁ÷
-	private String powerOut = null;    //Êä³ö¹¦ÂÊ
-	private String powerViewOut = null;    //ÊÓÔÚ¹¦ÂÊ
-	private String powerRateOut = null;    //Êä³ö¹¦ÂÊÒòÊı
-	private String frequencyIn = null;    //ÊäÈëÆµÂÊ
-	private String frequencyOut = null;    //Êä³öÆµÂÊ
-	private String inverterFrequency = null;    //Äæ±äÆµÂÊ
-	private String sideFrequency = null;    //ÅÔÂ·ÆµÂÊ
-	private String batteryBakTime = null;    //µç³Ø±¸·İÊ±¼ä
-	private String batteryCurrency = null;    //µç³ØµçÁ÷
-	private String batteryVoltage = null;    //µç³ØµçÑ¹
-	private String batteryFloatVoltage = null;    //µç³Ø¸¡³åµçÑ¹
-	private String batteryChargeRate = null;    //µç³Ø³äµç³Ì¶È
-	private String batteryVolume = null;    //µç³ØÈİÁ¿
-	private String batteryVolumeAh = null;    //µç³ØÈİÁ¿Ah
-	private String batteryCon = null;    //µç³ØµçÁ¿
-	private String upsLoad = null;    //UPS¸ºÔØ°Ù·Ö±È
-	private String upsTem = null;    //upsÎÂ¶È    
-	private String upsCunTem = null;    //ups»·¾³ÎÂ¶È
-	private String negativeBatteryCurrency = null;    //¸ºµç³ØµçÁ÷
-	private String negativeBatteryVoltage = null;    //¸ºµç³ØµçÑ¹
-	private String voltageABOut = null;    //Êä³öµçÑ¹AB
-	private String voltageBCOut = null;    //Êä³öµçÑ¹BC
-	private String voltageCAOut = null;    //Êä³öµçÑ¹CA
-	private String id = null;    //    //Éè±¸ID
-	private String powerUsedOut = null;    //Êä³öÓĞ¹¦¹¦ÂÊ
-	private String powerUnUsedOut = null;    //Êä³öÎŞ¹¦¹¦ÂÊ
-	private String otherVoltage = null;    //ÅÔÂ·µçÑ¹
-	private String otherCurrency = null;    //ÅÔÂ·µçÁ÷
+	private String collectTime = null;    //é‡‡é›†æ—¶é—´
+	private String partID = Constants.DEFAULT_PART_ID;    //æ¨¡å—ID
+	private String voltageIn = null;    //è¾“å…¥ç”µå‹
+	private String voltageOut = null;    //è¾“å‡ºç”µå‹
+	private String currentIn = null;    //è¾“å…¥ç”µæµ
+	private String currentOut = null;    //è¾“å‡ºç”µæµ
+	private String powerOut = null;    //è¾“å‡ºåŠŸç‡
+	private String powerViewOut = null;    //è§†åœ¨åŠŸç‡
+	private String powerRateOut = null;    //è¾“å‡ºåŠŸç‡å› æ•°
+	private String frequencyIn = null;    //è¾“å…¥é¢‘ç‡
+	private String frequencyOut = null;    //è¾“å‡ºé¢‘ç‡
+	private String inverterFrequency = null;    //é€†å˜é¢‘ç‡
+	private String sideFrequency = null;    //æ—è·¯é¢‘ç‡
+	private String batteryBakTime = null;    //ç”µæ± å¤‡ä»½æ—¶é—´
+	private String batteryCurrency = null;    //ç”µæ± ç”µæµ
+	private String batteryVoltage = null;    //ç”µæ± ç”µå‹
+	private String batteryFloatVoltage = null;    //ç”µæ± æµ®å†²ç”µå‹
+	private String batteryChargeRate = null;    //ç”µæ± å……ç”µç¨‹åº¦
+	private String batteryVolume = null;    //ç”µæ± å®¹é‡
+	private String batteryVolumeAh = null;    //ç”µæ± å®¹é‡Ah
+	private String batteryCon = null;    //ç”µæ± ç”µé‡
+	private String upsLoad = null;    //UPSè´Ÿè½½ç™¾åˆ†æ¯”
+	private String upsTem = null;    //upsæ¸©åº¦    
+	private String upsCunTem = null;    //upsç¯å¢ƒæ¸©åº¦
+	private String negativeBatteryCurrency = null;    //è´Ÿç”µæ± ç”µæµ
+	private String negativeBatteryVoltage = null;    //è´Ÿç”µæ± ç”µå‹
+	private String voltageABOut = null;    //è¾“å‡ºç”µå‹AB
+	private String voltageBCOut = null;    //è¾“å‡ºç”µå‹BC
+	private String voltageCAOut = null;    //è¾“å‡ºç”µå‹CA
+	private String id = null;    //    //è®¾å¤‡ID
+	private String powerUsedOut = null;    //è¾“å‡ºæœ‰åŠŸåŠŸç‡
+	private String powerUnUsedOut = null;    //è¾“å‡ºæ— åŠŸåŠŸç‡
+	private String otherVoltage = null;    //æ—è·¯ç”µå‹
+	private String otherCurrency = null;    //æ—è·¯ç”µæµ
 	
-	private String companyCode = null;    //³§¼Ò±êÖ¾£¬·½±ãÉ¾³ıÀúÊ·ÊµÊ±Êı¾İ
+	private String companyCode = null;    //å‚å®¶æ ‡å¿—ï¼Œæ–¹ä¾¿åˆ é™¤å†å²å®æ—¶æ•°æ®
 	public String getCollectTime() {
 		return collectTime;
 	}

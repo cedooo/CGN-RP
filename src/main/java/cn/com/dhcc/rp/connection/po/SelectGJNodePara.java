@@ -1,6 +1,6 @@
-package cn.com.dhcc.rp.connection.po;
+锘縫ackage cn.com.dhcc.rp.connection.po;
 /**
- * 查询共济节点名称 参数
+ * 鏌ヨ鍏辨祹鑺傜偣鍚嶇О 鍙傛暟
  * @author PCITECC02
  *
  */

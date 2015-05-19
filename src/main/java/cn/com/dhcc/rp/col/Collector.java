@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.col;
+ï»¿package cn.com.dhcc.rp.col;
 
 import org.apache.log4j.Logger;
 import org.quartz.Scheduler;
@@ -7,7 +7,7 @@ import org.quartz.impl.StdSchedulerFactory;
 
 import cn.com.dhcc.rp.col.listener.CollectorListener;
 /**
- * ²É¼¯Æ÷
+ * é‡‡é›†å™¨
  * @author PCITECC02
  *
  */
@@ -21,13 +21,13 @@ public class Collector implements Runnable{
 			scheduler = StdSchedulerFactory.getDefaultScheduler();
 			scheduler.getListenerManager().addSchedulerListener(new CollectorListener());
 			scheduler.start();
-			log.info("²É¼¯µ÷¶ÈÏß³ÌÆô¶¯");
+			log.info("é‡‡é›†è°ƒåº¦çº¿ç¨‹å¯åŠ¨");
 			try {
 				while(keepRun){
 					Thread.sleep(60*1000);
 				}
 			} catch (InterruptedException e) {
-				log.fatal("²É¼¯Æ÷Ïß³ÌInterrupted");
+				log.fatal("é‡‡é›†å™¨çº¿ç¨‹Interrupted");
 			}
 		} catch (SchedulerException e) {
 			e.printStackTrace();
@@ -42,7 +42,7 @@ public class Collector implements Runnable{
 		}	
 	}
 	/**
-	 * Í£Ö¹²É¼¯
+	 * åœæ­¢é‡‡é›†
 	 */
 	public void stopCollector(){
 		this.keepRun = false;

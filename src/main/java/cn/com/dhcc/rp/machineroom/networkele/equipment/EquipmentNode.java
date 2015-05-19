@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom.networkele.equipment;
+ï»¿package cn.com.dhcc.rp.machineroom.networkele.equipment;
 
 import java.io.Serializable;
 
@@ -10,14 +10,14 @@ public class EquipmentNode implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 4864482298787377701L;
-	public static String TYPE_STATE = "0";    //×´Ì¬ÀàĞÍ±äÁ¿
-	public static String TYPE_VALUE = "1";    //ÊıÖµÀàĞÍ±äÁ¿
+	public static String TYPE_STATE = "0";    //çŠ¶æ€ç±»å‹å˜é‡
+	public static String TYPE_VALUE = "1";    //æ•°å€¼ç±»å‹å˜é‡
 	static public String COLLECT = "1";   
 	
-	public static String SUB_TYPE_NORMAL = "0";    //×ÓÀàĞÍ£ºÒ»°ãÀàĞÍ
-	public static String SUB_TYPE_PART = "1";    //×ÓÀàĞÍ£ºÄ£¿éÀàĞÍ
-	public static String SUB_TYPE_CONF = "2";    //×ÓÀàĞÍ£ºÉè¶¨ÀàĞÍ
-	public static String SUB_TYPE_RAISE = "3";    //×ÓÀàĞÍ£º×Ô¶¯Ôö³¤ÀàĞÍ,Èç£ºÔËĞĞÊ±¼ä
+	public static String SUB_TYPE_NORMAL = "0";    //å­ç±»å‹ï¼šä¸€èˆ¬ç±»å‹
+	public static String SUB_TYPE_PART = "1";    //å­ç±»å‹ï¼šæ¨¡å—ç±»å‹
+	public static String SUB_TYPE_CONF = "2";    //å­ç±»å‹ï¼šè®¾å®šç±»å‹
+	public static String SUB_TYPE_RAISE = "3";    //å­ç±»å‹ï¼šè‡ªåŠ¨å¢é•¿ç±»å‹,å¦‚ï¼šè¿è¡Œæ—¶é—´
 	
 	private String id = null;
 	private String name = null;

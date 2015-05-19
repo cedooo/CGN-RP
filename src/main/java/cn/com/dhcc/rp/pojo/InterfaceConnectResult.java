@@ -1,8 +1,8 @@
-package cn.com.dhcc.rp.pojo;
+﻿package cn.com.dhcc.rp.pojo;
 
 public enum InterfaceConnectResult {
-	CONNECTED("���ӳɹ�"){}, UNKNOW_HOST("δ֪����"){}, HOST_NOT_FOUND("�Ҳ�������"){}, REFUSED_CONNECT("�ܾ�����"){}
-	, CONNECT_TIME_OUT("���ӳ�ʱ"){}, CONNECT_OTHER_EXCEPTION("����ʱ����λ�ô���"){};
+	CONNECTED("连接成功"){}, UNKNOW_HOST("未知主机"){}, HOST_NOT_FOUND("找不到主机"){}, REFUSED_CONNECT("拒绝连接"){}
+	, CONNECT_TIME_OUT("连接超时"){}, CONNECT_OTHER_EXCEPTION("连接时发生位置错误"){};
 	private String info = null;
 	private InterfaceConnectResult(String info){
 		this.info = info;

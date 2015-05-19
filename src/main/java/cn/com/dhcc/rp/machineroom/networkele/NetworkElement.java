@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom.networkele;
+锘縫ackage cn.com.dhcc.rp.machineroom.networkele;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,7 +20,7 @@ public abstract class NetworkElement implements Serializable,Cloneable{
 		ne.setId("111");
 		ne.setName("2222");
 		NetworkElement ne2 = ne.deepClone();
-		ne2.setName("陈东");
+		ne2.setName("闄堜笢");
 		System.out.println(ne);
 		System.out.println(ne2);
 		NetworkElement ne3 = ne;
@@ -34,8 +34,8 @@ public abstract class NetworkElement implements Serializable,Cloneable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id = null;    //id
-	private String name = null;    //名称
-	private String type = null;    //设备类型
+	private String name = null;    //鍚嶇О
+	private String type = null;    //璁惧绫诲瀷
     
 	public String getId() {
 		return id;
@@ -56,7 +56,7 @@ public abstract class NetworkElement implements Serializable,Cloneable{
 		this.type = type;
 	}
 	/**
-	 * 深度克隆
+	 * 娣卞害鍏嬮殕
 	 * @return
 	 */
 	public NetworkElement deepClone(){

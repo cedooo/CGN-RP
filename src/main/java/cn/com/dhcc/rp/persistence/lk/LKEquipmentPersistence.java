@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.lk;
+ï»¿package cn.com.dhcc.rp.persistence.lk;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -31,7 +31,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 	}
 	
 	/**
-	 * Åäµç¹ñ·ÖÂ·µçÁ÷
+	 * é…ç”µæŸœåˆ†è·¯ç”µæµ
 	 * @param listNode
 	 * @return
 	 */
@@ -58,8 +58,8 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 		return listPowerBoxBranch;
 	}
 	/**
-	 * µÃµ½×´Ì¬PO
-	 * @param listNode ×´Ì¬½Úµã¼¯ºÏ
+	 * å¾—åˆ°çŠ¶æ€PO
+	 * @param listNode çŠ¶æ€èŠ‚ç‚¹é›†åˆ
 	 * @return
 	 */
 	protected List<RoomCommState> getListCommState(List<EquipmentNode> listNode){
@@ -88,7 +88,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 		return listCoommState;
 	}
 	/**
-	 * µÃµ½UPSÊıÖµPO
+	 * å¾—åˆ°UPSæ•°å€¼PO
 	 * @param listNode
 	 * @return
 	 */
@@ -128,7 +128,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 		return listUpsCommPerf;
 	}
 	/**
-	 * µÃµ½¿Õµ÷PO
+	 * å¾—åˆ°ç©ºè°ƒPO
 	 * @param listNode
 	 * @return
 	 */
@@ -140,7 +140,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 			airConCommThPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			airConCommThPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					LKData lkData = (LKData)equipmentNode.getRealData();
 					if(lkData!=null ){
@@ -169,7 +169,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 		return listAirConditionCommTP;
 	}
 	/**
-	 * µÃµ½¿Õµ÷µÄÄ£¿éPO
+	 * å¾—åˆ°ç©ºè°ƒçš„æ¨¡å—PO
 	 * @param listNode
 	 * @return
 	 */
@@ -287,7 +287,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 		return listAirConWorkTime;
 	}
 	/**
-	 * Åäµç¹ñÄ£¿éÖµ
+	 * é…ç”µæŸœæ¨¡å—å€¼
 	 * @param partID
 	 * @param listNode
 	 * @return
@@ -330,7 +330,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 		return listPowerBoxDirPerf;
 	}
 	/**
-	 * Åäµç¹ñÍ¨ÓÃ
+	 * é…ç”µæŸœé€šç”¨
 	 * @param listNode
 	 * @return
 	 */
@@ -343,7 +343,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 			powerBoxCommTotalPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			powerBoxCommTotalPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					LKData lkData = (LKData)equipmentNode.getRealData();
 					if(lkData != null ){
@@ -389,7 +389,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 			temHumCommPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			temHumCommPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					LKData lkData = (LKData)equipmentNode.getRealData();
 					if(lkData != null ){
@@ -429,7 +429,7 @@ public class LKEquipmentPersistence extends Comm2EquipmentPersistence{
 			leakWater.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			leakWater.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					LKData lkData = (LKData)equipmentNode.getRealData();
 					if(lkData != null ){

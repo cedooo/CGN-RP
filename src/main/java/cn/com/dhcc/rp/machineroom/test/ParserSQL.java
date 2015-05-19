@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom.test;
+锘縫ackage cn.com.dhcc.rp.machineroom.test;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -17,7 +17,7 @@ import cn.com.dhcc.rp.machineroom.networkele.equipment.EquipmentNode;
 import cn.com.dhcc.rp.machineroom.networkele.equipment.Group;
 import cn.com.dhcc.rp.machineroom.networkele.equipment.Module;
 /**
- * @deprecated 仅仅用于转换xml成sql
+ * @deprecated 浠呬粎鐢ㄤ簬杞崲xml鎴恠ql
  * @author PCITECC02
  *
  */

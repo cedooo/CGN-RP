@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.utils;
+ï»¿package cn.com.dhcc.rp.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,9 +14,9 @@ import cn.com.dhcc.rp.machineroom.MachineRoom;
 public class LKUtils {
 	
 	/**
-	 * µÃµ½»ú·¿ĞÅÏ¢
-	 * @param machineRoomrulesXml    »ú·¿¹æÔòxmlÂ·¾¶
-	 * @param machineRoomXml    »ú·¿xmlÂ·¾¶
+	 * å¾—åˆ°æœºæˆ¿ä¿¡æ¯
+	 * @param machineRoomrulesXml    æœºæˆ¿è§„åˆ™xmlè·¯å¾„
+	 * @param machineRoomXml    æœºæˆ¿xmlè·¯å¾„
 	 * @return
 	 * @deprecated
 	 */
@@ -46,7 +46,7 @@ public class LKUtils {
 				}
 			}
 		}else{
-			System.err.println("¶¨ÒåÎÄ¼ş ²»ÄÜÎª ¿Õ");
+			System.err.println("å®šä¹‰æ–‡ä»¶ ä¸èƒ½ä¸º ç©º");
 		}
 		return equips;
 	}

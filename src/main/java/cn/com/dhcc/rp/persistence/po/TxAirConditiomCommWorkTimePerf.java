@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.po;
+﻿package cn.com.dhcc.rp.persistence.po;
 
 public class TxAirConditiomCommWorkTimePerf extends POObj {
 	private String id = null;

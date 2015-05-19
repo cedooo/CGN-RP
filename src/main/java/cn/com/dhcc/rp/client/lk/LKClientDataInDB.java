@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.client.lk;
+ï»¿package cn.com.dhcc.rp.client.lk;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ import cn.com.dhcc.rp.persistence.factory.PersistenceFactory;
 
 
 /**
- * Áú¿Ø²É¼¯ ¿Í»§¶Ë
+ * é¾™æ§é‡‡é›† å®¢æˆ·ç«¯
  * @author PCITECC02
  *
  */
@@ -36,7 +36,7 @@ public final class LKClientDataInDB extends RPClient{
 		return false;
 	}
 	private boolean persistence(List<NetworkElement> networkElementList){
-		String remindInfo = "Êı¾İÈë¿â¿ªÊ¼..";
+		String remindInfo = "æ•°æ®å…¥åº“å¼€å§‹..";
 		log.info(remindInfo);
 		Date start = new Date();
 		for (NetworkElement networkElement : networkElementList) {
@@ -45,23 +45,23 @@ public final class LKClientDataInDB extends RPClient{
 			if(persis!=null) {
 				persis.persistance(networkElement);
 			}else{
-				log.warn("Èë¿âÊ§°Ü£º" + networkElement);
+				log.warn("å…¥åº“å¤±è´¥ï¼š" + networkElement);
 			}
 		}
 		
-		remindInfo = "Êı¾İÈë¿âÍê³É:" + networkElementList.size() + "¸ö, ÓÃÊ±:" + (new Date().getTime() - start.getTime()) + "ms";
+		remindInfo = "æ•°æ®å…¥åº“å®Œæˆ:" + networkElementList.size() + "ä¸ª, ç”¨æ—¶:" + (new Date().getTime() - start.getTime()) + "ms";
 		log.info(remindInfo);
 		return false;
 	}
 	
 	/**
-	 * µÃµ½ÊµÊ±Êı¾İ
+	 * å¾—åˆ°å®æ—¶æ•°æ®
 	 * @return
 	 */
 	private boolean getRealTimeData(){
-		String remindInfo = "È¡µÃÊµÊ±Êı¾İ..";
+		String remindInfo = "å–å¾—å®æ—¶æ•°æ®..";
 		log.info(remindInfo);
-		//´ÓÊı¾İ¿â¶ÁÈ¡ÊµÊ±Êı¾İ
+		//ä»æ•°æ®åº“è¯»å–å®æ—¶æ•°æ®
 		SqlSession sess = DBDelegate.getSqlSessionFactory().openSession(ExecutorType.BATCH, true);
 		int dataSize = 0;
     	try{
@@ -78,9 +78,9 @@ public final class LKClientDataInDB extends RPClient{
             	sess.close();
             }
         }
-    	//´ÓÁ¬½ÓÈİÆ÷»ñÈ¡ÄÚ´æÖĞÊµÊ±Êı¾İ
+    	//ä»è¿æ¥å®¹å™¨è·å–å†…å­˜ä¸­å®æ—¶æ•°æ®
 		//this.realTimeDataSet = SocketConnetionContainer.getRealData(this.roomInterfaceCof.getCompanyCode());
-		log.info("Êı¾İ´óĞ¡£º" + dataSize + ", È¡µÃÊµÊ±Êı¾İÍê³É");
+		log.info("æ•°æ®å¤§å°ï¼š" + dataSize + ", å–å¾—å®æ—¶æ•°æ®å®Œæˆ");
 		if(this.realTimeDataSet.size()>0){
 			return true;
 		}else {
@@ -88,29 +88,29 @@ public final class LKClientDataInDB extends RPClient{
 		}
 	}
 	/**
-	 * ´¦ÀíÊı¾İ
-	 * ½«ÊµÊ±Êı¾İ ¡®×¢Èë¡¯µ½Éè±¸¶ÔÏóÖĞ
+	 * å¤„ç†æ•°æ®
+	 * å°†å®æ—¶æ•°æ® â€˜æ³¨å…¥â€™åˆ°è®¾å¤‡å¯¹è±¡ä¸­
 	 * @return
 	 */
 	private boolean process() {
-		String remindInfo = "´¦Àí»ñÈ¡µÄÊı¾İ¿ªÊ¼..";
+		String remindInfo = "å¤„ç†è·å–çš„æ•°æ®å¼€å§‹..";
 		log.info(remindInfo);
 		
 		List<NetworkElement> listElement = this.networkElementList;
 		for (NetworkElement networkElement : listElement) {
-			if(networkElement instanceof Equipment){    // Éè±¸ÊµÀı
+			if(networkElement instanceof Equipment){    // è®¾å¤‡å®ä¾‹
 				Equipment equip = (Equipment)networkElement;
 				List<Group> listGroup = equip.getListGroup();
 				
-				for (Group group : listGroup) {    //½Úµã×é 
+				for (Group group : listGroup) {    //èŠ‚ç‚¹ç»„ 
 					List<EquipmentNode> listNodes = group.getListNode();
-					if(Group.TYPE_STATE.equals(group.getType())){    //×´Ì¬
+					if(Group.TYPE_STATE.equals(group.getType())){    //çŠ¶æ€
 						for (EquipmentNode equipmentNode : listNodes) {
 							String queryID = networkElement.getId();
 							LKData lkData = searchData(queryID, equipmentNode);
 							equipmentNode.setRealData(lkData);
 						}
-					}else if(Group.TYPE_VALUE.equals(group.getType())){    //ÊıÖµ
+					}else if(Group.TYPE_VALUE.equals(group.getType())){    //æ•°å€¼
 						for (EquipmentNode equipmentNode : listNodes) {
 							String queryID = networkElement.getId() + 
 									(equipmentNode.getQueryPartID()!=null?equipmentNode.getQueryPartID():"");
@@ -123,16 +123,16 @@ public final class LKClientDataInDB extends RPClient{
 				
 				
 				List<Module> listModule = equip.getListMode();
-				for (Module module : listModule) {    //Ä£¿é
+				for (Module module : listModule) {    //æ¨¡å—
 					List<EquipmentNode> listNodes = module.getListNode();
-					if(Module.TYPE_NORMAL.equals(module.getType())){    //Ò»°ãÄ£¿é
+					if(Module.TYPE_NORMAL.equals(module.getType())){    //ä¸€èˆ¬æ¨¡å—
 						for (EquipmentNode equipmentNode : listNodes) {
 							String queryID = networkElement.getId() + 
 									(module.getQueryPartID()!=null?module.getQueryPartID():"");
 							LKData lkData = searchData(queryID, equipmentNode);
 							equipmentNode.setRealData(lkData);
 						}
-					}else if(Module.TYPE_POWERBOX_LIKE.equals(module.getType())){    //Åäµç¹ñÀàËÆÄ£¿é
+					}else if(Module.TYPE_POWERBOX_LIKE.equals(module.getType())){    //é…ç”µæŸœç±»ä¼¼æ¨¡å—
 						String queryEquipID = networkElement.getId() + 
 								(module.getPartID()!=null?module.getPartID():"");
 	//System.out.println("=======>queryID = " + queryEquipID);
@@ -142,26 +142,26 @@ public final class LKClientDataInDB extends RPClient{
 						}
 					}
 				}
-			}else if(networkElement instanceof SubSystem){    //×ÓÏµÍ³ÊµÀı
-//System.out.println(">>>>>>>>×ÓÏµÍ³:" + networkElement);
+			}else if(networkElement instanceof SubSystem){    //å­ç³»ç»Ÿå®ä¾‹
+//System.out.println(">>>>>>>>å­ç³»ç»Ÿ:" + networkElement);
 				List<Equipment> listEquip = ((SubSystem) networkElement).getListEquip();
-//System.out.println(">>>×ÓÏµÍ³Éè±¸£º" + listEquip);
+//System.out.println(">>>å­ç³»ç»Ÿè®¾å¤‡ï¼š" + listEquip);
 /*for (Equipment equipment : listEquip) {
 	System.out.println(equipment.getGroupSet());
 }*/
-				//¸ù¾İ ×ÓÏµÍ³ID ¡· Éè±¸ID +½ÚµãID
+				//æ ¹æ® å­ç³»ç»ŸID ã€‹ è®¾å¤‡ID +èŠ‚ç‚¹ID
 				String queryID = networkElement.getId();
 				for (Equipment equipment : listEquip) {
 					List<Group> listGroup = equipment.getListGroup();
 					String equipmentID = equipment.getId();
-					for (Group group : listGroup) {    //½Úµã×é 
+					for (Group group : listGroup) {    //èŠ‚ç‚¹ç»„ 
 						List<EquipmentNode> listNodes = group.getListNode();
-						if(Group.TYPE_STATE.equals(group.getType()) || Group.TYPE_VALUE.equals(group.getType())){    //×´Ì¬orÊıÖµ
+						if(Group.TYPE_STATE.equals(group.getType()) || Group.TYPE_VALUE.equals(group.getType())){    //çŠ¶æ€oræ•°å€¼
 							for (EquipmentNode equipmentNode : listNodes) {
 								String equipGid = equipmentID + 
 										(equipmentNode.getId()==null?"":equipmentNode.getId());
 								LKData lkData = searchData(queryID, equipGid);
-//System.out.println("ÕÒµ½×ÓÏµÍ³ÖĞµÄÊı¾İ£º£º£º£º" + lkData);
+//System.out.println("æ‰¾åˆ°å­ç³»ç»Ÿä¸­çš„æ•°æ®ï¼šï¼šï¼šï¼š" + lkData);
 								equipmentNode.setRealData(lkData);
 							}
 						}
@@ -171,12 +171,12 @@ public final class LKClientDataInDB extends RPClient{
 			}
 			
 		}
-		log.info("´¦Àí»ñÈ¡µÄÊı¾İÍê³É");
+		log.info("å¤„ç†è·å–çš„æ•°æ®å®Œæˆ");
 		return true;
 	}
 	/**
-	 * ËÑË÷Êı¾İ
-	 * @param node ½Úµã
+	 * æœç´¢æ•°æ®
+	 * @param node èŠ‚ç‚¹
 	 * @return
 	 */
 	private LKData searchData(String searchID, EquipmentNode equipmentNode){
@@ -195,9 +195,9 @@ public final class LKClientDataInDB extends RPClient{
 		return lkData;
 	}
 	/**
-	 * ËÑË÷Êı¾İ
-	 * @param neID  ÍøÔªID
-	 * @param nodeID    ½ÚµãID
+	 * æœç´¢æ•°æ®
+	 * @param neID  ç½‘å…ƒID
+	 * @param nodeID    èŠ‚ç‚¹ID
 	 * @return
 	 */
 	private LKData searchData(String neID, String nodeID){

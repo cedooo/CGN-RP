@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence;
+ï»¿package cn.com.dhcc.rp.persistence;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 	public boolean persistance(NetworkElement networkElement) {
 
 		Equipment equip = (Equipment)networkElement;
-		log.info("Èë¿âÉè±¸ID£º" + equip.getId() + ", Ãû³Æ£º" + equip.getName());
+		log.info("å…¥åº“è®¾å¤‡IDï¼š" + equip.getId() + ", åç§°ï¼š" + equip.getName());
 		
 		List<POObj> listPO = new ArrayList<POObj>();
 		
@@ -47,25 +47,25 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		List<Group> listGroup = equip.getListGroup();
 		
 		for (Group group : listGroup) {
-			log.debug("<×é>Èë¿â±íÃû===>" + group.getRefTab());
+			log.debug("<ç»„>å…¥åº“è¡¨å===>" + group.getRefTab());
 			if(Group.TYPE_STATE.equals(group.getType())){
-				if("txRoomCommState".equals(group.getRefTab())){    //×´Ì¬Á¿ ´¦Àí
+				if("txRoomCommState".equals(group.getRefTab())){    //çŠ¶æ€é‡ å¤„ç†
 					listPO.addAll(getListCommState(group.getListNode()));
 				}
-			}else if(Group.TYPE_VALUE.equals(group.getType())){    //ÊıÖµÁ¿ ´¦Àí
-				if("txUpsCommPerf".equals(group.getRefTab())){    //UPSÍ¨ÓÃ±íÈë¿â
+			}else if(Group.TYPE_VALUE.equals(group.getType())){    //æ•°å€¼é‡ å¤„ç†
+				if("txUpsCommPerf".equals(group.getRefTab())){    //UPSé€šç”¨è¡¨å…¥åº“
 					listPO.addAll(getListTxUpsCommPerf(group.getListNode()));
-				}else if("txAirConditionCommThPerf".equals(group.getRefTab())){    //¿Õµ÷
+				}else if("txAirConditionCommThPerf".equals(group.getRefTab())){    //ç©ºè°ƒ
 					listPO.addAll(getListAirCommPerf(group.getListNode()));
 				}else if("txAirConditionCommConf".equals(group.getRefTab())){
 					listPO.addAll(getListAirConCommConf(group.getListNode()));
-				}else if("txAirConditiomCommWorkTimePerf".equals(group.getRefTab())){    //¿Õµ÷ÔËĞĞÊ±¼ä
+				}else if("txAirConditiomCommWorkTimePerf".equals(group.getRefTab())){    //ç©ºè°ƒè¿è¡Œæ—¶é—´
 					listPO.addAll(getAirConditionWorkTime(group.getListNode()));
-				}else if("txPowerBoxCommTotalPerf".equals(group.getRefTab())){    //Åäµç¹ñÊı¾İÖ¸±ê
+				}else if("txPowerBoxCommTotalPerf".equals(group.getRefTab())){    //é…ç”µæŸœæ•°æ®æŒ‡æ ‡
 					listPO.addAll(getPowerBoxCommTotalPerf(group.getListNode()));
-				}else if("txTemHumCommPerf".equals(group.getRefTab())){    //Åäµç¹ñÊı¾İÖ¸±ê
+				}else if("txTemHumCommPerf".equals(group.getRefTab())){    //é…ç”µæŸœæ•°æ®æŒ‡æ ‡
 					listPO.addAll(getTxTemHumCommPerf(group.getListNode()));
-				}else if("txLeakWaterCommPerf".equals(group.getRefTab())){    //Åäµç¹ñÊı¾İÖ¸±ê
+				}else if("txLeakWaterCommPerf".equals(group.getRefTab())){    //é…ç”µæŸœæ•°æ®æŒ‡æ ‡
 					listPO.addAll(getTxLeakWaterCommPerf(group.getListNode()));
 				}
 			}
@@ -76,18 +76,18 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		List<Module> listModule = equip.getListMode();
 		
 		for (Module module : listModule) {
-			log.debug("<Ä£¿é>Èë¿â±íÃû===>" + module.getRefTab());
+			log.debug("<æ¨¡å—>å…¥åº“è¡¨å===>" + module.getRefTab());
 			boolean moduleValid = Module.COLLECT.equals(module.getCollect());
 			if(moduleValid && Module.TYPE_NORMAL.equals(module.getType())){
 				if("txUpsCommDirPerf".equals(module.getRefTab())){
 					listPO.addAll(this.getListAirDirPerf(module.getPartID(), module.getListNode()));
 				}else if("txPowerBoxDirPerf".equals(module.getRefTab())){
 					listPO.addAll(getListPowerBoxDirPerf(module.getPartID(), module.getListNode()));
-				}else if("txAirConditionCommThPerf".equals(module.getRefTab())){    //¿Õµ÷
+				}else if("txAirConditionCommThPerf".equals(module.getRefTab())){    //ç©ºè°ƒ
 					listPO.addAll(getListAirCommPerf(module.getPartID(), module.getListNode()));
 				}else if("txAirConditionCommConf".equals(module.getRefTab())){
 					listPO.addAll(getListAirConCommConf(module.getPartID(), module.getListNode()));
-				}else if("txAirConditiomCommWorkTimePerf".equals(module.getRefTab())){    //¿Õµ÷ÔËĞĞÊ±¼ä
+				}else if("txAirConditiomCommWorkTimePerf".equals(module.getRefTab())){    //ç©ºè°ƒè¿è¡Œæ—¶é—´
 					listPO.addAll(getAirConditionWorkTime(module.getPartID(), module.getListNode()));
 				}
 			}else if(moduleValid && Module.TYPE_POWERBOX_LIKE.equals(module.getType())){
@@ -98,7 +98,7 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		}
 		
 		/**
-		 * Èë¿â
+		 * å…¥åº“
 		 */
 		SqlSession session = DBDelegate.getSqlSessionFactory().openSession(ExecutorType.BATCH, true);
 		try{
@@ -149,7 +149,7 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 					branchPerf.setId(equipId);
 					session.update("cn.com.dhcc.rp.powerbox.update_insert_TxPowerBoxCommBranchCurrPerf", branchPerf);
 				}
-				log.debug("===Èë¿âÉè±¸===\n" + poobj);
+				log.debug("===å…¥åº“è®¾å¤‡===\n" + poobj);
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -162,7 +162,7 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		return true;
 	}
 	/**
-	 * µÃµ½¿Õµ÷ÔËĞĞÊ±¼ä
+	 * å¾—åˆ°ç©ºè°ƒè¿è¡Œæ—¶é—´
 	 * @param partID
 	 * @param listNode
 	 * @return
@@ -177,7 +177,7 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		return listPerf;
 	}
 	/**
-	 * µÃµ½¿Õµ÷ÅäÖÃ
+	 * å¾—åˆ°ç©ºè°ƒé…ç½®
 	 * @param partID
 	 * @param listNode
 	 * @return
@@ -191,7 +191,7 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		return listConf;
 	}
 	/**
-	 * µÃµ½¿Õµ÷ Ö¸±ê
+	 * å¾—åˆ°ç©ºè°ƒ æŒ‡æ ‡
 	 * @param partID
 	 * @param listNode
 	 * @return
@@ -205,75 +205,75 @@ public abstract class Comm2EquipmentPersistence implements Persistenceable{
 		return listPerf;
 	}
 	/**
-	 * µÃµ½ÎÂÊª¶È
-	 * @param listNode ½Úµã¼¯ºÏ
+	 * å¾—åˆ°æ¸©æ¹¿åº¦
+	 * @param listNode èŠ‚ç‚¹é›†åˆ
 	 * @return 
 	 */
 	abstract protected  List<TxTemHumCommPerf> getTxTemHumCommPerf(List<EquipmentNode> listNode);
 	/**
-	 * Åäµç¹ñ·ÖÂ·µçÁ÷
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return Åäµç¹ñ·ÖÂ·µçÁ÷ ¼¯ºÏ
+	 * é…ç”µæŸœåˆ†è·¯ç”µæµ
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return é…ç”µæŸœåˆ†è·¯ç”µæµ é›†åˆ
 	 */
 	abstract protected  List<TxPowerBoxCommBranchCurrPerf> getListPowerBoxCommBranchCurrPerf(
 			List<EquipmentNode> listNode);
 	/**
-	 * µÃµ½×´Ì¬PO
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ ×´Ì¬½Úµã¼¯ºÏ
-	 * @return Éè±¸×´Ì¬¼¯ºÏ
+	 * å¾—åˆ°çŠ¶æ€PO
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ çŠ¶æ€èŠ‚ç‚¹é›†åˆ
+	 * @return è®¾å¤‡çŠ¶æ€é›†åˆ
 	 */
 	abstract protected  List<RoomCommState> getListCommState(List<EquipmentNode> listNode);
 	/**
-	 * µÃµ½UPSÊıÖµPO 
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return UPSÊıÖµÖ¸±ê¼¯ºÏ
+	 * å¾—åˆ°UPSæ•°å€¼PO 
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return UPSæ•°å€¼æŒ‡æ ‡é›†åˆ
 	 */
 	abstract protected  List<TxUpsCommPerf> getListTxUpsCommPerf(List<EquipmentNode> listNode);
 	/**
-	 * µÃµ½¿Õµ÷PO
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return ¿Õµ÷Ö¸±ê ¼¯ºÏ
+	 * å¾—åˆ°ç©ºè°ƒPO
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return ç©ºè°ƒæŒ‡æ ‡ é›†åˆ
 	 */
 	abstract protected  List<TxAirConditionCommThPerf> getListAirCommPerf(List<EquipmentNode> listNode);
 	/**
-	 * µÃµ½¿Õµ÷µÄÄ£¿éPO
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return ¿Õµ÷Ä£¿éPO¶ÔÏó¼¯ºÏ
+	 * å¾—åˆ°ç©ºè°ƒçš„æ¨¡å—PO
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return ç©ºè°ƒæ¨¡å—POå¯¹è±¡é›†åˆ
 	 */
 	abstract protected  List<TxUpsCommDirPerf> getListAirDirPerf(String modulePartID, List<EquipmentNode> listNode);
 	/**
-	 * ¿Õµ÷ÉèÖÃÖ¸±ê
+	 * ç©ºè°ƒè®¾ç½®æŒ‡æ ‡
 	 * @param modulePartID
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return ¿Õµ÷ÉèÖÃPO¼¯ºÏ
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return ç©ºè°ƒè®¾ç½®POé›†åˆ
 	 */
 	abstract protected  List<TxAirConditionCommConf> getListAirConCommConf(List<EquipmentNode> listNode);
 	/**
-	 * ¿Õµ÷ÔËĞĞÊ±¼ä
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return ¿Õµ÷ÔËĞĞÊ±¼äPO¼¯ºÏ
+	 * ç©ºè°ƒè¿è¡Œæ—¶é—´
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return ç©ºè°ƒè¿è¡Œæ—¶é—´POé›†åˆ
 	 */
 	abstract protected  List<TxAirConditiomCommWorkTimePerf> getAirConditionWorkTime(List<EquipmentNode> listNode);
 	/**
-	 * Åäµç¹ñÄ£¿éÖµ
+	 * é…ç”µæŸœæ¨¡å—å€¼
 	 * @param partID
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return Åäµç¹ñÄ£¿éPO¼¯ºÏ
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return é…ç”µæŸœæ¨¡å—POé›†åˆ
 	 */
 	abstract protected  List<TxPowerBoxDirPerf> getListPowerBoxDirPerf(String partID, List<EquipmentNode> listNode);
 	/**
-	 * Åäµç¹ñÍ¨ÓÃ
-	 * @param listNode Éè±¸½Úµã¼¯ºÏ
-	 * @return Åäµç¹ñÍ¨ÓÃÖ¸±êPO¼¯ºÏ
+	 * é…ç”µæŸœé€šç”¨
+	 * @param listNode è®¾å¤‡èŠ‚ç‚¹é›†åˆ
+	 * @return é…ç”µæŸœé€šç”¨æŒ‡æ ‡POé›†åˆ
 	 */
 	abstract protected  List<TxPowerBoxCommTotalPerf> getPowerBoxCommTotalPerf(List<EquipmentNode> listNode);
 	/**
-	 * @param netEle ÍøÔª
-	 * @return Èë¿âIDÇ°×º
+	 * @param netEle ç½‘å…ƒ
+	 * @return å…¥åº“IDå‰ç¼€
 	 */
 	abstract protected  String getPrePersisID(NetworkElement netEle);
 	/**
-	 * µÃµ½Â©Ë®×´Ì¬
+	 * å¾—åˆ°æ¼æ°´çŠ¶æ€
 	 * @param listNode
 	 * @return
 	 */

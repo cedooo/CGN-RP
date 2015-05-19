@@ -1,18 +1,18 @@
-package cn.com.dhcc.rp.connection.gj.protocol;
+ï»¿package cn.com.dhcc.rp.connection.gj.protocol;
 
 public class Package {
-	static public final String ENCODE = "GB2312";    //½Ó¿ÚÊ¹ÓÃµÄ±àÂë
-	static public final int TYPE_DATA = 0;    //Êı¾İÀàĞÍ
-	static public final int TYPE_EVENT = 1;    //ÊÂ¼şÀàĞÍ
-	static public final int TYPE_FIRST = 2;    //µÚÒ»´Î½ÓÊÕµÄ°ü
+	static public final String ENCODE = "GB2312";    //æ¥å£ä½¿ç”¨çš„ç¼–ç 
+	static public final int TYPE_DATA = 0;    //æ•°æ®ç±»å‹
+	static public final int TYPE_EVENT = 1;    //äº‹ä»¶ç±»å‹
+	static public final int TYPE_FIRST = 2;    //ç¬¬ä¸€æ¬¡æ¥æ”¶çš„åŒ…
 
-	static public final int MAX_SIZE_PACKAGE = 1024*1024;     //Êı¾İ°ü×î´ó ´óĞ¡(byte)
-	static public final String REGEX_KEY_VAL = "";    //¼üÖµ¶Ô ÕıÔò±í´ïÊ½
+	static public final int MAX_SIZE_PACKAGE = 1024*1024;     //æ•°æ®åŒ…æœ€å¤§ å¤§å°(byte)
+	static public final String REGEX_KEY_VAL = "";    //é”®å€¼å¯¹ æ­£åˆ™è¡¨è¾¾å¼
 	
 	/**
-	 * ÅĞ¶Ï°üµÄÀàĞÍ
-	 * @param commandBytes ÃüÁîÀàĞÍ
-	 * @return TYPE_DATA Êı¾İÀàĞÍ£¬ TYPE_EVENT ÊÂ¼ş
+	 * åˆ¤æ–­åŒ…çš„ç±»å‹
+	 * @param commandBytes å‘½ä»¤ç±»å‹
+	 * @return TYPE_DATA æ•°æ®ç±»å‹ï¼Œ TYPE_EVENT äº‹ä»¶
 	 */
 	static public int dataType(byte[] commandBytes){
 		boolean data = true;
@@ -48,9 +48,9 @@ public class Package {
 		return -1;
 	}
 	/**
-	 * ÅĞ¶ÏÊÇ·ñÊÇ°üÍ·
+	 * åˆ¤æ–­æ˜¯å¦æ˜¯åŒ…å¤´
 	 * @param bytes
-	 * @return ÊÇ°üÍ·Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * @return æ˜¯åŒ…å¤´åˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	static public boolean isHeadTag(byte[] bytes){
 		boolean isHeadTag = true;

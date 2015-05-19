@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection;
+ï»¿package cn.com.dhcc.rp.connection;
 
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
@@ -17,29 +17,29 @@ import cn.com.dhcc.rp.roomInterConf.IntfsConfLoader;
 
 
 /**
- * Á¬½ÓÈİÆ÷-µ¥Àı
+ * è¿æ¥å®¹å™¨-å•ä¾‹
  * @author PCITECC02
  *
  */
 public class SocketConnetionContainer implements Runnable{
 	static protected final Logger log = Logger.getLogger(SocketConnetionContainer.class.getClass());
-	static final private long MAINTENANCE_INTERVAL_CHECK = 300*1000;    //Î¬»¤ÈÎÎñ¼ä¸ôÊ±¼ä£¬µ¥Î»: s
+	static final private long MAINTENANCE_INTERVAL_CHECK = 300*1000;    //ç»´æŠ¤ä»»åŠ¡é—´éš”æ—¶é—´ï¼Œå•ä½: s
 	
 	static private SocketConnetionContainer container = new SocketConnetionContainer();
-	//Map<'Á¬½ÓCODE', Á¬½Ó¶ÔÏó>
+	//Map<'è¿æ¥CODE', è¿æ¥å¯¹è±¡>
 	static private Map<String, SocketConnection> connectionMap = new HashMap<String, SocketConnection>();
 	
 	static private List<ContainerMaintenanceJob> listMaintenanceJob = new ArrayList<ContainerMaintenanceJob>();
 	
 	/**
-	 * ³õÊ¼»¯¡®ÈİÆ÷¡¯
-	 * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * åˆå§‹åŒ–â€˜å®¹å™¨â€™
+	 * @return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	public boolean init(){
 		try {
 			List<RoomInterfaceConf> listConfig = new ArrayList<RoomInterfaceConf>();
 			
-			//´ÓÊı¾İ¿â»ñÈ¡ÅäÖÃÎÄ¼ş
+			//ä»æ•°æ®åº“è·å–é…ç½®æ–‡ä»¶
 			/*SqlSession ses = DBDelegate.getSqlSessionFactory().openSession(true);
 			try{
 				listConfig = ses.selectList("cn.com.dhcc.rp.connector.select_connectors");
@@ -50,47 +50,47 @@ public class SocketConnetionContainer implements Runnable{
 			listConfig.addAll(IntfsConfLoader.getConnectionRoomInterfaceConf());
 			
 			for (RoomInterfaceConf roomInterfaceConf : listConfig) {
-				log.debug("Á¬½ÓÅäÖÃ: " + roomInterfaceConf);
+				log.debug("è¿æ¥é…ç½®: " + roomInterfaceConf);
 				SocketConnection socketConnection;
 				socketConnection = (SocketConnection)Class.forName(roomInterfaceConf.getConnectionClass()).newInstance();
 				int port = Integer.parseInt(roomInterfaceConf.getPort());
 				InetSocketAddress inetSocketAddr = new InetSocketAddress(roomInterfaceConf.getIp(), port);
 				boolean connected = socketConnection.init(roomInterfaceConf.getCompanyCode(), inetSocketAddr);
 				if(connected){
-					log.info("½¨Á¢Á¬½Ó³É¹¦:" + socketConnection);
+					log.info("å»ºç«‹è¿æ¥æˆåŠŸ:" + socketConnection);
 				}else{
-					//Á¬½Ó½¨Á¢Ê§°Ü¸æ¾¯
-					log.warn("½¨Á¢Á¬½ÓÊ§°Ü:" + socketConnection);
+					//è¿æ¥å»ºç«‹å¤±è´¥å‘Šè­¦
+					log.warn("å»ºç«‹è¿æ¥å¤±è´¥:" + socketConnection);
 				}
 				connectionMap.put(roomInterfaceConf.getCompanyCode(), socketConnection);
 			}
-			listMaintenanceJob.add(new CheckConnectionValidJob());    //Ìí¼ÓÈİÆ÷Î¬»¤ÈÎÎñ - ¼ì²éÁ¬½ÓÓĞĞ§ĞÔ
+			listMaintenanceJob.add(new CheckConnectionValidJob());    //æ·»åŠ å®¹å™¨ç»´æŠ¤ä»»åŠ¡ - æ£€æŸ¥è¿æ¥æœ‰æ•ˆæ€§
 			return true;
 		} catch (InstantiationException e) {
 			e.printStackTrace();
-			log.error("Á¬½ÓÈİÆ÷³õÊ¼»¯Ê§°Ü");
+			log.error("è¿æ¥å®¹å™¨åˆå§‹åŒ–å¤±è´¥");
 		} catch (IllegalAccessException e) {
 			e.printStackTrace();
-			log.error("Á¬½ÓÈİÆ÷³õÊ¼»¯Ê§°Ü");
+			log.error("è¿æ¥å®¹å™¨åˆå§‹åŒ–å¤±è´¥");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			log.error("Á¬½ÓÈİÆ÷³õÊ¼»¯Ê§°Ü");
+			log.error("è¿æ¥å®¹å™¨åˆå§‹åŒ–å¤±è´¥");
 		}
 		return false;
 	}
 	
 	private SocketConnetionContainer(){}
 	/**
-	 * µÃµ½¡®ÈİÆ÷¡¯ÊµÀı
-	 * @return  ¡®ÈİÆ÷¡¯ÊµÀı
+	 * å¾—åˆ°â€˜å®¹å™¨â€™å®ä¾‹
+	 * @return  â€˜å®¹å™¨â€™å®ä¾‹
 	 */
 	static public SocketConnetionContainer getInstance(){
 		return container;
 	}
 	/**
-	 * µÃµ½ÊµÊ±Êı¾İ
-	 * @param code ±àÂë
-	 * @return ÊµÊ±Êı¾İ¼¯ºÏ£¬ ²»´æÔÚÊ±£¬·µ»Ø¿ÕµÄSet¼¯ºÏ¡£
+	 * å¾—åˆ°å®æ—¶æ•°æ®
+	 * @param code ç¼–ç 
+	 * @return å®æ—¶æ•°æ®é›†åˆï¼Œ ä¸å­˜åœ¨æ—¶ï¼Œè¿”å›ç©ºçš„Seté›†åˆã€‚
 	 */
 	static public Set<RealTimeData> getRealData(String code){
 		SocketConnection connection = getInstance().getConnection(code);
@@ -102,9 +102,9 @@ public class SocketConnetionContainer implements Runnable{
 	}
 
 	/**
-	 * µÃµ½Á¬½Ó
-	 * @param code ÈÎÎñ±àÂë
-	 * @return Á¬½Ó
+	 * å¾—åˆ°è¿æ¥
+	 * @param code ä»»åŠ¡ç¼–ç 
+	 * @return è¿æ¥
 	 */
 	public SocketConnection getConnection(String code){
 		SocketConnection socketConnection = connectionMap.get(code);
@@ -123,7 +123,7 @@ public class SocketConnetionContainer implements Runnable{
 						job.doJob();
 					}
 				}catch(Exception e){
-					log.error("ÈİÆ÷¹ÜÀíÈÎÎñ³öÏÖ´íÎó£¡ " + e.getMessage());
+					log.error("å®¹å™¨ç®¡ç†ä»»åŠ¡å‡ºç°é”™è¯¯ï¼ " + e.getMessage());
 					continue;
 				}
 			}

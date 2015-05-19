@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.utils;
+﻿package cn.com.dhcc.rp.utils;
 
 import java.io.UnsupportedEncodingException;
 

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.lk;
+ï»¿package cn.com.dhcc.rp.connection.lk;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.regex.Matcher;
@@ -16,7 +16,7 @@ public class LKUtils {
 	static private final String REGEX_KEY_VALUE = "#(Agent|D|ID|C|V|T|Z|U|M|EV|Class|Alarm)=[^#]{1,}#";
 	static private final Pattern PATTERN_KEY_VAL = Pattern.compile(REGEX_KEY_VALUE);
 	
-	static private final String REGEX_POWERBOX = "[1-4]ºÅÅäµç¹ñPART[1-5]$";
+	static private final String REGEX_POWERBOX = "[1-4]å·é…ç”µæŸœPART[1-5]$";
 	static private final Pattern PATTERN_POWERBOX = Pattern.compile(REGEX_POWERBOX);
 
 	static private final Pattern PATTERN_INFO = Pattern.compile(REGEX_A);
@@ -30,24 +30,24 @@ public class LKUtils {
 		return PATTERN_EVENT;
 	}
 	public static void main(String[] args) {
-		/*String data = "A##Agent=10##D=Ö÷»ú·¿Â©Ë®¼à²â##ID=1801027##V=0##T=1##C=Â©Ë®¶¨Î»7##E=##AddrId=##AddrName=##NumCV=##^^";
+		/*String data = "A##Agent=10##D=ä¸»æœºæˆ¿æ¼æ°´ç›‘æµ‹##ID=1801027##V=0##T=1##C=æ¼æ°´å®šä½7##E=##AddrId=##AddrName=##NumCV=##^^";
 		LKData lkdata = parseToLKData(data);
 		System.out.println(lkdata);
 		
-		String event = "B##Agent=10##D=ÃÅ½ûÏµÍ³2##ID=1301000##C=Í¨Ñ¶##V=91300000##EV=1##T=1##Z=1##U=##M=ÃÅ½ûÖ÷»úÍ¨Ñ¶ÖĞ¶Ï##Class=##Alarm=1##AddrId=##AddrName=##MgrObjTypeId=11111111-1111-1111-1111-111111111111##MgrObjTypeName=##";
+		String event = "B##Agent=10##D=é—¨ç¦ç³»ç»Ÿ2##ID=1301000##C=é€šè®¯##V=91300000##EV=1##T=1##Z=1##U=##M=é—¨ç¦ä¸»æœºé€šè®¯ä¸­æ–­##Class=##Alarm=1##AddrId=##AddrName=##MgrObjTypeId=11111111-1111-1111-1111-111111111111##MgrObjTypeName=##";
 		LKData ddata = parseToLKDataEvent("LK", event);
 		System.out.println(data);*/
 		
-		String s = "1ºÅÅäµç¹ñPART3";
+		String s = "1å·é…ç”µæŸœPART3";
 		Matcher matcher = PATTERN_POWERBOX.matcher(s);
 		System.out.println(matcher.matches());
 		System.out.println(s.substring(0, 5));
 
 	}
 	/**
-	 * ½«×Ö·û´®×ª»»ÎªÊı¾İ¶ÔÏó
-	 * @param data Ô­Ê¼×Ö·û´®
-	 * @return ¡®Áú¿Ø¡¯Êı¾İ¶ÔÏó
+	 * å°†å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•°æ®å¯¹è±¡
+	 * @param data åŸå§‹å­—ç¬¦ä¸²
+	 * @return â€˜é¾™æ§â€™æ•°æ®å¯¹è±¡
 	 */
 	static public LKData parseToLKData(String data){
 		LKData lkData = new LKData();
@@ -89,18 +89,18 @@ public class LKUtils {
 		return null;
 	}
 	/**
-	 * ½«Êı¾İ×ª»»ÎªÊÂ¼ş¶ÔÏó
-	 * @param code ±àÂë
-	 * @param data Êı¾İ×Ö·û´®
-	 * @return ·µ»ØÊÂ¼ş¶ÔÏó£¬Èç¹û²»ÊÇÊÂ¼ş ·µ»Ønull
+	 * å°†æ•°æ®è½¬æ¢ä¸ºäº‹ä»¶å¯¹è±¡
+	 * @param code ç¼–ç 
+	 * @param data æ•°æ®å­—ç¬¦ä¸²
+	 * @return è¿”å›äº‹ä»¶å¯¹è±¡ï¼Œå¦‚æœä¸æ˜¯äº‹ä»¶ è¿”å›null
 	 */
 	static public LKData parseToLKDataEvent(String code, String data){
 		LKData eventData = LKUtils.parseToLKData(data);
 		if(eventData.getId() == null){
 			return null;
 		}
-		log.info(code + ",ÊÂ¼ş===>" + eventData);	
-		boolean eventAlarm = eventData!=null     //ÊÂ¼şÓĞĞ§ Ìõ¼ş
+		log.info(code + ",äº‹ä»¶===>" + eventData);	
+		boolean eventAlarm = eventData!=null     //äº‹ä»¶æœ‰æ•ˆ æ¡ä»¶
 				//&& eventData.getClas()!=null
 				&& eventData.getId() != null
 				&& eventData.getCollectTime() != null
@@ -112,7 +112,7 @@ public class LKUtils {
 			SqlSession sess = DBDelegate.getSqlSessionFactory().openSession(true);
 			try{
 				String level = sess.selectOne("cn.com.dhcc.rp.event.select_lk_event_level", eventData.getV());
-				log.info("ÊÂ¼ş¼¶±ğ£º" + level);
+				log.info("äº‹ä»¶çº§åˆ«ï¼š" + level);
 				if(level!=null){
 					eventData.setClas(level);
 				}else{
@@ -126,7 +126,7 @@ public class LKUtils {
 			return null;
 		}
 		String eventD = eventData!=null?eventData.getD():null;
-		if(eventD!=null && "ÎÂÊª¶È¼à²â".equals(eventD)){
+		if(eventD!=null && "æ¸©æ¹¿åº¦ç›‘æµ‹".equals(eventD)){
 			eventData.setD(code + "_" + eventD);
 		}else if(eventD!=null && PATTERN_POWERBOX.matcher(eventD).matches()){
 			String fid = eventD.substring(0, 5);

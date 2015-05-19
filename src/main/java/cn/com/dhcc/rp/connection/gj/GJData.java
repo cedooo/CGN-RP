@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.gj;
+﻿package cn.com.dhcc.rp.connection.gj;
 
 import cn.com.dhcc.rp.connection.RealTimeData;
 

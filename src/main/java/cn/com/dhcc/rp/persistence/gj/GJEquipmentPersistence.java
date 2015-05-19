@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.gj;
+ï»¿package cn.com.dhcc.rp.persistence.gj;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,7 +24,7 @@ import cn.com.dhcc.rp.persistence.po.TxUpsCommDirPerf;
 import cn.com.dhcc.rp.persistence.po.TxUpsCommPerf;
 
 /**
- * ¹²¼ÃÉè±¸ ¡®³Ö¾Ã»¯¡¯ Èë¿â
+ * å…±æµè®¾å¤‡ â€˜æŒä¹…åŒ–â€™ å…¥åº“
  * @author PCITECC02
  * 2014-05-05 16:24:33
  */
@@ -127,7 +127,7 @@ public class GJEquipmentPersistence extends Comm2EquipmentPersistence{
 			airConCommThPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			airConCommThPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					GJData gjData = (GJData)equipmentNode.getRealData();
 					if(gjData!=null ){
@@ -313,7 +313,7 @@ public class GJEquipmentPersistence extends Comm2EquipmentPersistence{
 			powerBoxCommTotalPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			powerBoxCommTotalPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					GJData gjData = (GJData)equipmentNode.getRealData();
 					if(gjData != null ){
@@ -356,7 +356,7 @@ public class GJEquipmentPersistence extends Comm2EquipmentPersistence{
 			temHumCommPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			temHumCommPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					GJData gjData = (GJData)equipmentNode.getRealData();
 					if(gjData != null ){
@@ -395,7 +395,7 @@ public class GJEquipmentPersistence extends Comm2EquipmentPersistence{
 			temHumCommPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			temHumCommPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					GJData gjData = (GJData)equipmentNode.getRealData();
 					if(gjData != null ){

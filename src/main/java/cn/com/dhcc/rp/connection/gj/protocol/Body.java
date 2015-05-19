@@ -1,10 +1,10 @@
-package cn.com.dhcc.rp.connection.gj.protocol;
+ï»¿package cn.com.dhcc.rp.connection.gj.protocol;
 
 import java.util.regex.Pattern;
 
 public class Body {
-    static public int GROUP_SIZE_LENGTH = 2;    //×é³¤¶ÈÕ¼×Ö½ÚÊı
-    //Êı¾İ ÕıÔò±í´ïÊ½
+    static public int GROUP_SIZE_LENGTH = 2;    //ç»„é•¿åº¦å å­—èŠ‚æ•°
+    //æ•°æ® æ­£åˆ™è¡¨è¾¾å¼
     static public Pattern keyValuePttern = Pattern.compile("^[A-Z]\\d{1,}(-[A-Z]\\d{1,}){1,}\\|\\d((\\.)\\d){0,1}$");    //S0-E1-ST|1
     
 }

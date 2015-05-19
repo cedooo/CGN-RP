@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.further.impl;
+ï»¿package cn.com.dhcc.rp.job.further.impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.quartz.JobExecutionContext;
@@ -7,7 +7,7 @@ import org.quartz.JobExecutionException;
 import cn.com.dhcc.rp.db.DBDelegate;
 import cn.com.dhcc.rp.job.further.FurtherProcessJob;
 /**
- *  ¼ì²éÁÙÊ±±í´óĞ¡,Èç¹û³¬¹ı´óĞ¡,Çå¿ÕÁÙÊ±±í
+ *  æ£€æŸ¥ä¸´æ—¶è¡¨å¤§å°,å¦‚æœè¶…è¿‡å¤§å°,æ¸…ç©ºä¸´æ—¶è¡¨
  * @author PCITECC02
  * 
  */
@@ -16,7 +16,7 @@ public final class CheckTempDataSizeJob extends FurtherProcessJob{
 	public static final String TEMP_TABS = "tempTabs";
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		// Êı¾İ³¬¹ı´óĞ¡Ê±£¬É¾³ıÁÙÊ±±íµÄÊı¾İ
+		// æ•°æ®è¶…è¿‡å¤§å°æ—¶ï¼Œåˆ é™¤ä¸´æ—¶è¡¨çš„æ•°æ®
 		printJobInfo(context);
 		long maxSize = context.getMergedJobDataMap().getLong(MAX_SIZE);
 		String tables = context.getMergedJobDataMap().getString(TEMP_TABS);
@@ -28,9 +28,9 @@ public final class CheckTempDataSizeJob extends FurtherProcessJob{
 				Integer count = sess.selectOne("cn.com.dhcc.rp.job.select_columns_by_name", tableName);
 				if(count>maxSize){
 					deletedCount += sess.delete("cn.com.dhcc.rp.job.delete_temp_tab_data", tableName);
-					log.warn("ÁÙÊ±±í" + tableName +  "´óĞ¡[" + count + "]³¬¹ı´óĞ¡[" + maxSize + "]ÏŞÖÆ£¬Çå¿Õ±íÖĞ¼ÇÂ¼[" + deletedCount + "]Ìõ¡£");
+					log.warn("ä¸´æ—¶è¡¨" + tableName +  "å¤§å°[" + count + "]è¶…è¿‡å¤§å°[" + maxSize + "]é™åˆ¶ï¼Œæ¸…ç©ºè¡¨ä¸­è®°å½•[" + deletedCount + "]æ¡ã€‚");
 				}else{
-					log.info("ÁÙÊ±±í" + tableName +  "´óĞ¡Õı³£");
+					log.info("ä¸´æ—¶è¡¨" + tableName +  "å¤§å°æ­£å¸¸");
 				}
 			}
 		}finally{

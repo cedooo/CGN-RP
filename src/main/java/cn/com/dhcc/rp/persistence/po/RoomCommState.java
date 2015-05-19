@@ -1,19 +1,19 @@
-package cn.com.dhcc.rp.persistence.po;
+﻿package cn.com.dhcc.rp.persistence.po;
 /**
- * �豸״̬
+ * 设备状态
  * @author pcitecc02
  *
  */
 public class RoomCommState  extends POObj{
-	public static String STATE_GREEN = "1";    //��ɫ״̬
-	public static String STATE_RED = "0";    //��ɫ״̬
+	public static String STATE_GREEN = "1";    //绿色状态
+	public static String STATE_RED = "0";    //红色状态
 	
-	private String collectTime = null;    //�ɼ�ʱ��
-	private String partID = null;    //ģ��ID
-	private String stateValue = null;    //״ֵ̬
-	private String id = null;    //�豸ID
-	private String companyCode = null;    //��˾����
-	private String grState = null;    //����״ֵ̬
+	private String collectTime = null;    //采集时间
+	private String partID = null;    //模块ID
+	private String stateValue = null;    //状态值
+	private String id = null;    //设备ID
+	private String companyCode = null;    //公司编码
+	private String grState = null;    //正常状态值
 	public String getCollectTime() {
 		return collectTime;
 	}

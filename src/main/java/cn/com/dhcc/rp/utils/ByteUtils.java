@@ -1,8 +1,8 @@
-package cn.com.dhcc.rp.utils;
+ï»¿package cn.com.dhcc.rp.utils;
 
 public final class ByteUtils {
 	/**
-	 * µÃµ½BIGÊı¾İÖµ
+	 * å¾—åˆ°BIGæ•°æ®å€¼
 	 * @param buf
 	 * @return
 	 */

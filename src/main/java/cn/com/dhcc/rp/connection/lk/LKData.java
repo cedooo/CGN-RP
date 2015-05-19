@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.lk;
+ï»¿package cn.com.dhcc.rp.connection.lk;
 
 import cn.com.dhcc.rp.connection.RealTimeData;
 
@@ -10,24 +10,24 @@ public class LKData extends RealTimeData{
 	static public final int TYPE_DATA = 0;
 	static public final int TYPE_EVENT = 1;
 	
-	private int type = -1;    //Êı¾İÀàĞÍ£¬0 Êı¾İ, 1 ÊÂ¼ş
+	private int type = -1;    //æ•°æ®ç±»å‹ï¼Œ0 æ•°æ®, 1 äº‹ä»¶
 	
-	private String agent = null;    //»ú·¿±àÂë
-	private String d = null;	//Éè±¸Ãû³Æ
-	private String id = null;   //Éè±¸ÊôĞÔID
-	private String v = null;    //Éè±¸ÊôĞÔÖµ  »òÕß ÊÂ¼ş±àÂë
-	private String t = null;    //ÊÇ·ñÊÇ¶¨Ê±×ª·¢Êı¾İ
-	private String e = null;    //ÊÂ¼ş±àÂë
-	private String c = null;    //Éè±¸ÊôĞÔÃû³Æ
+	private String agent = null;    //æœºæˆ¿ç¼–ç 
+	private String d = null;	//è®¾å¤‡åç§°
+	private String id = null;   //è®¾å¤‡å±æ€§ID
+	private String v = null;    //è®¾å¤‡å±æ€§å€¼  æˆ–è€… äº‹ä»¶ç¼–ç 
+	private String t = null;    //æ˜¯å¦æ˜¯å®šæ—¶è½¬å‘æ•°æ®
+	private String e = null;    //äº‹ä»¶ç¼–ç 
+	private String c = null;    //è®¾å¤‡å±æ€§åç§°
 	
-	private String m = null;    //±¨¾¯ÄÚÈİ
-	private String ev = null;    //±¨¾¯×´Ì¬ 1 ±¨¾¯  0 ½â³ı
-	private String clas = null;    //ÊÂ¼şµÈ¼¶
-	private String alarm = null;    //ÊÇ·ñ¸æ¾¯ 1 ¸æ¾¯ 0ºöÂÔ
-	private String z = null;   //ÊôĞÔÖµ
-	private String u = null;    //µ¥Î»
+	private String m = null;    //æŠ¥è­¦å†…å®¹
+	private String ev = null;    //æŠ¥è­¦çŠ¶æ€ 1 æŠ¥è­¦  0 è§£é™¤
+	private String clas = null;    //äº‹ä»¶ç­‰çº§
+	private String alarm = null;    //æ˜¯å¦å‘Šè­¦ 1 å‘Šè­¦ 0å¿½ç•¥
+	private String z = null;   //å±æ€§å€¼
+	private String u = null;    //å•ä½
 	
-	private String companyCode = null;     //¹«Ë¾±àÂë
+	private String companyCode = null;     //å…¬å¸ç¼–ç 
 
 	public int getType() {
 		return type;

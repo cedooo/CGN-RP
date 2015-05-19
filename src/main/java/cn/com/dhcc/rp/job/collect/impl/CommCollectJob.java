@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.job.collect.impl;
+ï»¿package cn.com.dhcc.rp.job.collect.impl;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -8,7 +8,7 @@ import cn.com.dhcc.rp.machineroom.MachineRoom;
 import cn.com.dhcc.rp.machineroom.factory.MachineRoomFactory;
 
 /**
- * Í¨ÓÃ²É¼¯ÈÎÎñ-ÊÊÓÃÓÚ¹²¼Ã¡¢Áú¿Ø»ú·¿
+ * é€šç”¨é‡‡é›†ä»»åŠ¡-é€‚ç”¨äºå…±æµã€é¾™æ§æœºæˆ¿
  * @author PCITECC02
  *
  */

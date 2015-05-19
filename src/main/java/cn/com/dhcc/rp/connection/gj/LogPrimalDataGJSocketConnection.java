@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.gj;
+Ôªøpackage cn.com.dhcc.rp.connection.gj;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,7 +13,7 @@ import java.nio.channels.SocketChannel;
  */
 public final class LogPrimalDataGJSocketConnection implements Runnable {
 
-	protected InetSocketAddress inetSocketAddr = null; // µÿ÷∑
+	protected InetSocketAddress inetSocketAddr = null; // Âú∞ÂùÄ
 	private SocketChannel socketChannel = null;
 	private ByteBuffer buffer = ByteBuffer
 			.allocate(1024);
@@ -64,7 +64,7 @@ public final class LogPrimalDataGJSocketConnection implements Runnable {
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
-				}    //∂¡»Î
+				}    //ËØªÂÖ•
 	        }  
         } catch (InterruptedException e1) {
 			e1.printStackTrace();

@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp;
+ï»¿package cn.com.dhcc.rp;
 
 import org.apache.log4j.Logger;
 
@@ -6,7 +6,7 @@ import cn.com.dhcc.rp.col.Collector;
 import cn.com.dhcc.rp.connection.SocketConnetionContainer;
 import cn.com.dhcc.rp.st.EventConsumer;
 /**
- * ²É¼¯main class
+ * é‡‡é›†main class
  * @author PCITECC02
  *
  */
@@ -19,44 +19,44 @@ public final class Main {
 		startEventListener();
 	}
 	/**
-	 * Æô¶¯²É¼¯
+	 * å¯åŠ¨é‡‡é›†
 	 * 
 	 */
 	static private void startCollector(){
 		Collector collector = new Collector();
 		Thread colThread = new Thread(collector);
 		colThread.start();
-		log.info("Æô¶¯²É¼¯³É¹¦");
+		log.info("å¯åŠ¨é‡‡é›†æˆåŠŸ");
 	}
 	/**
-	 * Æô¶¯¡¢½¨Á¢socketÁ¬½Ó
+	 * å¯åŠ¨ã€å»ºç«‹socketè¿æ¥
 	 */
 	static private void buildSocketConnection(){
 		SocketConnetionContainer conain = SocketConnetionContainer.getInstance();
 		if(conain.init()){
 			new Thread(conain).start();
-			log.info("Á¬½Ó³õÊ¼»¯³É¹¦");
+			log.info("è¿æ¥åˆå§‹åŒ–æˆåŠŸ");
 		}else{
-			log.error("Á¬½ÓÅäÖÃ´íÎó,³õÊ¼»¯Ê§°Ü£¡");
+			log.error("è¿æ¥é…ç½®é”™è¯¯,åˆå§‹åŒ–å¤±è´¥ï¼");
 		}
 	}
 	/**
-	 * ¼ÓÔØÊı¾İ¿â¹ÜÀíÀà
+	 * åŠ è½½æ•°æ®åº“ç®¡ç†ç±»
 	 */
 	static private void initDBManager(){
 		try {
 			Class.forName("cn.com.dhcc.rp.db.DBDelegate");
-			log.info("¼ÓÔØ cn.com.dhcc.rp.db.DBDelegate ³É¹¦");
+			log.info("åŠ è½½ cn.com.dhcc.rp.db.DBDelegate æˆåŠŸ");
 		} catch (ClassNotFoundException e) {
 			//e.printStackTrace();
-			log.error("¼ÓÔØ cn.com.dhcc.rp.db.DBDelegate Ê§°Ü");
+			log.error("åŠ è½½ cn.com.dhcc.rp.db.DBDelegate å¤±è´¥");
 		}
 	}
 	/**
-	 * Æô¶¯ÊÂ¼ş¼àÌı
+	 * å¯åŠ¨äº‹ä»¶ç›‘å¬
 	 */
 	static private void startEventListener(){
 		new Thread(new EventConsumer()).start();
-		log.info("Æô¶¯ÊÂ¼ş¼àÌı");
+		log.info("å¯åŠ¨äº‹ä»¶ç›‘å¬");
 	}
 }

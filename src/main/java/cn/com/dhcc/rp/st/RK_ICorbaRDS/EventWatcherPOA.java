@@ -1,11 +1,11 @@
-package cn.com.dhcc.rp.st.RK_ICorbaRDS;
+﻿package cn.com.dhcc.rp.st.RK_ICorbaRDS;
 
 
 /**
 * RK_ICorbaRDS/EventWatcherPOA.java .
-* �� IDL-to-Java ������������ֲ�����汾 "3.2" ���?
-* ���� RK_ICorbaRDS.idl
-* 2014��3��12�� ������ ����09ʱ21��10�� CST
+* 锟斤拷 IDL-to-Java 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷植锟斤拷锟斤拷锟芥本 "3.2" 锟斤拷锟?
+* 锟斤拷锟斤拷 RK_ICorbaRDS.idl
+* 2014锟斤拷3锟斤拷12锟斤拷 锟斤拷锟斤拷锟斤拷 锟斤拷锟斤拷09时21锟斤拷10锟斤拷 CST
 */
 
 
@@ -37,11 +37,11 @@ public abstract class EventWatcherPOA extends org.omg.PortableServer.Servant
   /*
   			lType: ??{?
   			lTimeStamp: ??????
-  			iLevel: ��+
+  			iLevel: 锟斤拷+
   			strID: ???ID
   			strFullName: ???h?
   			strDesc: ????
-  			strAdvice: ?��?
+  			strAdvice: ?锟斤拷?
   		*/
        case 0:  // RK_ICorbaRDS/EventWatcher/OnEvent
        {

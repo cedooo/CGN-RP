@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom.networkele.equipment;
+﻿package cn.com.dhcc.rp.machineroom.networkele.equipment;
 
 import java.io.Serializable;
 import java.util.ArrayList;

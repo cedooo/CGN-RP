@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.col.listener;
+ï»¿package cn.com.dhcc.rp.col.listener;
 
 import org.apache.log4j.Logger;
 import org.quartz.JobDetail;
@@ -9,7 +9,7 @@ import org.quartz.Trigger;
 import org.quartz.TriggerKey;
 
 /**
- * ²É¼¯¼àÌıÆ÷
+ * é‡‡é›†ç›‘å¬å™¨
  * @author PCITECC02
  *
  */
@@ -66,22 +66,22 @@ public class CollectorListener implements SchedulerListener {
 
 	@Override
 	public void schedulerShutdown() {
-		log.info("»ú·¿¶¯Á¦²É¼¯Í£Ö¹³É¹¦");
+		log.info("æœºæˆ¿åŠ¨åŠ›é‡‡é›†åœæ­¢æˆåŠŸ");
 	}
 
 	@Override
 	public void schedulerShuttingdown() {
-		log.info("»ú·¿¶¯Á¦²É¼¯ÕıÔÚÍ£Ö¹...");
+		log.info("æœºæˆ¿åŠ¨åŠ›é‡‡é›†æ­£åœ¨åœæ­¢...");
 	}
 
 	@Override
 	public void schedulerStarted() {
-		log.info("»ú·¿¶¯Á¦²É¼¯Æô¶¯³É¹¦");
+		log.info("æœºæˆ¿åŠ¨åŠ›é‡‡é›†å¯åŠ¨æˆåŠŸ");
 	}
 
 	@Override
 	public void schedulerStarting() {
-		log.info("»ú·¿¶¯Á¦²É¼¯ÕıÔÚÆô¶¯...");
+		log.info("æœºæˆ¿åŠ¨åŠ›é‡‡é›†æ­£åœ¨å¯åŠ¨...");
 
 	}
 

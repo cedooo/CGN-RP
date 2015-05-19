@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.factory;
+ï»¿package cn.com.dhcc.rp.persistence.factory;
 
 import cn.com.dhcc.rp.machineroom.networkele.equipment.Equipment;
 import cn.com.dhcc.rp.machineroom.networkele.subsystem.SubSystem;
@@ -8,15 +8,15 @@ import cn.com.dhcc.rp.persistence.lk.LKEquipmentPersistence;
 import cn.com.dhcc.rp.persistence.lk.LKSubSystemPersistence;
 import cn.com.dhcc.rp.persistence.po.RoomInterfaceConf;
 /**
- * ³Ö¾Ã»¯ ¹¤³§
+ * æŒä¹…åŒ– å·¥å‚
  * @author PCITECC02
  *
  */
 public class PersistenceFactory {
 	/**
-	 * µÃµ½Áú¿ØµÄ³Ö¾Ã»¯¶ÔÏó
-	 * @param networkElement Èë¿âÍøÔª
-	 * @param roomInterfaceCof ½Ó¿ÚÅäÖÃĞÅÏ¢
+	 * å¾—åˆ°é¾™æ§çš„æŒä¹…åŒ–å¯¹è±¡
+	 * @param networkElement å…¥åº“ç½‘å…ƒ
+	 * @param roomInterfaceCof æ¥å£é…ç½®ä¿¡æ¯
 	 * @return
 	 */
 	static public Persistenceable getLKPersistenceInstance(Class<?> clazz, RoomInterfaceConf roomInterfaceCof ){
@@ -29,9 +29,9 @@ public class PersistenceFactory {
 		return persis;
 	}
 	/**
-	 * µÃµ½¹²¼ÃµÄ³Ö¾Ã»¯¶ÔÏó
-	 * @param networkElement Èë¿âÍøÔª
-	 * @param roomInterfaceCof ½Ó¿ÚÅäÖÃĞÅÏ¢
+	 * å¾—åˆ°å…±æµçš„æŒä¹…åŒ–å¯¹è±¡
+	 * @param networkElement å…¥åº“ç½‘å…ƒ
+	 * @param roomInterfaceCof æ¥å£é…ç½®ä¿¡æ¯
 	 * @return
 	 */
 	static public Persistenceable getGJPersistenceInstance(Class<?> clazz, RoomInterfaceConf roomInterfaceCof ){
@@ -39,7 +39,7 @@ public class PersistenceFactory {
 		if(clazz == Equipment.class){
 			persis = new GJEquipmentPersistence(roomInterfaceCof);
 		}else if (clazz == SubSystem.class){
-			//ÊµÀı»¯ ×ÓÏµÍ³³Ö¾Ã»¯¶ÔÏó
+			//å®ä¾‹åŒ– å­ç³»ç»ŸæŒä¹…åŒ–å¯¹è±¡
 		}
 		return persis;
 	}

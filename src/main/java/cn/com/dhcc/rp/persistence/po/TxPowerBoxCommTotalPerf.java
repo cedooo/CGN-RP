@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.po;
+锘縫ackage cn.com.dhcc.rp.persistence.po;
 
 import java.text.DecimalFormat;
 
@@ -337,7 +337,7 @@ public class TxPowerBoxCommTotalPerf  extends POObj{
 	}
 	/**
 	 * 
-	 * 以下将科学计数法的值转换为decimal(18,3)
+	 * 浠ヤ笅灏嗙瀛﹁鏁版硶鐨勫�艰浆鎹负decimal(18,3)
 	 */
 	public String getValPowerForwardInUse(){
 		return parseDecimal(this.powerForwardInUse);

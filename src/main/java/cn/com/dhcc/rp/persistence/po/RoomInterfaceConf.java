@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.po;
+锘縫ackage cn.com.dhcc.rp.persistence.po;
 
 public class RoomInterfaceConf {
 	private String companyCode = null;
@@ -45,8 +45,8 @@ public class RoomInterfaceConf {
 	}
 	@Override
 	public String toString() {
-		return "接口配置[Code:" + companyCode + ", ip:" + ip
-				+ ", 端口:" + port + ", 接口描述:" + name + "]";
+		return "鎺ュ彛閰嶇疆[Code:" + companyCode + ", ip:" + ip
+				+ ", 绔彛:" + port + ", 鎺ュ彛鎻忚堪:" + name + "]";
 	}
 	
 	

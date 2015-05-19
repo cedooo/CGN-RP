@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.st.def;
+﻿package cn.com.dhcc.rp.st.def;
 
 public class StUpsNodeAttrDef {
 	public static String COLLECT_TRUE = "1";

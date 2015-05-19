@@ -1,11 +1,11 @@
-package cn.com.dhcc.rp.connection.gj.protocol;
+ï»¿package cn.com.dhcc.rp.connection.gj.protocol;
 
 public class Head {
-    static public int HEAD_ELE_LENGTH = 4;    //°üÍ·³¤¶È
+    static public int HEAD_ELE_LENGTH = 4;    //åŒ…å¤´é•¿åº¦
     static public int HEAD_ELE_COUNT = 8;
-    static public int BODY_LENGTH_POSITION = 4;    //°üÌå³¤¶ÈÎ»ÖÃ
+    static public int BODY_LENGTH_POSITION = 4;    //åŒ…ä½“é•¿åº¦ä½ç½®
     static public byte[] HEAD_TAG = {(byte)0xff,(byte)0xff,(byte)0xff,(byte)0xff};
-    static public byte[] COMMAND_FIRST = {(byte)0xff,(byte)0xff,(byte)0xff,(byte)0xff};    //µÚÒ»´Î·¢ËÍ°ü
-    static public byte[] COMMAND_EVENT = {(byte)0xff,(byte)0xff,(byte)0xff,(byte)0xff};    //ÊÂ¼ş°ü
-    static public byte[] COMMAND_DATA = {(byte)1,(byte)0xff,(byte)0xff,(byte)0xff};    //Êı¾İ°ü
+    static public byte[] COMMAND_FIRST = {(byte)0xff,(byte)0xff,(byte)0xff,(byte)0xff};    //ç¬¬ä¸€æ¬¡å‘é€åŒ…
+    static public byte[] COMMAND_EVENT = {(byte)0xff,(byte)0xff,(byte)0xff,(byte)0xff};    //äº‹ä»¶åŒ…
+    static public byte[] COMMAND_DATA = {(byte)1,(byte)0xff,(byte)0xff,(byte)0xff};    //æ•°æ®åŒ…
 }

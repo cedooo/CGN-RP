@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.st;
+﻿package cn.com.dhcc.rp.st;
 
 public class UPSNode {
 	private String ID = "";

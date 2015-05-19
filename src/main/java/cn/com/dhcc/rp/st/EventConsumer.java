@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.st;
+ï»¿package cn.com.dhcc.rp.st;
 
 import org.apache.log4j.Logger;
 import org.omg.CORBA.ORB;
@@ -18,7 +18,7 @@ import cn.com.dhcc.rp.st.RK_ICorbaRDS.EventWatcherPOA;
 import cn.com.dhcc.rp.st.orb.OrbConstants;
 
 /**
- * ËÄÍ¨ ÊÂ¼ş »Øµ÷ ¡¢Èë¿â
+ * å››é€š äº‹ä»¶ å›è°ƒ ã€å…¥åº“
  * @author PCITECC02
  *
  */
@@ -43,7 +43,7 @@ public class EventConsumer implements Runnable{
 		try {
 		    	
 	        ORB orb = ORB.init(defaultArgs, null);
-	       	log.info("ËÄÍ¨ÊÂ¼ş¼àÌı³õÊ¼»¯");
+	       	log.info("å››é€šäº‹ä»¶ç›‘å¬åˆå§‹åŒ–");
 	        //Instantiate Servant and create reference
 	        POA rootPOA = POAHelper.narrow(
 	            orb.resolve_initial_references("RootPOA"));
@@ -62,13 +62,13 @@ public class EventConsumer implements Runnable{
 	
 	        //Register listener reference (callback object) with MessageServer
 	        dataPublisher.RegisterEventWatcher(ref);
-	        log.debug("ËÄÍ¨£ºEventWatcher registered with DataPublisher");
+	        log.debug("å››é€šï¼šEventWatcher registered with DataPublisher");
 	
 	        //Activate rootpoa
 	        rootPOA.the_POAManager().activate();
 	
 	        //Wait for messages
-	        log.info("Æô¶¯¼àÌı³É¹¦£¬µÈ´ı½ÓÊÕÊÂ¼ş¡£");
+	        log.info("å¯åŠ¨ç›‘å¬æˆåŠŸï¼Œç­‰å¾…æ¥æ”¶äº‹ä»¶ã€‚");
 	        
 	        orb.run();
 	        return true;

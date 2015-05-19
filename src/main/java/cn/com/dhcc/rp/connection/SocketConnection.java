@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection;
+ï»¿package cn.com.dhcc.rp.connection;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,8 +16,8 @@ import org.apache.log4j.Logger;
 public abstract class SocketConnection implements Runnable{
     protected SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	static protected final Logger log = Logger.getLogger(SocketConnection.class.getClass());
-	protected InetSocketAddress inetSocketAddr = null;    //µØÖ·
-	private  Set<RealTimeData> realDataSet = null;    //ÊµÊ±Êı¾İ¼¯ºÏ
+	protected InetSocketAddress inetSocketAddr = null;    //åœ°å€
+	private  Set<RealTimeData> realDataSet = null;    //å®æ—¶æ•°æ®é›†åˆ
 	protected String companyCode = null;
 
 	protected boolean keepRun = true;
@@ -25,44 +25,44 @@ public abstract class SocketConnection implements Runnable{
 		realDataSet = Collections.synchronizedSet(new HashSet<RealTimeData>());
 	}
 	/**
-	 * ³õÊ¼»¯Á¬½Ó
+	 * åˆå§‹åŒ–è¿æ¥
 	 * @param inetSocketAddr
-	 * @return ³õÊ¼»¯³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * @return åˆå§‹åŒ–æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	abstract public boolean init(InetSocketAddress inetSocketAddr);
 	/**
-	 * ³õÊ¼»¯Á¬½Ó
-	 * @param companyCode ±àÂë
+	 * åˆå§‹åŒ–è¿æ¥
+	 * @param companyCode ç¼–ç 
 	 * @param inetSocketAddr
-	 * @return ³õÊ¼»¯³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * @return åˆå§‹åŒ–æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	public boolean init(String companyCode, InetSocketAddress inetSocketAddr){
 		this.companyCode = companyCode;
 		return this.init(inetSocketAddr);
 	}
 	/**
-	 * Á¬½ÓÓĞĞ§ĞÔÑéÖ¤
-	 * @return ÓĞĞ§·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	 * è¿æ¥æœ‰æ•ˆæ€§éªŒè¯
+	 * @return æœ‰æ•ˆè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	 */
 	abstract public boolean valid();
 	/**
-	 * Í£Ö¹µ±Ç°Ïß³Ì
-	 * @return Í£Ö¹³É¹¦·µ»Øtrue ·ñÔò·µ»Øfalse
+	 * åœæ­¢å½“å‰çº¿ç¨‹
+	 * @return åœæ­¢æˆåŠŸè¿”å›true å¦åˆ™è¿”å›false
 	 */
 	public boolean stopThread(){
 		this.keepRun = false;
 		return true;		
 	};
 	/**
-	 * ½«ÊµÊ±Êı¾İ¼ÓÈë¼¯ºÏÖĞ
-	 * @param real ÊµÊ±Êı¾İ
+	 * å°†å®æ—¶æ•°æ®åŠ å…¥é›†åˆä¸­
+	 * @param real å®æ—¶æ•°æ®
 	 */
 	public void putRealDataSet(RealTimeData real){
 		this.realDataSet.add(real);
 	}
 	/**
-	 * µÃµ½ÊµÊ±Êı¾İ¡®¾µÏñ¡¯
-	 * @return ·µ»ØÊµÊ±Êı¾İSet¼¯ºÏ
+	 * å¾—åˆ°å®æ—¶æ•°æ®â€˜é•œåƒâ€™
+	 * @return è¿”å›å®æ—¶æ•°æ®Seté›†åˆ
 	 */
 	public Set<RealTimeData> getRealDataSetISO(){
 		return deepCloneSet();
@@ -71,7 +71,7 @@ public abstract class SocketConnection implements Runnable{
 		return this.realDataSet.size();
 	}
 	/**
-	 * Çå¿ÕÏÈÓĞÊı¾İ£¬ÖØĞÂ½¨Á¢Á¬½Ó
+	 * æ¸…ç©ºå…ˆæœ‰æ•°æ®ï¼Œé‡æ–°å»ºç«‹è¿æ¥
 	 * @return
 	 */
 	public boolean reConnect(){
@@ -88,8 +88,8 @@ public abstract class SocketConnection implements Runnable{
 		return  "code = " + this.companyCode + ", inetSocketAddr = " + inetSocketAddr.toString()  ;
 	}
 	/**
-	 * <li><b>Ïß³Ì°²È«</b></li>
-	 * <li>·µ»ØÒ»¸öµ±Ç°ÊµÊ±Êı¾İ¼¯ºÏµÄ'¾µÏñ'¿½±´</li>
+	 * <li><b>çº¿ç¨‹å®‰å…¨</b></li>
+	 * <li>è¿”å›ä¸€ä¸ªå½“å‰å®æ—¶æ•°æ®é›†åˆçš„'é•œåƒ'æ‹·è´</li>
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -118,9 +118,9 @@ public abstract class SocketConnection implements Runnable{
 		return inetSocketAddr;
 	}
 	/**
-	 * Çå¿Õ¹ıÆÚµÄÊı¾İ,
-	 * <b>¹ıÆÚ£¬Ö»·µ»Ø-1£»</b>
-	 * @return Çå¿Õ³É¹¦³É¹¦ ·µ»Ø Çé¿ö¸öÊı, Ê§°Ü·µ»Ø-1
+	 * æ¸…ç©ºè¿‡æœŸçš„æ•°æ®,
+	 * <b>è¿‡æœŸï¼Œåªè¿”å›-1ï¼›</b>
+	 * @return æ¸…ç©ºæˆåŠŸæˆåŠŸ è¿”å› æƒ…å†µä¸ªæ•°, å¤±è´¥è¿”å›-1
 	 * @deprecated
 	 */
 	public int clearDeprecatedData(long deprecatedTime) {

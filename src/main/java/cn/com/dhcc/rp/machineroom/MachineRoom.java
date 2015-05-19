@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.machineroom;
+ï»¿package cn.com.dhcc.rp.machineroom;
 
 
 import java.util.ArrayList;
@@ -12,12 +12,12 @@ import cn.com.dhcc.rp.machineroom.networkele.NetworkElement;
  * Created by CeDo on 14-4-26.
  */
 public abstract class MachineRoom {
-	protected String name = null;    //Ãû³Æ
-	protected String location = null;    //µØµã
+	protected String name = null;    //åç§°
+	protected String location = null;    //åœ°ç‚¹
 	protected String id = null;    //id
-	protected String code = null;    //±àÂë
+	protected String code = null;    //ç¼–ç 
 	protected List<NetworkElement> networkElementList = new ArrayList<NetworkElement>();
-	protected RPClient client = null;    //²É¼¯¡®¿Í»§¶Ë¡¯
+	protected RPClient client = null;    //é‡‡é›†â€˜å®¢æˆ·ç«¯â€™
     
     public String getName() {
 		return name;
@@ -58,9 +58,9 @@ public abstract class MachineRoom {
 	public abstract boolean doCollectJob();
 	@Override
 	public String toString() {
-		return "»ú·¿:" + name + ",»ú·¿Î»ÖÃ:" + location
-				+ "\n½Ó¿ÚĞÅÏ¢:" + client
-				+ "\nÍøÔª:" + networkElementList 
+		return "æœºæˆ¿:" + name + ",æœºæˆ¿ä½ç½®:" + location
+				+ "\næ¥å£ä¿¡æ¯:" + client
+				+ "\nç½‘å…ƒ:" + networkElementList 
 				 + "\n" + "============================================";
 	}
 	@Override

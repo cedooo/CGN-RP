@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.gj;
+ï»¿package cn.com.dhcc.rp.connection.gj;
 
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -45,7 +45,7 @@ public final class GJSocketConnection2 extends SocketConnection{
 		return false;
 	}
 	/**
-	 * Çå¿Õ»º³åÇø
+	 * æ¸…ç©ºç¼“å†²åŒº
 	 * @return
 	 */
 	private boolean clearHeadBuffers(){
@@ -62,12 +62,12 @@ public final class GJSocketConnection2 extends SocketConnection{
 	        while(this.keepRun){
 	        	try{
 		        	clearHeadBuffers();
-		            long rc = socketChannel.read(headerBuffers);    //¶ÁÈë
+		            long rc = socketChannel.read(headerBuffers);    //è¯»å…¥
 		            if(rc==-1){
 		                break;
 		            }
 		            /**
-		             * °üÍ·ÅĞ¶Ï
+		             * åŒ…å¤´åˆ¤æ–­
 		             */
 		            ByteBuffer startBuffer = headerBuffers[0];
 		            startBuffer.flip();
@@ -76,33 +76,33 @@ public final class GJSocketConnection2 extends SocketConnection{
 		            boolean  isHeadTag = Package.isHeadTag(headTag);
 		            if(!isHeadTag){
 		            	log.debug(Arrays.toString(headTag));
-		            	log.debug("°üÍ·´íÁË");
+		            	log.debug("åŒ…å¤´é”™äº†");
 		                continue;
 		            }else{
-		            	//log.debug("°üÍ·±ê¼Ç: " + Arrays.toString(headTag));
+		            	//log.debug("åŒ…å¤´æ ‡è®°: " + Arrays.toString(headTag));
 		            }
 		
 		            /**
-		             * Ğ­Òé°æ±¾
+		             * åè®®ç‰ˆæœ¬
 		             */
 		            ByteBuffer versionBuffer = headerBuffers[1];
 		            byte[] versionBytes = new byte[Head.HEAD_ELE_LENGTH];
 		            versionBuffer.flip();
 		            versionBuffer.get(versionBytes);
-		            //log.debug("°æ±¾ºÅ£º" + Arrays.toString(versionBytes));
+		            //log.debug("ç‰ˆæœ¬å·ï¼š" + Arrays.toString(versionBytes));
 		            
 		            /**
-		             * ÃüÁîÀàĞÍ
+		             * å‘½ä»¤ç±»å‹
 		             */
 		            ByteBuffer commandBuffer = headerBuffers[2];
 		            byte[] commandBytes = new byte[Head.HEAD_ELE_LENGTH];
 		            commandBuffer.flip();
 		            commandBuffer.get(commandBytes);
 		            int packageType = Package.dataType(commandBytes);
-		            //log.debug(Arrays.toString(commandBytes) + ":" + (packageType==Package.TYPE_DATA?"Êı¾İ°ü":"·ÇÊı¾İ°ü") );
+		            //log.debug(Arrays.toString(commandBytes) + ":" + (packageType==Package.TYPE_DATA?"æ•°æ®åŒ…":"éæ•°æ®åŒ…") );
 		
 		            /**
-		             * °üÌå³¤¶È
+		             * åŒ…ä½“é•¿åº¦
 		             */
 		            int messageLength = 0;
 		            ByteBuffer bodyLengthBuffer = headerBuffers[Head.BODY_LENGTH_POSITION-1];
@@ -110,12 +110,12 @@ public final class GJSocketConnection2 extends SocketConnection{
 		            bodyLengthBuffer.flip();
 		            bodyLengthBuffer.get(bodyLengthBytes);
 		            messageLength = (int)ByteUtils.getLong4(bodyLengthBytes);
-		            //log.debug("°üÌå³¤¶È: " + messageLength + "(byte)");
+		            //log.debug("åŒ…ä½“é•¿åº¦: " + messageLength + "(byte)");
 		
-		            //¶ÁÈ¡°üÌå
+		            //è¯»å–åŒ…ä½“
 		 
 		            int dealCount = 0;
-		            short groupSize = -1;    //×éÊı¾İ³¤¶È
+		            short groupSize = -1;    //ç»„æ•°æ®é•¿åº¦
 		            
 		            while(dealCount<messageLength){
 		                groupSizeBuffer.clear();
@@ -127,7 +127,7 @@ public final class GJSocketConnection2 extends SocketConnection{
 		                byte[] groupSizeBytes = new byte[Body.GROUP_SIZE_LENGTH];
 		                groupSizeBuffer.get(groupSizeBytes);
 		                groupSize = (short)ByteUtils.getShort(groupSizeBytes);
-	//System.out.print("×é³¤¶È:" + groupSize);
+	//System.out.print("ç»„é•¿åº¦:" + groupSize);
 		                
 		                ByteBuffer groupBodyBuffer = ByteBuffer.allocate(groupSize);
 		                socketChannel.read(groupBodyBuffer);
@@ -142,35 +142,35 @@ public final class GJSocketConnection2 extends SocketConnection{
 		                	RealTimeData data = new GJData(dataArray[0], dataArray[1]);
 		                	this.putRealDataSet(data);
 		                }else if(packageType!=Package.TYPE_DATA && dataArray[0].endsWith(GJData.EVENT_TAG)){
-		                	log.info("ÊÂ¼ş=>" + dataArray[0] + " : " + Arrays.toString(dataArray));
+		                	log.info("äº‹ä»¶=>" + dataArray[0] + " : " + Arrays.toString(dataArray));
 							try{
 								GJEvent event = GJUtils.parseToGJEvent(this.companyCode, packageBody);
 								if(event!=null){
 									SqlSession sess = DBDelegate.getSqlSessionFactory().openSession();
-									//ÊÂ¼şÈë¿â  
+									//äº‹ä»¶å…¥åº“  
 									try{
 										int colum = sess.insert("cn.com.dhcc.rp.event.insert_gj_TxEvents", event);
 										sess.commit();
-										log.info("Èë¿â" + (colum==1?"³É¹¦":"Ê§°Ü"));
+										log.info("å…¥åº“" + (colum==1?"æˆåŠŸ":"å¤±è´¥"));
 									}finally{
 										sess.close();
 									}
 								}else {
-									log.info("ÊÂ¼ş=>" + dataArray[0] + " : " + Arrays.toString(dataArray) +
-											"===¸ÃÊÂ¼şÎŞĞ§===");
+									log.info("äº‹ä»¶=>" + dataArray[0] + " : " + Arrays.toString(dataArray) +
+											"===è¯¥äº‹ä»¶æ— æ•ˆ===");
 								}
 							}catch(Exception e){
 								e.printStackTrace();
-								log.error("¸æ¾¯´¦ÀíÊ§°Ü");
+								log.error("å‘Šè­¦å¤„ç†å¤±è´¥");
 							}
 		                }
 		                dealCount += Body.GROUP_SIZE_LENGTH + groupSize;
 		            }
 		            
 	        	} catch (IOException e1) {
-	        		log.debug("¹²¼Ã½Ó¿Ú[" + this.inetSocketAddr + "]¶ÁÈ¡¹ı³ÌIO´íÎó");
+	        		log.debug("å…±æµæ¥å£[" + this.inetSocketAddr + "]è¯»å–è¿‡ç¨‹IOé”™è¯¯");
 				} catch(BufferUnderflowException be){
-					log.warn("¹²¼Ã½Ó¿Ú[" + this.inetSocketAddr + "]³öÏÖÒì³£¶Ï¿ª");
+					log.warn("å…±æµæ¥å£[" + this.inetSocketAddr + "]å‡ºç°å¼‚å¸¸æ–­å¼€");
 					log.debug(be.toString());
 				}finally{}
 	
@@ -205,7 +205,7 @@ public final class GJSocketConnection2 extends SocketConnection{
 			while(true){
 				Thread.sleep(5000);
 				int size  = gjConnection.getRealDataSetISO().size();
-				System.out.println("´óĞ¡:" + size);
+				System.out.println("å¤§å°:" + size);
 				
 			}
 		} catch (InterruptedException e) {

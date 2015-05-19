@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.po;
+﻿package cn.com.dhcc.rp.persistence.po;
 
 public class TxUpsCommDirPerf  extends POObj{
 	private String collectTime = null;

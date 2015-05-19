@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.connection.gj;
+ï»¿package cn.com.dhcc.rp.connection.gj;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,19 +12,19 @@ public final class GJUtils {
 	static final private String REGEX_EVENT = "[^\\|]{1,}";
 	static final private Pattern PATTERN_EVENT  = Pattern.compile(REGEX_EVENT);
 	public static void main(String[] args) {
-		String s = "S0-E161-D5-EV||¿Æ¼¼´óÏÃ23Â¥Êı¾İÖĞĞÄ»ú·¿|Í¨Ñ¶¼ä¾«ÃÜ¿Õµ÷|1#Ñ¹Ëõ»ú1×´Ì¬ÔËĞĞ|1|3|2014-04-21 15:13:33|3ED642FB-4632-422F-A0B5-037A8CB1261A|";
+		String s = "S0-E161-D5-EV||ç§‘æŠ€å¤§å¦23æ¥¼æ•°æ®ä¸­å¿ƒæœºæˆ¿|é€šè®¯é—´ç²¾å¯†ç©ºè°ƒ|1#å‹ç¼©æœº1çŠ¶æ€è¿è¡Œ|1|3|2014-04-21 15:13:33|3ED642FB-4632-422F-A0B5-037A8CB1261A|";
 		GJEvent event = GJUtils.parseToGJEvent("GJ_1",s);
 		System.out.println(event.getId() + "  " + event.getAttrName());
 		SqlSession sess = DBDelegate.getSqlSessionFactory().openSession();
-		//ÊÂ¼şÈë¿â  
+		//äº‹ä»¶å…¥åº“  
 		//sess.insert("cn.com.dhcc.rp.event.insert_gj_TxEvents", event);
 		sess.commit();
 		sess.close();
 	}
 	/**
-	 * ½«×Ö·û´®×ª»»ÎªÊÂ¼ş¶ÔÏó
-	 * @param packageBody Êı¾İ×Ö·û´®
-	 * @return ÊÂ¼ş¶ÔÏó
+	 * å°†å­—ç¬¦ä¸²è½¬æ¢ä¸ºäº‹ä»¶å¯¹è±¡
+	 * @param packageBody æ•°æ®å­—ç¬¦ä¸²
+	 * @return äº‹ä»¶å¯¹è±¡
 	 */
 	public static GJEvent parseToGJEvent(String code, String packageBody) {
 		GJEvent event = new GJEvent();
@@ -62,7 +62,7 @@ public final class GJUtils {
 		}
 	}
 	/**
-	 * ½«ÊÂ¼şkey×ª»»³ÉÉè±¸µÄID ºÍ Ö¸±êÃû³Æ
+	 * å°†äº‹ä»¶keyè½¬æ¢æˆè®¾å¤‡çš„ID å’Œ æŒ‡æ ‡åç§°
 	 * @param event
 	 */
 	private static boolean parseKey(GJEvent event) {
@@ -118,7 +118,7 @@ public final class GJUtils {
 		}
 	}
 	/**
-	 * ½«fid×ª»»ÎªÉè±¸ID
+	 * å°†fidè½¬æ¢ä¸ºè®¾å¤‡ID
 	 * @param CompanyCode
 	 * @param fid
 	 * @return

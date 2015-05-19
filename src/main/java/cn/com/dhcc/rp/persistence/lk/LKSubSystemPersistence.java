@@ -1,4 +1,4 @@
-package cn.com.dhcc.rp.persistence.lk;
+ï»¿package cn.com.dhcc.rp.persistence.lk;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -36,26 +36,26 @@ public class LKSubSystemPersistence implements Persistenceable{
 
 	@Override
 	public boolean persistance(NetworkElement networkElement) {
-//System.out.println(">>>Áú¿Ø×ÓÏµÍ³Èë¿â<<<");
-		log.info("Èë¿â×ÓÏµÍ³ID£º" + networkElement.getId() + ", Ãû³Æ£º" + networkElement.getName());
+//System.out.println(">>>é¾™æ§å­ç³»ç»Ÿå…¥åº“<<<");
+		log.info("å…¥åº“å­ç³»ç»ŸIDï¼š" + networkElement.getId() + ", åç§°ï¼š" + networkElement.getName());
 		if(networkElement instanceof SubSystem){
 			SubSystem subSys = (SubSystem)networkElement;
 //System.out.println(subSys);
 			List<Equipment> listE = subSys.getListEquip();
 //System.out.println(listE);
 			List<TxTemHumCommPerf> listTemHumPerf = new ArrayList<TxTemHumCommPerf>();
-			List<RoomCommState> listRoomState = new ArrayList<RoomCommState>();    //×´Ì¬Á¿
+			List<RoomCommState> listRoomState = new ArrayList<RoomCommState>();    //çŠ¶æ€é‡
 			for (Equipment equipment : listE) {
 //System.out.println(equipment.getListGroup());
 				List<Group> listGroup = equipment.getListGroup();
 				String equipID = this.interfaceConf.getCompanyCode() + "_" + equipment.getName();//equipment.getId();
 				for (Group group : listGroup) {
 					if(Group.TYPE_STATE.equals(group.getType())){
-						if("txRoomCommState".equals(group.getRefTab())){    //×´Ì¬Á¿ ´¦Àí
+						if("txRoomCommState".equals(group.getRefTab())){    //çŠ¶æ€é‡ å¤„ç†
 							listRoomState.addAll(getListCommState(equipID, group.getListNode()));
 						}
-					}else if(Group.TYPE_VALUE.equals(group.getType())){    //ÊıÖµÁ¿ ´¦Àí
-						if("txTemHumCommPerf".equals(group.getRefTab())){    //Åäµç¹ñÊı¾İÖ¸±ê
+					}else if(Group.TYPE_VALUE.equals(group.getType())){    //æ•°å€¼é‡ å¤„ç†
+						if("txTemHumCommPerf".equals(group.getRefTab())){    //é…ç”µæŸœæ•°æ®æŒ‡æ ‡
 							listTemHumPerf.addAll(getTxTemHumCommPerf(equipID, group.getListNode()));
 						}
 					}
@@ -64,13 +64,13 @@ public class LKSubSystemPersistence implements Persistenceable{
 			
 
 			SqlSession session = DBDelegate.getSqlSessionFactory().openSession(ExecutorType.BATCH, true);
-			for (RoomCommState state : listRoomState) {//×´Ì¬Á¿Èë¿â
+			for (RoomCommState state : listRoomState) {//çŠ¶æ€é‡å…¥åº“
 				session.update("cn.com.dhcc.rp.state.update_insert_comm_state", state);
-//System.out.println("×´Ì¬Á¿Èë¿â>>>" + state);
+//System.out.println("çŠ¶æ€é‡å…¥åº“>>>" + state);
 			}
-			for (TxTemHumCommPerf temHumPerf : listTemHumPerf) {//¿Õµ÷ÊıÖµÁ¿Èë¿â
+			for (TxTemHumCommPerf temHumPerf : listTemHumPerf) {//ç©ºè°ƒæ•°å€¼é‡å…¥åº“
 				session.update("cn.com.dhcc.rp.temhum.update_insert_TxTemHumCommPerf", temHumPerf);
-//System.out.println("ÎÂÊª¶ÈÈë¿âÊıÖµ>>>" + commTotalPerf);
+//System.out.println("æ¸©æ¹¿åº¦å…¥åº“æ•°å€¼>>>" + commTotalPerf);
 			}
 			session.commit();
 			session.close();
@@ -92,7 +92,7 @@ public class LKSubSystemPersistence implements Persistenceable{
 			temHumCommPerf.setPartID(cn.com.dhcc.rp.persistence.po.Constants.DEFAULT_PART_ID);
 			temHumCommPerf.setCollectTime(dateFormat.format(new Date()));
 			for (EquipmentNode equipmentNode : listNode) {
-//System.out.println("¿ÕÌõ¿Õµ÷¡·¡·¡·¡·ÊıÖµ " +equipmentNode);
+//System.out.println("ç©ºæ¡ç©ºè°ƒã€‹ã€‹ã€‹ã€‹æ•°å€¼ " +equipmentNode);
 				if(EquipmentNode.COLLECT.equals(equipmentNode.getCollect())){
 					LKData lkData = (LKData)equipmentNode.getRealData();
 					if(lkData != null ){
@@ -124,9 +124,9 @@ public class LKSubSystemPersistence implements Persistenceable{
 	}
 
 	/**
-	 * µÃµ½×´Ì¬Á¿
-	 * @param equipID	Éè±¸ID
-	 * @param listNode    Éè±¸½Úµã
+	 * å¾—åˆ°çŠ¶æ€é‡
+	 * @param equipID	è®¾å¤‡ID
+	 * @param listNode    è®¾å¤‡èŠ‚ç‚¹
 	 * @return
 	 */
 	protected List<RoomCommState> getListCommState(String equipID, List<EquipmentNode> listNode){
